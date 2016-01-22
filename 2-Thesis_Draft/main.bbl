@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{adxl}
+{Analog Systems}, ``{“ADXL335 Datasheet.}
+  \url{http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL335.pdf},''
+  2010.
+
+\bibitem{kiburz1986bicycle}
+D.~Kiburz, R.~Jacobs, F.~Reckling, and J.~Mason, ``Bicycle accidents and
+  injuries among adult cyclists,'' {\em The American journal of sports
+  medicine}, vol.~14, no.~5, pp.~416--419, 1986.
+
+\end{thebibliography}
