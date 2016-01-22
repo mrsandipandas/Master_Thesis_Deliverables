@@ -3,8 +3,7 @@ Master Thesis Deliverables: Active Polarization Rotator (KTH-Micro and Nano Syst
 
 Author: Sandipan Das (sandipan@kth.se).
 
-Supervisors: Carlos Errando Herranz (carloseh@kth.se), Phd Student at KTH, Sweden.
-             Prof. Norvald Stol (norvald.stol@item.ntnu.no), NTNU, Norway.
+Supervisors: Carlos Errando Herranz(carloseh@kth.se), Phd Student at KTH, Sweden and Prof. Norvald Stol(norvald.stol@item.ntnu.no), NTNU, Norway.
              
 Examiner:  Prof. Kristinn B. Gylfason (kristinn.gylfason@ee.kth.se), KTH, Sweden.
 
