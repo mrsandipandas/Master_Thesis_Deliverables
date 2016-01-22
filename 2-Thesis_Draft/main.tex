@@ -43,18 +43,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-    \pagenumbering{roman}	
-	% These introductory pages have a roman numbering	
-	\subfile{Cover/KTHEEtitlepage_ex_exjobb}
-	\subfile{Title/title}	
-	\subfile{Abstract/abstract}    
+    % These introductory pages have a roman numbering
+    \pagenumbering{roman}
+    \subfile{Cover/KTHEEtitlepage_ex_exjobb}
+    \subfile{Title/title}
+    \subfile{Abstract/abstract}    
+    
     % Set counter so that table of content page numbering updated correctly
     \setcounter{page}{4}
     \tableofcontents
     \newpage
     
-    \pagenumbering{arabic} 
-    % These introductory pages have a arabic numeral numbering	
+    % These introductory pages have a arabic numeral numbering
+    \pagenumbering{arabic}
     \subfile{Ch1-Introduction/ch1}
     \subfile{Ch2-State_of_the_art/ch2}
     \subfile{Ch3-Design_and_simulation/ch3}
