@@ -1,4 +1,4 @@
-# Deliverables
+# Master Thesis
 Master Thesis Deliverables: Active Polarization Rotator (KTH-Micro and Nano Systems).
 
 Author: Sandipan Das (sandipan@kth.se).
