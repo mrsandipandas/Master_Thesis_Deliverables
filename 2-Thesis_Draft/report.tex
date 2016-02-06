@@ -1,17 +1,29 @@
 % twoside library is for both side control of document (in case you need blank paper)
-%\documentclass[12pt,a4paper,twoside,openright,hidelinks, abstractoff,titlepage,final,parskip=half*,BCOR10mm]{report}
+%\documentclass[12pt,a4paper,twoside,openright,hidelinks, abstractoff,titlepage,final,parskip=half*,BCOR10mm]{scrreprt}
 
 %Used scrreprt in place of report to achieve customized "chapter"
 \documentclass[12pt,a4paper,openright,hidelinks,titlepage,final]{scrreprt}
 
 % Cover page library
 \usepackage[utf8]{inputenc}
-%\usepackage[eng,exjobb]{./Cover/KTHEEtitlepage}
+\usepackage[eng,exjobb]{Ch0.1-Cover/KTHEEtitlepage}
 
 % Common libraries
 \usepackage{amsmath,booktabs,color,graphicx,float,listings,lmodern,microtype,multirow,pifont,rotating,siunitx,subfigure,subfiles,tabularx,xcolor}
-\usepackage[intoc]{nomencl}
-\usepackage[automark, komastyle, headsepline]{scrpage2}
+
+% For "Acronym" and "Glossary"  
+\usepackage[acronym,toc,xindy]{glossaries}
+\makeglossaries
+%\subfile{Ch8-Appendix/glossary}
+%nonumberlist %do not show page numbers
+%acronym      %generate acronym listing
+%toc          %show listings as entries in table of contents
+%section      %use section level for toc entries
+
+% Import the glossary and acronym here
+
+
+\usepackage[automark,komastyle,headsepline]{scrpage2}
 \usepackage[pdfpagelabels]{hyperref}
 \usepackage{amssymb}
 
@@ -46,12 +58,14 @@
 \begin{document}
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
-    %\subfile{Cover/KTHEEtitlepage_ex_exjobb}
-    \subfile{Title/title}
-    \subfile{Abstract/abstract}    
+    % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
+    \subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    \subfile{Ch0.2-Title/title}
+    \subfile{Ch0.3-Acknowledgement/ack}
+    \subfile{Ch0.4-Abstract/abstract}      
     
     % Set counter so that table of content page numbering updated correctly
-    \setcounter{page}{4}
+    %\setcounter{page}{3}
     \tableofcontents
     \newpage
     
@@ -64,9 +78,17 @@
     \subfile{Ch5-Results/ch5}
     \subfile{Ch6-Conclusion/ch6}
     \subfile{Ch7-Limitations_and_future_work/ch7}
-    \subfile{Acknowledgement/ack}
+    \subfile{Ch8-Appendix/glossary}
     
-    %References and bibliography
+    % Acronym and nomenclature
+    \printglossary
+    
+    \clearpage
+    
+    \printglossary[type=\acronymtype]
+    
+    % Bibliography
     \bibliographystyle{ieeetr}
-    \bibliography{./Bibliography/ref}   
+    \bibliography{Ch9-Bibliography/ref}   
 \end{document}
+
