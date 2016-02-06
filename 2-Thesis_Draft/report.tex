@@ -14,7 +14,6 @@
 % For "Acronym" and "Glossary"  
 \usepackage[acronym,toc,xindy]{glossaries}
 \makeglossaries
-%\subfile{Ch8-Appendix/glossary}
 %nonumberlist %do not show page numbers
 %acronym      %generate acronym listing
 %toc          %show listings as entries in table of contents
@@ -59,10 +58,10 @@
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
     % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
-    \subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    %\subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
     \subfile{Ch0.2-Title/title}
-    \subfile{Ch0.3-Acknowledgement/ack}
-    \subfile{Ch0.4-Abstract/abstract}      
+    %\subfile{Ch0.3-Acknowledgement/ack}
+    %\subfile{Ch0.4-Abstract/abstract}      
     
     % Set counter so that table of content page numbering updated correctly
     %\setcounter{page}{3}
@@ -80,12 +79,8 @@
     \subfile{Ch7-Limitations_and_future_work/ch7}
     \subfile{Ch8-Appendix/glossary}
     
-    % Acronym and nomenclature
-    \printglossary
-    
-    \clearpage
-    
-    \printglossary[type=\acronymtype]
+    % Abbreviations
+    \printglossary[type=acronym,title={Abbreviations}]   
     
     % Bibliography
     \bibliographystyle{ieeetr}
