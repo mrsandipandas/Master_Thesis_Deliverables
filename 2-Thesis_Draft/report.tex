@@ -9,7 +9,8 @@
 \usepackage[eng,exjobb]{Ch0.1-Cover/KTHEEtitlepage}
 
 % Common libraries
-\usepackage{amsmath,booktabs,color,graphicx,float,listings,lmodern,microtype,multirow,pifont,rotating,siunitx,subfigure,subfiles,tabularx,xcolor}
+\usepackage{amsmath,booktabs,caption,color,graphicx,float,listings,lmodern,microtype,multirow,pifont,rotating,siunitx,subcaption,subfiles,tabularx,xcolor}
+\graphicspath{{images/}{../images/}}
 
 % For "Acronym" and "Glossary"  
 \usepackage[acronym,toc,xindy]{glossaries}
@@ -30,8 +31,9 @@
 \usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage[english]{babel}
 \usepackage[square,numbers]{natbib}
+\usepackage{url}
 
-%%%%%%%%%%%%%%%%%%%%%%%Customized Chapter Title%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%Customized Chapter Title%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \renewcommand*{\chapterformat}{
 	\begingroup
@@ -55,6 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Foreword%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
     % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
@@ -65,9 +68,13 @@
     
     % Set counter so that table of content page numbering updated correctly
     %\setcounter{page}{3}
+    \setcounter{tocdepth}{3}% Include \subsubsection in ToC
+    \setcounter{secnumdepth}{3}% Number \subsubsection
     \tableofcontents
     \newpage
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Main Content%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
     % These introductory pages have a arabic numeral numbering
     \pagenumbering{arabic}
     \subfile{Ch1-Introduction/ch1}
@@ -78,12 +85,15 @@
     \subfile{Ch6-Conclusion/ch6}
     \subfile{Ch7-Limitations_and_future_work/ch7}
     \subfile{Ch8-Appendix/glossary}
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
     % Abbreviations
     \printglossary[type=acronym,title={Abbreviations}]   
     
     % Bibliography
     \bibliographystyle{ieeetr}
     \bibliography{Ch9-Bibliography/ref}   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 
