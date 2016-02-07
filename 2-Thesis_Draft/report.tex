@@ -22,7 +22,6 @@
 
 % Import the glossary and acronym here
 
-
 \usepackage[automark,komastyle,headsepline]{scrpage2}
 \usepackage[pdfpagelabels]{hyperref}
 \usepackage{amssymb}
@@ -70,7 +69,13 @@
     %\setcounter{page}{3}
     \setcounter{tocdepth}{3}% Include \subsubsection in ToC
     \setcounter{secnumdepth}{3}% Number \subsubsection
+    
+    \glsunsetall %Unset glossary before to view acronym in TOC
+    
     \tableofcontents
+    
+    \glsresetall %Reset glossary after to view acronym later
+    
     \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 
