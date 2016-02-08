@@ -32,6 +32,7 @@
 \usepackage[square,numbers]{natbib}
 \usepackage{url}
 
+\usepackage{todonotes} %Just to generate todo list, remove in future
 %%%%%%%%%%%%%%%%%%%%%%%Customized Chapter Title%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \renewcommand*{\chapterformat}{
@@ -60,7 +61,7 @@
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
     % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
-    \subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    %\subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
     \subfile{Ch0.2-Title/title}
     %\subfile{Ch0.3-Acknowledgement/ack}
     %\subfile{Ch0.4-Abstract/abstract}      
@@ -70,11 +71,11 @@
     \setcounter{tocdepth}{3}% Include \subsubsection in ToC
     \setcounter{secnumdepth}{3}% Number \subsubsection
     
-    \glsunsetall %Unset glossary before to view acronym in TOC
+    %\glsunsetall %Unset glossary before to view acronym in TOC
     
     \tableofcontents
     
-    \glsresetall %Reset glossary after to view normally later
+    %\glsresetall %Reset glossary after to view normally later
     
     \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
@@ -92,7 +93,9 @@
     \subfile{Ch8-Appendix/glossary}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
+    \listoftodos %To do list, remove later
+    
     % Abbreviations
     \printglossary[type=acronym,title={Abbreviations}]   
     
