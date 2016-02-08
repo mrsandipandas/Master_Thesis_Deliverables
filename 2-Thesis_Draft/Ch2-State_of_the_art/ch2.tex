@@ -54,23 +54,23 @@ using the curl of curl identity operation given by:
 \end{equation}
 A general solution to the equation \ref{eq:wave_eq} in free space, in absence of charge gives the following solution:
 \begin{equation}\label{eq:wave_sol_electric}
-E=E_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
+\overrightarrow{E}(z,t)=E_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
 \end{equation}
-where $z$ is direction of propagation of wave in Cartesian coordinates , phase ($\phi$) = $\left(k_{0}z\pm \omega t\right)$ and wave vector propagation constant ($k_0$) = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. It is worth mentioning that propagation constant in medium varies according to $n$, the \gls{ri} of the medium and is given by: 
+where $z$ is direction of propagation of wave in Cartesian coordinates , phase ($\phi$) = $\left(k_{0}z\pm \omega t\right)$ and wave vector propagation constant ($k_0$) = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. It is worth mentioning that propagation constant in medium varies according to $n$, the effective \gls{ri} of the medium and is given by: 
 \begin{equation}\label{eq:ri_med_val}
 k = nk_0
 \end{equation}
 Similar calculations for the magnetic field, $H$ in free space yields, 		
 \begin{equation}\label{eq:wave_sol_magnetic}
-H=H_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
+\overrightarrow{H}(z,t)=H_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
 \end{equation}
 
 		\subsection{Eigenvalue and wave modes}
-In general the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
+In general, the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
 \begin{equation}\label{eq:e_field_cart_cord}
-E=E_{x}i+E_{y}j+E_{j}k
+\overrightarrow{E}=E_{x}i+E_{y}j+E_{j}k
 \end{equation}
-If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. In the Fig. \ref{fig:2_em_wave} the electric field and magnetic field propagate in directions perpendicular to each other. Moreover, the direction of propagation is also transverse to the \gls{em} field. Hence it is called \gls{tem} wave.
+If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant, $k$ in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. In the Fig. \ref{fig:2_em_wave} the electric field and magnetic field propagate in directions perpendicular to each other. Moreover, the direction of propagation is also transverse to the \gls{em} field. Hence it is called \gls{tem} wave.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-em-wave}
@@ -104,14 +104,99 @@ Generally light in randomly polarized. Any kind of randomness is inefficient for
 \gls{te} mode is the fundamental mode in which electric field is perpendicular to the plane of incidence of light. As depicted in Fig. \ref{fig:2_te_tm_mode} it can be visualized that electric field lines shown by the blue lines are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
 			\subsubsection{TM mode}
 \gls{tm} mode is the fundamental mode in which magnetic field is perpendicular to the plane of incidence of light. As shown in Fig. \ref{fig:2_te_tm_mode} it can be visualized that magnetic field shown by the red lines are perpendicular to the plane of incidence in \gls{tm} mode.			
+		
 		\subsection{Optical waveguides}
-			
+Waveguide is the essential element of every photonic circuit which can be characterized by the number of dimensions in which light is confined inside it \cite{reed_silicon_2008}. A planar waveguide confines light in 1-D which is simple for understanding of the wave propagation using Maxwell's equations. However, for practical applications 2-D confinement is necessary and that is why channel waveguides are used. Structures like photonic crystals even have 3-D confinement properties.   			
 			\subsubsection{Planar waveguides}
-			
-			\subsubsection{Rib waveguides}			
+A simple planar waveguide consists of a high-indexed medium with height $h$	surrounded by lower indexed materials on the top and bottom sides. The \gls{ri} of the film, $n_f$ (generally made from Si) is greater than the \gls{ri} of the materials on the other sides. The \gls{ri} of the substrate in lower cladding is $n_s$, (generally made from SiO$_{2}$) whereas, \gls{ri} of the substrate in upper cladding is $n_c$ (generally which is air).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-palne-wg}
+	\caption{A typical planar waveguide where the film is infinite in XZ-plane}
+	\label{fig:2_palne_wg}
+\end{figure}
+For planar waveguides the wave equation for electric field \ref{eq:wave_sol_electric} and magnetic field can be rewritten as \ref{eq:wave_sol_magnetic} follows:
+\begin{equation}\label{eq:wave_sol_planar_wg}
+	\begin{aligned}
+	\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}\\
+	\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}
+	\end{aligned}
+\end{equation}	
+since in X-direction the film is infinite. After using the homogeneous wave equations for a planar waveguide the following \gls{te} and \gls{tm} mode equations can be deduced:
+\begin{equation}\label{eq:homogeneous_wave_sol_planar_wg}
+	\begin{aligned}
+	\nabla^{2}E_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){E_{x}(y)} = 0\\
+	\nabla^{2}H_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){H_{x}(y)} = 0	
+	\end{aligned}
+\end{equation}
+where \gls{ri} depends only on a single Cartesian coordinate $n = n(y)$. These equations can be solved using the various boundary conditions of the waveguides which help in deducing the nature of propagation of the wave in \gls{te} and \gls{tm} mode. Different kinds of numerical methods like \gls{fem}, \gls{fdtd}, \gls{bpm} have been developed to decipher the nature of light propagation in waveguides.
+			\subsubsection{Channel waveguides}			
+As mentioned earlier channel waveguides provide confinement in 2-D which helps in depicting more practical waveguides. The three main types of channel waveguides are rib, strip and buried waveguides. As depicted in \ref{fig:2_rib_wg}, \ref{fig:2_strip_wg}, \ref{fig:2_buried_wg} the different conceptual structures of the waveguides can be envisaged. While the rib and strip waveguides are designed using etching technique, the buried waveguide mostly relies on diffusion and epitaxial growth technique for its fabrication.
+\begin{figure}[H] %h
+	\begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{2-rib-wg}
+		\caption{Rib waveguide}
+		\label{fig:2_rib_wg}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{2-strip-wg}
+		\caption{Strip waveguide}
+		\label{fig:2_strip_wg}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{2-buried-wg}
+		\caption{Buried waveguide}
+		\label{fig:2_buried_wg}
+	\end{subfigure}
+	\caption{Different kinds of design for channel waveguides}
+\end{figure}
+\begin{itemize}	
+	\item \textbf{Design rules of rib waveguides:} While designing these waveguides each of these have specific design rules for optimum performance and low-loss coupling, which has been standardized after years of research \cite{reed_silicon_2008}. The \gls{smc} for \textit{rib waveguides} is as follows:	
+	\begin{equation}\label{eq:smc_rib_wg}
+	\begin{aligned}
+	\dfrac {W} {H}\leq 0.3+\dfrac {r} {\sqrt {1-r^{2}}},  && \text{ for } (0.5 \leq r < 1)
+	\end{aligned}
+	\end{equation}
+	where $W$=waveguide width, $H$=rib height, $r$ is ratio of slab height to overall rib height.
+	\begin{figure}[H] %h
+		\centering
+		\includegraphics[width=0.75\textwidth]{2-rib-wg-design}
+		\caption{Rib waveguide design rules}
+		\label{fig:2_rib_wg_design}
+	\end{figure}
+	The main requirements of the waveguide to cater the propagation of waves is that the dimension of the waveguide has to be more than the wavelength of the propagating wave. However, depending on the required structure the design rules may change which can be found using simulation. 
+	
+	\item \textbf{Design rules of strip waveguides:} In mode confinement of light in optical waveguides the effective mode \gls{ri} is important. Strip waveguides offer more high \gls{ri} contrast in comparison to Rib waveguides. This can help in realization of ultra-dense photonic circuits because of high effective mode confinement. This can also achieve small bends which can improve the characterization of different monolithic optical circuits. In general a mix of rib and strip waveguides are used to achieve the desired circuitry, since sometimes the side walls cannot be etched in a perfectly smooth way causing greater evanescent fields from the waveguides introducing unnecessary coupling and losses. Using simulation for the desired scenario the robust values of the dimensions can be achieved.
+\end{itemize}
+	
+		\subsection{Confinement factor}
+Often it is necessary to know the confined power inside the core of the waveguide which helps in figuring out the waveguide mode. The confinement is also a measure of the proportion of the power in a given mode that lies within the core \cite{reed_silicon_2008}.  
+\begin{equation}\label{eq:per}
+\text{ Confinement factor } = \dfrac {\int _{-H / 2}^{H/2}E_{x}^{2}\left( y\right) dy} {\int _{-\infty }^{\infty }E_{x}^{2}\left( y\right) dy}
+\end{equation}
+Confinement factor is an important measure which is function of various factors like polarization, \gls{ri} difference between the core and cladding, mode number etc.	
 		
-		\subsection{Jones vector}
+		\subsection{Jones calculus}
+Polarized light can be represented using Jones calculus. Polarized light is represented using \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is \textbf{already fully polarized} \cite{burch_introduction_1975}.
 		
+			\subsubsection{Jones vector}
+The Jones vector describes the polarization of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
+\begin{equation}\label{eq:jones_vector}
+E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{0x}e^{i\left( kz-\omega t+\phi _{x}\right)} \\ E_{0y}e^{i\left( kz-wt+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\Phi_x}\\ E_{y}e^{i\Phi_y}\\ 0 \end{matrix} \right) 
+\end{equation}
+where $\Phi_x$ and $\Phi_y$ indicate the phasor notation. The Jones vector of the plane wave is described by:
+\begin{equation}\label{eq:jones_vector_form}
+\left( \begin{matrix} E_{x}e^{i\Phi_x}\\ E_{y}e^{i\Phi_y}\end{matrix} \right) 
+\end{equation}
+and the intensity of the optical wave can be written as,
+\begin{equation}\label{eq:jones_vector_intensity}
+I = \left| E_x\right| ^{2}+\left| E_y\right| ^{2} 
+\end{equation}
+
+			\subsubsection{Jones matrix}
+	
 		\subsection{Transfer matrix (S-matrix)}
 		
 		\subsection{Poincaré sphere}
