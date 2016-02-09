@@ -184,24 +184,115 @@ Polarized light can be represented using Jones calculus. Polarized light is repr
 			\subsubsection{Jones vector}
 The Jones vector describes the polarization of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
 \begin{equation}\label{eq:jones_vector}
-E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{0x}e^{i\left( kz-\omega t+\phi _{x}\right)} \\ E_{0y}e^{i\left( kz-wt+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\Phi_x}\\ E_{y}e^{i\Phi_y}\\ 0 \end{matrix} \right) 
+E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( kz-\omega t+\phi _{x}\right)} \\ E_{y}e^{i\left( kz-wt+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( kz-\omega t\right)} 
 \end{equation}
-where $\Phi_x$ and $\Phi_y$ indicate the phasor notation. The Jones vector of the plane wave is described by:
+where $\phi_x$ and $\phi_y$ indicate the phasor notation. The Jones vector of the plane wave is described by:
 \begin{equation}\label{eq:jones_vector_form}
-\left( \begin{matrix} E_{x}e^{i\Phi_x}\\ E_{y}e^{i\Phi_y}\end{matrix} \right) 
+\left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\end{matrix} \right) 
 \end{equation}
-and the intensity of the optical wave can be written as,
+and the intensity of the optical, $I$ wave can be written as,
 \begin{equation}\label{eq:jones_vector_intensity}
 I = \left| E_x\right| ^{2}+\left| E_y\right| ^{2} 
 \end{equation}
-
+Generally, when considering Jones vector a wave of unit intensity is required for the consideration polarization, so Jones vector is noted using an unit vector where,
+\begin{equation}\label{eq:jones_unit_vector_form}
+	E\overline {E} = 1
+\end{equation}
+where $\overline {E}$ is the complex conjugate of $E$. 
+In general the Jones representation of a normalized elliptically polarized beam with azimuth $\theta$ and elliptical angle $\epsilon$ is given by,
+\begin{equation}\label{eq:jones_vector_general_form}
+e^{i\phi}\left(\begin{matrix} 
+\cos\theta\cos\epsilon - j\sin\theta\sin\epsilon\\
+\sin\theta\cos\epsilon - j\cos\theta\sin\epsilon 
+\end{matrix} \right) 
+\end{equation}
+where $e^{i\phi}$ is an arbitrary phase vector and $\phi = \phi_x - \phi_y$. So, for example a linear polarization of \gls{te} mode can be represented as,
+\begin{equation}\label{eq:jones_vector_linear_pol}
+\left(\begin{matrix}  
+1 \\
+0
+\end{matrix} \right) 
+\end{equation}
+since, $\theta=0$ and $\epsilon = 0$.
+			
 			\subsubsection{Jones matrix}
-	
-		\subsection{Transfer matrix (S-matrix)}
-		
-		\subsection{Poincaré sphere}
-		
-		\subsection{Polarization in optical waveguides}
+Jones matrix are the formal representation of the various optical elements such as lenses, beam splitters, mirrors, phase retarders, polarizers at arbitrary angles that can modify polarization. They generally operate on Jones vector and helps in comprehend situations which light encounters multiple polarization elements in sequence. In these situations the products of the Jones matrices can be used to represent the transfer matrix. This situation can be represented using,
+\begin{equation}\label{eq:jones_matrix}
+[E_{output}] = J_{system}[E_{input}] 
+\end{equation}
+where $E_input$ is the input field into the optical system and $E_output$ is the generated output field represented using Jones vector. The matrix $J_system$ is the Jones matrix of the optical system comprising of a series of polarization devices. If there are $N$ devices in the system then the final transfer matrix comes out as,
+\begin{equation}\label{eq:jones_transfer_matrix}
+J_{system} =J_{N}J_{N-1}\ldots \ldots J_{2}J_{1} 
+\end{equation}   
+where $J_{N}$ is the Jones matrix for $n^{th}$ polarizing optical element.
+
+		\subsection{Jones matrix for polarizing optical systems}
+			\subsubsection{Polarizer}
+			\subsubsection{Wave plate}
+			
+		\subsection{Poincaré sphere and state of polarization}
+To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well.     
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-poincare}
+	\caption{(a) Representation of the Poincaré sphere (b) Representation of the ellipse parameters \cite{flossmann_stokes_2006}}
+	\label{fig:2_poincare}
+\end{figure}
+\noindent The \gls{sop} of any wave is also defined using \gls{per} and polarization phase, $\phi$ given by the following equations:
+\begin{equation}\label{eq:wave_sop}
+\begin{aligned}
+PER_{TE-TM} = 10\log \dfrac {P_{TM}} {P_{TE}}\\
+PER_{TM-TE} = 10\log \dfrac {P_{TE}} {P_{TM}}\\
+\phi =\phi _{x}-\phi _{y}
+\end{aligned}
+\end{equation}
+For complete polarized light, the point on the Poincaré sphere must be fixed on time which requires,
+\begin{equation}\label{eq:polarization_condition_1}
+\dfrac {E_{x}\left( t\right) } {E_{y}\left( t\right) }=constant
+\end{equation}
+and,
+\begin{equation}\label{eq:polarization_condition_2}
+\phi = \phi_{x}(t) - \phi_{y}(t)=constant
+\end{equation}
+		\subsection{Stoke's parameter} 		
+Quasi-monochromatic waves are mathematically treated using Stokes parameters ($S_0,S_1,S_2,S_3$), which constitute a vector generally known as Stokes vectors. Stokes vectors are used to keep track of the partial polarization (and attenuation) of a light beam in terms of total intensity (I), degree of polarization (p) and ellipse parameters, as the light progresses through an optical system. A Stokes vector can generally be represented as,
+\begin{equation}\label{eq:stokes_vector}
+\overrightarrow {S} = \left(\begin{matrix}  
+	S_0 \\
+	S_1 \\
+	S_2 \\
+	S_3
+\end{matrix} \right) 
+\end{equation}
+where,
+\begin{equation}\label{eq:stokes_parameters}
+\begin{aligned}
+\begin{cases}
+S_{0}=I\\ 
+S_{1}=I_{p}\cos 2\theta \cos 2\epsilon \\
+S_{2}=I_{p}\sin 2\theta \cos 2\epsilon \\
+S_{3}=I_{p}\sin 2\epsilon
+\end{cases}
+\end{aligned}
+\end{equation}
+Here, $I_p, 2\theta, 2\epsilon$ are the spherical coordinates of the 3-D vector of Cartesian coordinates $(S_1,S_2,S_3)$. So, given the Stokes parameters, the spherical coordinates $(p,2\theta,2\epsilon)$ can be obtained and represented by a point inside the Poincaré sphere using the following:
+\begin{equation}\label{eq:stokes_spherical_coordinates}
+\begin{aligned}
+\begin{cases}
+I = S_{0}\\ 
+p = \dfrac {\sqrt {S_{1}^{2}+S_{2}^{2}+S_{3}^{2}}} {S_{0}} \\
+2\theta = \tan^{-1}\dfrac {S_{2}} {S_{1}} \\
+2\epsilon = \tan ^{-1}\dfrac {S_{3}} {\sqrt {S_{1}^{2}+S_{2}^{2}}}
+\end{cases}
+\end{aligned}
+\end{equation}
+The prescribed notations are portrayed on the Poincaré sphere in the following Fig. \ref{fig:2_stoke_param_poincare_sphere}.    
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-stoke-param-poincare-sphere}
+	\caption{Poincaré sphere, on or beneath which the three Stokes parameters [S1, S2, S3] are plotted in Cartesian coordinates \cite{stoke_poincare_parameter}}
+	\label{fig:2_stoke_param_poincare_sphere}
+\end{figure}
 		
 	\section{Theoretical background of MEMS}
 	
