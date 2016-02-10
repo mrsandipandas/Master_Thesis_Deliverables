@@ -118,15 +118,19 @@ A simple planar waveguide consists of a high-indexed medium with height $h$	surr
 For planar waveguides the wave equation for electric field \ref{eq:wave_sol_electric} and magnetic field can be rewritten as \ref{eq:wave_sol_magnetic} follows:
 \begin{equation}\label{eq:wave_sol_planar_wg}
 	\begin{aligned}
+	\begin{cases}
 	\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}\\
 	\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}
+	\end{cases}
 	\end{aligned}
 \end{equation}	
 since in X-direction the film is infinite. After using the homogeneous wave equations for a planar waveguide the following \gls{te} and \gls{tm} mode equations can be deduced:
 \begin{equation}\label{eq:homogeneous_wave_sol_planar_wg}
 	\begin{aligned}
+	\begin{cases}
 	\nabla^{2}E_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){E_{x}(y)} = 0\\
 	\nabla^{2}H_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){H_{x}(y)} = 0	
+	\end{cases}
 	\end{aligned}
 \end{equation}
 where \gls{ri} depends only on a single Cartesian coordinate $n = n(y)$. These equations can be solved using the various boundary conditions of the waveguides which help in deducing the nature of propagation of the wave in \gls{te} and \gls{tm} mode. Different kinds of numerical methods like \gls{fem}, \gls{fdtd}, \gls{bpm} have been developed to decipher the nature of light propagation in waveguides.
@@ -227,9 +231,38 @@ J_{system} =J_{N}J_{N-1}\ldots \ldots J_{2}J_{1}
 where $J_{N}$ is the Jones matrix for $n^{th}$ polarizing optical element.
 
 		\subsection{Jones matrix for polarizing optical systems}
+To construct optical waveguides for polarization rotation it is imperative to deal with the basic principles of standard available optical systems. Here, the fundamental principles of polarizer and wave plates are interpreted using Jones calculus.  
 			\subsubsection{Polarizer}
+Polarizers have an index of refraction which depends on orientation electric field propagation. If any optical system has a transmission axis and an absorption axis for electric fields, then lights will be passed along he transmission axis and absorbed along the other axis. So, the Jones matrix of a polarizer making an angle $\theta$ with the X-axis will come out as,
+\begin{equation}\label{eq:jones_matrix_polarizer}
+\left(\begin{matrix} 
+\cos ^{2}\theta & \sin \theta \cos \theta \\ 
+\sin \theta \cos \theta & \sin ^{2}\theta
+\end{matrix} \right) 
+\end{equation} 
 			\subsubsection{Wave plate}
-			
+Wave plates are phase retarders which are made of birefringent crystals. Wave plates can be conceptualized as two polarizers kept apart at certain distance $d$, such that their polarization axes are apart orthogonally ($90^{0}$). The phase difference as light passes through this setup of thickness $d$ is,
+\begin{equation}\label{eq:jones_matrix_wp1}
+\left(k_{slow}-k_{fast}\right)d = \dfrac {2\pi d} {\lambda_{vac} }\left( n_{slow}-n_{fast}\right) 
+\end{equation}
+In, general the Jones matrix for a wave plate is given by,
+\begin{equation}\label{eq:jones_matrix_wp2}
+\left( \begin{matrix} 
+\cos ^{2}\theta +\xi \sin ^{2}\theta & \sin \theta \cos \theta -\xi \sin \theta \cos \theta\\ 
+\sin \theta \cos \theta -\xi \sin \theta \cos \theta & \sin ^{2}\theta +\xi \cos ^{2}\theta
+\end{matrix} \right) 
+\end{equation}
+where $\xi$ is calculated based on the type of wave plate. The following equations addresses some general scenarios:
+\begin{equation}\label{eq:jones_matrix_wp3}
+\begin{aligned}
+\begin{cases} 
+\xi = e^{i\pi/2}, \,\quad \text{where,} \left(k_{slow}-k_{fast}\right)d = \pi/2 + 2\pi m, \text{for quarter-wave plate}\\ 
+\xi = e^{i\pi},  \;\;\;\quad \text{where,} \left(k_{slow}-k_{fast}\right)d = \pi + 2\pi m, \text{for half-wave plate}
+\end{cases}
+\end{aligned}
+\end{equation}
+Similar concept is used in the construction of \gls{pr} waveguides which will be discussed in later sections shortly.
+ 		
 		\subsection{Poincaré sphere and state of polarization}
 To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well.     
 \begin{figure}[H]
