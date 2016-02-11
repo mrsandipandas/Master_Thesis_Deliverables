@@ -2,20 +2,20 @@
 \begin{document}	
 	
 \chapter{State of the art}
-The most interesting aspect of fabricating optical waveguides from silicon is based on low primary cost of material, the mature and evolved manufacturing techniques owing to decades of research and the potential to develop monolithic \gls{ic} using the same substrate.
+To understand the available \gls{pr} it is important to look into the basic concepts of waveguides and the mathematics behind the propagation of \gls{em} waves in waveguides. It is also necessary to understand tuning of optical waveguides using different mechanisms to achieve optical polarization. Finally, the currently available \gls{pr}s and their underlying concepts are discussed. 
 
-	\section{Theoretical background of SOI waveguide}
-Although silicon is the optimal material for electronics, only recently silicon is being considered as a practical option for \gls{oeic} solutions. Silicon has many properties conducive to fiber optics. The band gap of silicon ($\sim$\SI{1.1}{\electronvolt}) is such that the material is transparent to wavelengths commonly used for optical transport ($\sim$\SI{1.3}{\micro\metre}-\SI{1.6}{\micro\metre}). One can use standard \gls{cmos} processing techniques to sculpt optical waveguides onto the silicon surface. Similar to an optical fiber, these optical waveguides can be used to confine and direct light as it passes through the silicon \cite{reed_silicon_2004}. Due to the wavelengths typically used for optical transport and silicon’s high index of refraction, the feature sizes needed for processing these silicon waveguides are on the order of \SI{0.5}{\micro\metre}-\SI{1}{\micro\metre}. The lithography requirements needed to process waveguides with these sizes exist today. If we push forward to leading-edge research currently under way in the area of \gls{pbg} devices, today’s state-of-the-art \SI{90}{\nano\metre} fabrication facilities should meet the technical requirements needed for processing \gls{pbg} devices. What this says is that we may already have all or most of the processing technologies needed to produce silicon-based photonic devices for the next decade. In addition, the same carriers used for the basic functionality of the transistor (i.e. electrons and holes) can be used to modulate the phase of light passing through silicon waveguides and thus produce ‘active’ rather than passive photonic devices. Finally, if all this remains \gls{cmos}-compatible, it could be possible to process transistors alongside photonic devices, the combination of which could bring new levels of performance, functionality, power and size reduction, all at a lower cost.
+	\section{Optical waveguide theory}
+Light can travel through dielectric waveguide. To comprehend the situation we need to look at physical properties of light and waveguides. The basic understanding of Maxwell's equations are required to combine the electric fields and magnetic fields to combine into a wave equation. Since, the optical system changes polarization we need a formal definition of the different \gls{sop}, described using Jones calculus. Moreover, the transition from one \gls{sop} to another, can be defined formally on the Poincaré sphere. 
 		
 		\subsection{Maxwell's equations}
-Light is high frequency \gls{em} phenomenon having wave-particle duality. Visible light, ultraviolet light, and infrared light are all electromagnetic waves of differing frequency. 
+\gls{em} radiation is the radiant energy released by varying \gls{em} field. Light is \gls{em} wave at very high frequency. The frequency of visible light falls in between IR and UV \gls{em} wave. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-light-spectrum}
 	\caption{The \gls{em} wave spectrum}
 	\label{fig:2_light_spectrum}
 \end{figure}
-James Clerk Maxwell discovered that he could combine four simple equations, which had been previously discovered, along with a slight modification to describe self-propagating waves of oscillating electric and magnetic fields \cite{waveparticle_2016}. The understanding of propagating of light waves using Maxwell's equations in a dielectric medium, is the key to the construction of silicon waveguides. Maxwell’s equations relate the electric field $E$ (V/m), magnetic field $H$ (A/m), charge density $\rho$ (C/m3), and current density $J$ (A/cm2).
+James Clerk Maxwell discovered that he could combine four simple equations, which had been previously discovered, along with a slight modification to describe self-propagating waves of oscillating electric and magnetic fields \cite{waveparticle_2016}. The understanding of propagating of light waves using Maxwell's equations in a dielectric medium, is the key to the construction of waveguides. Maxwell’s equations relate the electric field $E$ (V/m), magnetic field $H$ (A/m), charge density $\rho$ (C/m3), and current density $J$ (A/cm2).
 \begin{itemize}	
 	\item \textbf{Maxwell's first equation (Gauss' Law)}: The net electric flux through any closed surface is equal to $\frac{1}{\epsilon_m}$ times the charge density within that closed surface.
 	\begin{equation}\label{eq:max1_1}
@@ -36,7 +36,7 @@ James Clerk Maxwell discovered that he could combine four simple equations, whic
 	\begin{equation}\label{eq:max1_4}
 	\nabla\times E = -\mu_m\frac{\partial H}{\partial t}
 	\end{equation}
-	where $\mu_m$ is the permeability of the medium.
+	where $\mu_m$ is the magnetic permeability of the medium.
 	
 	\item \textbf{Maxwell's fourth equation (Modification of Ampere's law)}:  The fourth equation states that magnetic fields can be generated in two ways: by electric current (this was the original "Ampere's law") and by changing electric fields (this was "Maxwell's addition") \cite{wiki_maxwells_2016}.
 	\begin{equation}\label{eq:max1_5}
@@ -44,7 +44,7 @@ James Clerk Maxwell discovered that he could combine four simple equations, whic
 	\end{equation}	
 \end{itemize}
 
-All these equations combine into a simple wave equation after some mathematical calculations.
+\noindent These equations combine into the wave equation after some mathematical calculations.
 \begin{equation}\label{eq:wave_eq}
 \nabla^2 E -  \mu_m\epsilon_m\frac{\partial^2 E}{\partial t^2} = \mu_m\frac{\partial J}{\partial t} + \frac{\nabla\rho}{\epsilon_m}	
 \end{equation}
@@ -56,58 +56,29 @@ A general solution to the equation \ref{eq:wave_eq} in free space, in absence of
 \begin{equation}\label{eq:wave_sol_electric}
 \overrightarrow{E}(z,t)=E_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
 \end{equation}
-where $z$ is direction of propagation of wave in Cartesian coordinates , phase ($\phi$) = $\left(k_{0}z\pm \omega t\right)$ and wave vector propagation constant ($k_0$) = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. It is worth mentioning that propagation constant in medium varies according to $n$, the effective \gls{ri} of the medium and is given by: 
-\begin{equation}\label{eq:ri_med_val}
+where $z$ is direction of propagation of wave in Cartesian coordinates, phase, $\phi$ = $k_{0}z\pm \omega t$ and wave vector propagation constant, $k_0$ = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. Propagation constant in medium varies according to $n$, the effective \gls{ri} of the medium and is given by: 
+\begin{equation}\label{eq:propagation_const_med_val}
 k = nk_0
+\end{equation}
+where,
+\begin{equation}\label{eq:ri_med_val}
+n = \sqrt {\varepsilon _{m}\mu _{m}}
 \end{equation}
 Similar calculations for the magnetic field, $H$ in free space yields, 		
 \begin{equation}\label{eq:wave_sol_magnetic}
 \overrightarrow{H}(z,t)=H_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
 \end{equation}
 
-		\subsection{Eigenvalue and wave modes}
-In general, the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
-\begin{equation}\label{eq:e_field_cart_cord}
-\overrightarrow{E}=E_{x}i+E_{y}j+E_{j}k
-\end{equation}
-If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant, $k$ in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. In the Fig. \ref{fig:2_em_wave} the electric field and magnetic field propagate in directions perpendicular to each other. Moreover, the direction of propagation is also transverse to the \gls{em} field. Hence it is called \gls{tem} wave.
+\noindent In the Fig. \ref{fig:2_em_wave} the electric field and magnetic field propagate in directions perpendicular to each other. Moreover, the direction of propagation is also transverse to the \gls{em} field. Hence it is called \gls{tem} wave.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-em-wave}
 	\caption{Propagation of \gls{em} wave}
 	\label{fig:2_em_wave}
 \end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]{2-modes}
-	\caption{Propagation modes in optical fiber}
-	\label{fig:2_modes}
-\end{figure}
-The eigenvalues provide the different acceptance angles at which light can be inserted into the waveguide resulting in different modes in the waveguide. Depending on various angles of incidence on the waveguide and the dimensions of the waveguide, various modes can be found which are basically the different eigenvalues of the wave solution \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic}. For example, when light travels through optical fibers different modes can be visualized as follows in Fig. \ref{fig:2_modes}.
-\todo{May be update the picture using CST}
-		\subsection{Optical polarization and transverse modes}
-Generally light in randomly polarized. Any kind of randomness is inefficient for data transmission. Optical fibers generally operate at \SI{1550}{\nano\metre} in fundamental \gls{te} or \gls{tm} mode. The ultimate goal of the on chip fabricated waveguide is to integrate with the currently deployed optical fiber network in a seamless manner. Hence, the waveguides must cater polarization into its design.  
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.75\textwidth]{2-random-pol}
-	\caption{Random polarization of light}
-	\label{fig:2_random_pol}
-\end{figure}
-\textit{Polarization} is the direction of the electric field associated with the propagating wave. However, the associated magnetic field is not always considered in the quantum domain for wave propagating at \SI{1550}{\nano\metre}. In the example in Fig. \ref{fig:2_em_wave} the wave is polarized since the electric field and magnetic field exist in one direction only. In a semiconductor optical waveguide light propagates in plane polarized modes and the plane in which light is polarized is either vertical or horizontal to the waveguide surface as shown in Fig. \ref{fig:2_te_tm_mode}. 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]{2-te-tm-mode}
-	\caption{\gls{te} and \gls{tm} modes in a waveguide}
-	\label{fig:2_te_tm_mode}
-\end{figure}			
-			\subsubsection{TE mode}
-\gls{te} mode is the fundamental mode in which electric field is perpendicular to the plane of incidence of light. As depicted in Fig. \ref{fig:2_te_tm_mode} it can be visualized that electric field lines shown by the blue lines are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
-			\subsubsection{TM mode}
-\gls{tm} mode is the fundamental mode in which magnetic field is perpendicular to the plane of incidence of light. As shown in Fig. \ref{fig:2_te_tm_mode} it can be visualized that magnetic field shown by the red lines are perpendicular to the plane of incidence in \gls{tm} mode.			
-		
 		\subsection{Optical waveguides}
-Waveguide is the essential element of every photonic circuit which can be characterized by the number of dimensions in which light is confined inside it \cite{reed_silicon_2008}. A planar waveguide confines light in 1-D which is simple for understanding of the wave propagation using Maxwell's equations. However, for practical applications 2-D confinement is necessary and that is why channel waveguides are used. Structures like photonic crystals even have 3-D confinement properties.   			
-			\subsubsection{Planar waveguides}
+Waveguide is the essential element of every photonic circuit which can be characterized by the number of dimensions in which light is confined inside it \cite{reed_silicon_2008}. A planar waveguide confines light in 1-D, which is simple for understanding of the wave propagation using Maxwell's equations. However, for practical applications 2-D confinement is necessary and that is why channel waveguides are used. Structures like photonic crystals even have 3-D confinement properties.   			
+		\subsubsection{Planar waveguides}
 A simple planar waveguide consists of a high-indexed medium with height $h$	surrounded by lower indexed materials on the top and bottom sides. The \gls{ri} of the film, $n_f$ (generally made from Si) is greater than the \gls{ri} of the materials on the other sides. The \gls{ri} of the substrate in lower cladding is $n_s$, (generally made from SiO$_{2}$) whereas, \gls{ri} of the substrate in upper cladding is $n_c$ (generally which is air).
 \begin{figure}[H]
 	\centering
@@ -117,24 +88,24 @@ A simple planar waveguide consists of a high-indexed medium with height $h$	surr
 \end{figure}
 For planar waveguides the wave equation for electric field \ref{eq:wave_sol_electric} and magnetic field can be rewritten as \ref{eq:wave_sol_magnetic} follows:
 \begin{equation}\label{eq:wave_sol_planar_wg}
-	\begin{aligned}
-	\begin{cases}
-	\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}\\
-	\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}
-	\end{cases}
-	\end{aligned}
+\begin{aligned}
+\begin{cases}
+\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}\\
+\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}
+\end{cases}
+\end{aligned}
 \end{equation}	
 since in X-direction the film is infinite. After using the homogeneous wave equations for a planar waveguide the following \gls{te} and \gls{tm} mode equations can be deduced:
 \begin{equation}\label{eq:homogeneous_wave_sol_planar_wg}
-	\begin{aligned}
-	\begin{cases}
-	\nabla^{2}E_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){E_{x}(y)} = 0\\
-	\nabla^{2}H_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){H_{x}(y)} = 0	
-	\end{cases}
-	\end{aligned}
+\begin{aligned}
+\begin{cases}
+\nabla^{2}E_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){E_{x}(y)} = 0\\
+\nabla^{2}H_x(y) + (k_{0}^{2}n(y)^{2}-k^{2}){H_{x}(y)} = 0	
+\end{cases}
+\end{aligned}
 \end{equation}
 where \gls{ri} depends only on a single Cartesian coordinate $n = n(y)$. These equations can be solved using the various boundary conditions of the waveguides which help in deducing the nature of propagation of the wave in \gls{te} and \gls{tm} mode. Different kinds of numerical methods like \gls{fem}, \gls{fdtd}, \gls{bpm} have been developed to decipher the nature of light propagation in waveguides.
-			\subsubsection{Channel waveguides}			
+		\subsubsection{Channel waveguides}			
 As mentioned earlier channel waveguides provide confinement in 2-D which helps in depicting more practical waveguides. The three main types of channel waveguides are rib, strip and buried waveguides. As depicted in \ref{fig:2_rib_wg}, \ref{fig:2_strip_wg}, \ref{fig:2_buried_wg} the different conceptual structures of the waveguides can be envisaged. While the rib and strip waveguides are designed using etching technique, the buried waveguide mostly relies on diffusion and epitaxial growth technique for its fabrication.
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -170,11 +141,41 @@ As mentioned earlier channel waveguides provide confinement in 2-D which helps i
 		\caption{Rib waveguide design rules}
 		\label{fig:2_rib_wg_design}
 	\end{figure}
-	The main requirements of the waveguide to cater the propagation of waves is that the dimension of the waveguide has to be more than the wavelength of the propagating wave. However, depending on the required structure the design rules may change which can be found using simulation. 
+The main requirements of the waveguide to cater the propagation of waves is that the dimension of the waveguide has to be more than the wavelength of the propagating wave. However, depending on the required structure the design rules may change which can be found using simulation. 
 	
-	\item \textbf{Design rules of strip waveguides:} In mode confinement of light in optical waveguides the effective mode \gls{ri} is important. Strip waveguides offer more high \gls{ri} contrast in comparison to Rib waveguides. This can help in realization of ultra-dense photonic circuits because of high effective mode confinement. This can also achieve small bends which can improve the characterization of different monolithic optical circuits. In general a mix of rib and strip waveguides are used to achieve the desired circuitry, since sometimes the side walls cannot be etched in a perfectly smooth way causing greater evanescent fields from the waveguides introducing unnecessary coupling and losses. Using simulation for the desired scenario the robust values of the dimensions can be achieved.
+\item \textbf{Design rules of strip waveguides:} In mode confinement of light in optical waveguides the effective mode \gls{ri} is important. Strip waveguides offer more high \gls{ri} contrast in comparison to Rib waveguides. This can help in realization of ultra-dense photonic circuits because of high effective mode confinement. This can also achieve small bends which can improve the characterization of different monolithic optical circuits. In general a mix of rib and strip waveguides are used to achieve the desired circuitry, since sometimes the side walls cannot be etched in a perfectly smooth way causing greater evanescent fields from the waveguides introducing unnecessary coupling and losses. Using simulation for the desired scenario the robust values of the dimensions can be achieved.
 \end{itemize}
-	
+		
+		
+		\subsection{Eigenvalue and wave modes}
+In general, the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
+\begin{equation}\label{eq:e_field_cart_cord}
+\overrightarrow{E}=E_{x}i+E_{y}j+E_{j}k
+\end{equation}
+If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant, $k$ in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. \par
+
+The eigenvalues provide the different acceptance angles at which light can be inserted into the waveguide, resulting in different modes in the waveguide. Depending on the dimensions of the waveguide, various modes can be found which are basically the different eigenvalues of the wave solution \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic}. For example, when light travels through optical fibers different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-rect-te-modes}
+	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
+	\label{fig:2_rect_te_modes}
+\end{figure}
+		\todo{May be update the picture using CST}
+		\subsection{Optical polarization and transverse modes}
+Single mode waveguide are most used for data transmission. Optical fibers generally operate at \SI{1550}{\nano\metre} wavelength in single mode fundamental \gls{te} or \gls{tm} mode communication. Polarization affects the propagation of \gls{em} fields at infrared. Hence, the waveguides must cater polarization into its design. \textit{Polarization} is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in plane polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in fundamental mode.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-te-tm-mode}
+	\caption{\gls{te} and \gls{tm} modes in a waveguide}
+	\label{fig:2_te_tm_mode}
+\end{figure}
+\todo{Include diagram from my own simulations}			
+			\subsubsection{TE mode}
+\gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
+			\subsubsection{TM mode}
+\gls{tm} mode is the fundamental mode in which there is no magnetic field int he direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
+			
 		\subsection{Confinement factor}
 Often it is necessary to know the confined power inside the core of the waveguide which helps in figuring out the waveguide mode. The confinement is also a measure of the proportion of the power in a given mode that lies within the core \cite{reed_silicon_2008}.  
 \begin{equation}\label{eq:per}
@@ -240,7 +241,7 @@ Polarizers have an index of refraction which depends on orientation electric fie
 \sin \theta \cos \theta & \sin ^{2}\theta
 \end{matrix} \right) 
 \end{equation} 
-			\subsubsection{Wave plate}
+			\subsubsection{Wave plates}
 Wave plates are phase retarders which are made of birefringent crystals. Wave plates can be conceptualized as two polarizers kept apart at certain distance $d$, such that their polarization axes are apart orthogonally ($90^{0}$). The phase difference as light passes through this setup of thickness $d$ is,
 \begin{equation}\label{eq:jones_matrix_wp1}
 \left(k_{slow}-k_{fast}\right)d = \dfrac {2\pi d} {\lambda_{vac} }\left( n_{slow}-n_{fast}\right) 
@@ -326,16 +327,36 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 	\caption{Poincaré sphere, on or beneath which the three Stokes parameters [S1, S2, S3] are plotted in Cartesian coordinates \cite{stoke_poincare_parameter}}
 	\label{fig:2_stoke_param_poincare_sphere}
 \end{figure}
-		
-	\section{Theoretical background of MEMS}
+
+	\section{Tuning optical waveguide}
 	
-		\subsection{Overview}
+		\subsection{Thermal mechanism}
+	
+		\subsection{Liquid crystals}
 		
-		\subsection{Actuation principle}
+		\subsection{Current injection}
+		
+		\subsection{MEMS}
+		Actuation principle... 	
 			
-	\section{Polarization rotator}
+	\section{Polarization rotator (PR)}
 	
-		\subsection{Passive polarization rotator}
+	\subsection{Optical fiber PR}
 	
-		\subsection{Active polarization rotator}
+	\subsection{Integrated circuit PR}
+	
+The currently available \gls{ic} \gls{pr}s can be classified under two categories as passive and active \gls{pr}. In the passive \gls{pr}s the waveguide structures are designed in a specific way to manipulate the effective \gls{ri} of the waveguide to obtain the desired polarization. The structures cannot be manipulated or tuned once fabricated. Whereas, in active \gls{pr}s, the effective \gls{ri} is manipulated by applying voltage to a fixed waveguide structure and using quantum optical phenomenon.   
+	
+		\subsubsection{Passive PR}
+The currently, available passive \gls{pr}s are based on the principles of mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015}, mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012}.
+			
+			\paragraph*{Mode evolution}
+
+			\paragraph*{Mode coupling}
+			
+			\paragraph*{Mode hybridization}
+			
+		\subsubsection{Active PR}
+		
+		\subsubsection{Comparative analysis of available polarization rotator}
 \end{document}
