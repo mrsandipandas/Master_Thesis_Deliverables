@@ -5,10 +5,10 @@
 To understand the available \gls{pr} it is important to look into the basic concepts of waveguides and the mathematics behind the propagation of \gls{em} waves in waveguides. It is also necessary to understand tuning of optical waveguides using different mechanisms to achieve optical polarization. Finally, the currently available \gls{pr}s and their underlying concepts are discussed. 
 
 	\section{Optical waveguide theory}
-Light can travel through dielectric waveguide. To comprehend the situation we need to look at physical properties of light and waveguides. The basic understanding of Maxwell's equations are required to combine the electric fields and magnetic fields to combine into a wave equation. Since, the optical system changes polarization we need a formal definition of the different \gls{sop}, described using Jones calculus. Moreover, the transition from one \gls{sop} to another, can be defined formally on the Poincaré sphere. 
+Light can travel through dielectric waveguide. To comprehend the situation we need to look at physical properties of light and waveguides. The basic understanding of Maxwell's equations are required, which combine the electric and magnetic fields to and produce a wave equation. Since, the optical system changes polarization we need a formal definition of the different \gls{sop}, described using Jones calculus. Moreover, the transition from one \gls{sop} to another, can be defined formally on the Poincaré sphere. 
 		
 		\subsection{Maxwell's equations}
-\gls{em} radiation is the radiant energy released by varying \gls{em} field. Light is \gls{em} wave at very high frequency. The frequency of visible light falls in between IR and UV \gls{em} wave. 
+\gls{em} radiation is the radiant energy released by varying \gls{em} field. Light wave is \gls{em} radiation at very high frequency. The frequency of visible light falls in between IR and UV \gls{em} wave. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-light-spectrum}
@@ -37,8 +37,8 @@ James Clerk Maxwell discovered that he could combine four simple equations, whic
 	\nabla\times E = -\mu_m\frac{\partial H}{\partial t}
 	\end{equation}
 	where $\mu_m$ is the magnetic permeability of the medium.
-	
-	\item \textbf{Maxwell's fourth equation (Modification of Ampere's law)}:  The fourth equation states that magnetic fields can be generated in two ways: by electric current (this was the original "Ampere's law") and by changing electric fields (this was "Maxwell's addition") \cite{wiki_maxwells_2016}.
+
+	\item \textbf{Maxwell's fourth equation (Modification of Ampere's law)}:  The fourth equation states that magnetic fields can be generated in two ways: by electric current (this was the original “Ampere's law”) and by changing electric fields (this was “Maxwell's addition”) \cite{wiki_maxwells_2016}.
 	\begin{equation}\label{eq:max1_5}
 	\nabla\times H =  J + \epsilon_m\frac{\partial E}{\partial t}	
 	\end{equation}	
@@ -146,6 +146,7 @@ The main requirements of the waveguide to cater the propagation of waves is that
 \item \textbf{Design rules of strip waveguides:} In mode confinement of light in optical waveguides the effective mode \gls{ri} is important. Strip waveguides offer more high \gls{ri} contrast in comparison to Rib waveguides. This can help in realization of ultra-dense photonic circuits because of high effective mode confinement. This can also achieve small bends which can improve the characterization of different monolithic optical circuits. In general a mix of rib and strip waveguides are used to achieve the desired circuitry, since sometimes the side walls cannot be etched in a perfectly smooth way causing greater evanescent fields from the waveguides introducing unnecessary coupling and losses. Using simulation for the desired scenario the robust values of the dimensions can be achieved.
 \end{itemize}
 		
+		\subsection{Snell's law and total internal reflection}
 		
 		\subsection{Eigenvalue and wave modes}
 In general, the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
@@ -154,27 +155,32 @@ In general, the electric field in the wave equation in \ref{eq:wave_sol_electric
 \end{equation}
 If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant, $k$ in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. \par
 
-The eigenvalues provide the different acceptance angles at which light can be inserted into the waveguide, resulting in different modes in the waveguide. Depending on the dimensions of the waveguide, various modes can be found which are basically the different eigenvalues of the wave solution \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic}. For example, when light travels through optical fibers different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
+The eigenvalues provide the different acceptance angles at which light can be inserted into the waveguide, resulting in different modes in the waveguide. Depending on the dimensions of the waveguide, various modes can be found which are the different eigenvalues of the wave solution \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic}. For example, when light travels through optical fibers different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-rect-te-modes}
 	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
 	\label{fig:2_rect_te_modes}
 \end{figure}
-		\todo{May be update the picture using CST}
+		\todo{May be update the picture using CST simulation}
+		
 		\subsection{Optical polarization and transverse modes}
-Single mode waveguide are most used for data transmission. Optical fibers generally operate at \SI{1550}{\nano\metre} wavelength in single mode fundamental \gls{te} or \gls{tm} mode communication. Polarization affects the propagation of \gls{em} fields at infrared. Hence, the waveguides must cater polarization into its design. \textit{Polarization} is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in plane polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in fundamental mode.
+In optical waveguide, the transmission distance is limited by several types of dispersion, or spreading of optical pulses as they travel along the waveguide. Dispersion in waveguide is caused by a variety of factors. Intermodal dispersion, caused by the different axial speeds of different transverse modes, limits the performance of multi-mode waveguide. Because single-mode waveguide supports only one transverse mode, intermodal dispersion is eliminated. In single-mode performance is primarily limited by chromatic dispersion (also called group velocity dispersion), which occurs because the \gls{ri} of silicon varies slightly depending on the wavelength of the light, and light from real optical transmitters necessarily has nonzero spectral width (due to modulation). \gls{pmd}, another source of limitation, occurs because although the single-mode waveguide can sustain only one transverse mode, it can carry this mode with two different polarizations, and slight imperfections or distortions in a waveguide can alter the propagation velocities for the two polarizations. This phenomenon is called birefringence and can be counteracted by polarization-rotator. \gls{pmd} limits the bandwidth of the waveguide because the spreading optical pulse limits the rate that pulses can follow one another on the waveguide and still be distinguishable at the receiver.\par
+
+Polarization is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in plane polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in single-mode.
+		
+			\subsubsection{TE mode}
+\gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
+			\subsubsection{TM mode}
+\gls{tm} mode is the fundamental mode in which there is no magnetic field int he direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-te-tm-mode}
 	\caption{\gls{te} and \gls{tm} modes in a waveguide}
 	\label{fig:2_te_tm_mode}
 \end{figure}
-\todo{Include diagram from my own simulations}			
-			\subsubsection{TE mode}
-\gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
-			\subsubsection{TM mode}
-\gls{tm} mode is the fundamental mode in which there is no magnetic field int he direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
+\todo{Include diagram from my own simulations}	
 			
 		\subsection{Confinement factor}
 Often it is necessary to know the confined power inside the core of the waveguide which helps in figuring out the waveguide mode. The confinement is also a measure of the proportion of the power in a given mode that lies within the core \cite{reed_silicon_2008}.  
@@ -337,7 +343,7 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 		\subsection{Current injection}
 		
 		\subsection{MEMS}
-		Actuation principle... 	
+		\todo{Why is MEMS better?}Actuation principle... 	
 			
 	\section{Polarization rotator (PR)}
 	
@@ -345,10 +351,10 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 	
 	\subsection{Integrated circuit PR}
 	
-The currently available \gls{ic} \gls{pr}s can be classified under two categories as passive and active \gls{pr}. In the passive \gls{pr}s the waveguide structures are designed in a specific way to manipulate the effective \gls{ri} of the waveguide to obtain the desired polarization. The structures cannot be manipulated or tuned once fabricated. Whereas, in active \gls{pr}s, the effective \gls{ri} is manipulated by applying voltage to a fixed waveguide structure and using quantum optical phenomenon.   
+The currently available \gls{pr}s can be classified under two categories as passive and active \gls{pr}. In the passive \gls{pr}s the waveguide structures are designed in a specific way to manipulate the effective \gls{ri} of the waveguide, to obtain the desired polarization. The \gls{ri} cannot be manipulated or tuned once fabricated. Whereas, in active \gls{pr}s, the effective \gls{ri} can be manipulated.
 	
 		\subsubsection{Passive PR}
-The currently, available passive \gls{pr}s are based on the principles of mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015}, mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012}.
+The passive \gls{pr}s are based on the principles of mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015}, mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012} which are described in the following sections.
 			
 			\paragraph*{Mode evolution}
 
@@ -358,5 +364,5 @@ The currently, available passive \gls{pr}s are based on the principles of mode e
 			
 		\subsubsection{Active PR}
 		
-		\subsubsection{Comparative analysis of available polarization rotator}
+		\subsubsection{Comparative analysis of available PR}
 \end{document}
