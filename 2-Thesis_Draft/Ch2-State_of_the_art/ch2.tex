@@ -191,7 +191,7 @@ Often it is necessary to know the confined power inside the core of the waveguid
 Confinement factor is an important measure which is function of various factors like polarization, \gls{ri} difference between the core and cladding, mode number etc.	
 		
 		\subsection{Jones calculus}
-Polarized light can be represented using Jones calculus. Polarized light is represented using \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is \textbf{already fully polarized} \cite{burch_introduction_1975}.
+Polarized light can be represented using Jones calculus. Polarized light is represented using \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is already fully polarized \cite{burch_introduction_1975}.
 		
 			\subsubsection{Jones vector}
 The Jones vector describes the polarization of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
@@ -232,7 +232,7 @@ Jones matrix are the formal representation of the various optical elements such 
 \begin{equation}\label{eq:jones_matrix}
 [E_{output}] = J_{system}[E_{input}] 
 \end{equation}
-where $E_input$ is the input field into the optical system and $E_output$ is the generated output field represented using Jones vector. The matrix $J_system$ is the Jones matrix of the optical system comprising of a series of polarization devices. If there are $N$ devices in the system then the final transfer matrix comes out as,
+where $E_{input}$ is the input field into the optical system and $E_{output}$ is the generated output field represented using Jones vector. The matrix $J_{system}$ is the Jones matrix of the optical system comprising of a series of polarization devices. If there are $N$ devices in the system then the final transfer matrix comes out as,
 \begin{equation}\label{eq:jones_transfer_matrix}
 J_{system} =J_{N}J_{N-1}\ldots \ldots J_{2}J_{1} 
 \end{equation}   
@@ -382,7 +382,7 @@ The fields in \gls{te} and \gls{tm} mode do not couple with each other and are o
 		\end{subfigure}
 		\caption{\gls{pr} using mode coupling, by Dai and Bowers \cite{dai_novel_2011}}
 	\end{figure}
-	\end{minipage}
+	\end{minipage}\\\\
 	\noindent The coupler (Fig. \ref{fig:2_mc_1_1}) consists of 2 waveguides parallel to each other. The section where coupling occurs is shown in Fig. \ref{fig:2_mc_1_2}. The taper structure is singlemode at the input end ($W_0$) while it becomes multimode at the other end ($W_3$). When light propagates along the taper structure, the \gls{tm} fundamental mode launched at the narrow end ($W_0$) is converted to the first higher-order \gls{te} mode at the wide end ($w_3$) because of the mode coupling between them. Another narrow optical waveguide ($W_4$) is then place close to the wide waveguide ($W_3$) and an asymmetrical directional coupler is formed. By using this asymmetrical directional coupler, the first higher-order \gls{te} mode in the wide waveguide is then coupled to the \gls{te} fundamental mode of the adjacent narrow waveguide. In this way, the input \gls{tm} fundamental mode at the input waveguide is finally converted into the \gls{te} fundamental mode at the cross port of asymmetrical directional coupler. On the other hand, the input \gls{te} polarization keeps the same polarization state when it goes through the adiabatic taper structure. In the region of the asymmetrical directional coupler, the \gls{te} fundamental mode in the wide waveguide could not be coupled to the adjacent narrow waveguide because of the phase mismatching. In this way, \gls{te}- and \gls{tm}- polarized light are separated while the \gls{tm} fundamental mode is also converted into TE fundamental mode \cite{dai_novel_2011}.\par	
 
 	Various other designs for mode coupling have also been proposed \cite{wang_design_2014,ding_Integrated_2013}, which work on the same principle.
@@ -394,7 +394,7 @@ The mode evolution based \gls{pr} includes a pair of waveguide core layers. The 
 
 \begin{itemize}[leftmargin=*]
 	%\item[$\square$] \begin{minipage}[t]{\textwidth}
-	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design: Mode evolution \gls{pr} based on single taper}
+	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design A: Mode evolution \gls{pr} based on single taper}
 	\begin{figure}[H] %h
 		\begin{subfigure}[t]{0.45\textwidth}
 			\includegraphics[width=\textwidth]{2-me-2-1}
@@ -409,11 +409,11 @@ The mode evolution based \gls{pr} includes a pair of waveguide core layers. The 
 		\end{subfigure}
 		\caption{\gls{pr} using mode evolution, by Zhang \textit{et al.} \cite{zhang_selected_2010}}
 	\end{figure}
-	\end{minipage}
+	\end{minipage}\\\\
 	\noindent The \gls{pr} (Fig. \ref{fig:2_me_2_1}) consists of the  variable cross section for polarization rotation. The transition region of the rotator was divided into N sections. Each section was considered as a uniform asymmetrical waveguide like the rotator in \cite{wang_ultrasmall_2008}. The length of each section was its half-beat length. The half-beat length of the $n^{th}$ section is $L_{\pi }^{n}=\left( \pi  / \left( \beta _{1}^{n} - \beta _{2}^{n}\right) \right)$ , where $\beta ^{n}=\left( 2\pi / \lambda \right) n_{eff}^{n}$ and $\beta _{1}^{n}$ and $\beta _{2}^{n}$ are the propagation constants of the two fundamental modes in the $n^{th}$ section. After propagating in the $n^{th}$ section, the polarization will rotate $2\Delta \varphi _{n}$ toward the optical axis, where $\varphi _{n}$ is the angle between the optical axis and the polarization of the incident light. The overall rotator should satisfy $\sum _{n}2\Delta \varphi _{n}=90^{0}$, to achieve a rotation of $90^{0}$ in the cascaded sections. Fig. \ref{fig:2_me_2_2} shows the rotation procedure \cite{zhang_selected_2010}.
 	%\end{minipage}
 			
-	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design: Mode evolution \gls{pr} composed of an asymmetric-rib waveguide and a tapered waveguide}
+	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design B: Mode evolution \gls{pr} composed of an asymmetric-rib waveguide and a tapered waveguide}
 	\begin{figure}[H] %h
 		\begin{subfigure}[t]{0.45\textwidth}
 			\includegraphics[width=\textwidth]{2-me-1-1}
@@ -428,7 +428,7 @@ The mode evolution based \gls{pr} includes a pair of waveguide core layers. The 
 		\end{subfigure}
 		\caption{\gls{pr} using mode evolution, by Goi \textit{et al.} \cite{kazuhiro_integrated_2015}}
 	\end{figure}
-	\end{minipage}
+	\end{minipage}\\\\
 	\noindent The \gls{pr} (Fig. \ref{fig:2_me_1_1}) consists of the polarization rotation sections(A and B) with an asymmetric rib waveguide and the mode size conversion section(C) with a nano-tapered waveguide. This design provides both vertical and horizontal asymmetry. \par
 	 
 	Apart from these, other designs for mode evolution have also been proposed \cite{chen_compact_2011,zhang_efficient_2012,justin_conference_2012}, which has the same basic principle.
@@ -440,7 +440,7 @@ The mode evolution based \gls{pr} includes a pair of waveguide core layers. The 
 Mode hybridization works by breaking the symmetry of the silicon waveguide cross section. The propagation modes are hybridized due to introduced asymmetry, allowing optical power to be transferred periodically between the two desired polarization states. The rotation is essentially enabled through interference of the two hybridized modes. 
 \begin{itemize}[leftmargin=*]
 	
-	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design: Asymmetric silicon nanowire waveguide as compact \gls{pr}}
+	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design A: Asymmetric silicon nanowire waveguide as compact \gls{pr}}
 	\begin{figure}[H] %h
 		\begin{subfigure}[t]{0.45\textwidth}
 			\includegraphics[width=\textwidth]{2-mh-1-1}
@@ -455,10 +455,10 @@ Mode hybridization works by breaking the symmetry of the silicon waveguide cross
 		\end{subfigure}
 		\caption{\gls{pr} using mode hybridization, by Leung \textit{et al.} \cite{leung_numerical_2011}}
 	\end{figure}
-	\end{minipage}
-	Fig. \ref{fig:2_mh_1_1} depicts the single-stage polarization rotator, which consists of two Si strip waveguides with straight sidewalls, where both are butt coupled to an Si asymmetric strip polarization rotator waveguide in the middle. In the design of a polarization rotator, an asymmetric section which supports the highly hybrid modes is sandwiched between two standard Si waveguides where the hybridness is small. When a quasi-\gls{te} (or quasi-\gls{tm}) mode from a standard Si waveguide with its polarization angle at nearly zero degrees (or indeed $90^{\circ}$) is launched into the asymmetric section (which supports highly hybrid modes with polarization direction $\pm 45^{\circ }$), then both of them are excited almost equally to satisfy the continuity of the $E_t$ and $H_t$ fields at that interface. These two highly hybrid modes travel along the asymmetric sections. The half-beat length is a key parameter used in order to identify the optimum length of this asymmetrical section to achieve the maximum polarization rotation. The half-beat length is defined as $L_{\pi }=\dfrac {\pi } {\Delta \beta }$, where $\Delta \beta$ is the difference between the propagation constants of the $H_{11}^x$ and the $H_{11}^y$ modes. After propagating a distance $L = L_{\pi}$, the original phase condition between the highly polarized modes would be reversed, and the polarization state of the superimposed modes would be rotated by $90^{\circ}$. If a standard Si waveguide (with smaller modal hybridness) is placed at this position, this quasi-\gls{tm} (or quasi-\gls{te}) mode would propagate without any further polarization rotation \cite{leung_numerical_2011}.
+	\end{minipage}\\\\
+	Fig. \ref{fig:2_mh_1_1} depicts the single-stage polarization rotator, which consists of two Si strip waveguides with straight sidewalls, where both are butt coupled to an Si asymmetric strip polarization rotator waveguide in the middle. In the design of a polarization rotator, an asymmetric section which supports the highly hybrid modes is sandwiched between two standard Si waveguides where the hybridness is small. When a quasi-\gls{te} (or quasi-\gls{tm}) mode from a standard Si waveguide with its polarization angle at nearly zero degrees (or indeed $90^{\circ}$) is launched into the asymmetric section (which supports highly hybrid modes with polarization direction $\pm 45^{\circ }$), then both of them are excited almost equally to satisfy the continuity of the $E_t$ and $H_t$ fields at that interface. These two highly hybrid modes travel along the asymmetric sections. The half-beat length is a key parameter used in order to identify the optimum length of this asymmetrical section to achieve the maximum polarization rotation. The half-beat length is defined as $L_{\pi }= \pi / \Delta \beta$, where $\Delta \beta$ is the difference between the propagation constants of the $H_{11}^x$ and the $H_{11}^y$ modes. After propagating a distance $L = L_{\pi}$, the original phase condition between the highly polarized modes would be reversed, and the polarization state of the superimposed modes would be rotated by $90^{\circ}$. If a standard Si waveguide (with smaller modal hybridness) is placed at this position, this quasi-\gls{tm} (or quasi-\gls{te}) mode would propagate without any further polarization rotation \cite{leung_numerical_2011}.
 	
-	\item[$\square$] \textbf{Design: Efficient silicon \gls{pr} based on mode-hybridization in a double-stair waveguide}\\
+	\item[$\square$] \textbf{Design B: Efficient silicon \gls{pr} based on mode-hybridization in a double-stair waveguide}\\
 	The \gls{pr} \cite{xie_efficient_2015}, based on a double-stair silicon waveguide fabricated with three etch steps as described in Fig.\ref{fig:2_mh_2_1} is better compared to the two-etch-step structure with single-stair cross section \cite{aamer_cmos_2012} because of higher \gls{per} and a broader optical bandwidth. 
 	\begin{figure}[H] %h
 		\begin{subfigure}[t]{0.45\textwidth}
@@ -503,7 +503,7 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 			\end{subfigure}
 			\caption{\gls{pr} control using three \gls{pr} and three \gls{tpps}, by Merenguel \textit{et al.} \cite{sarmiento-merenguel_demonstration_2015}}
 		\end{figure}
-		\end{minipage}
+		\end{minipage}\\\\
 		\noindent In the passive \gls{pr}s, the individual \gls{pr} had to produce an exact polarization conversion. This was overcome by the design of the \gls{pr} in Fig. \ref{fig:2_ar_1_1}. The \gls{pr} (Fig. \ref{fig:2_ar_1_1}) consists of three \gls{pr}s and three \gls{tpps} which control the \gls{sop}. The operation of the device is illustrated in Fig. \ref{fig:2_ar_1_2} using the Poincaré. First, a certain \gls{pr} will be performed in the first \gls{pr} (point B). Following the first PR there are two pairs of \gls{tpps}–\gls{pr}. Each \gls{tpps} will tune the polarization phase in order to feed the \gls{pr}s with the suitable polarization phase so that, at the output of the third \gls{pr} (point F), the desired \gls{per} is achieved. The last \gls{tpps} then produces the appropriate polarization phase shift so that the desired \gls{sop} is obtained at the output (point G).
 		
 		\item[$\square$] \textbf{Drawbacks of polarization controller with thermo-optic effect:}
@@ -537,8 +537,8 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 				\end{subfigure}
 				\caption{\gls{pr} control using three \gls{pr} and three \gls{tpps}, by Xu \textit{et al.} \cite{xu_electrically_2014}}
 			\end{figure}
-		\end{minipage}
-		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {x}+p_{y}\widehat {y}+p_{z}\widehat {z} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3}. Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. Therefore, the effect is intrinsically broadband. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
+		\end{minipage}\\\\
+		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {x}+p_{y}\widehat {y}+p_{z}\widehat {k} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3}. Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. Therefore, the effect is intrinsically broadband. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
 		
 		\item[$\square$] \textbf{Drawbacks of polarization controller with Berry's phase:}
 		This device uses out-of-plane ring cavity which uses the principles of ring resonator. The ring resonator is limited by its narrow band spectral features which limits bandwidth.	
