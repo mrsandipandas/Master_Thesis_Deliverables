@@ -54,9 +54,9 @@ using the curl of curl identity operation given by:
 \end{equation}
 A general solution to the equation \ref{eq:wave_eq} in free space, in absence of charge gives the following solution:
 \begin{equation}\label{eq:wave_sol_electric}
-\overrightarrow{E}(z,t)=E_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
+\overrightarrow{E}(z,t)=E_{0}(x,y)e^{i\left(\omega t \pm k_{0}z\right)}
 \end{equation}
-where $z$ is direction of propagation of wave in Cartesian coordinates, phase, $\phi$ = $k_{0}z\pm \omega t$ and wave vector propagation constant, $k_0$ = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. Propagation constant in medium varies according to $n_{eff}$, the effective \gls{ri} of the medium and is given by: 
+where $z$ is direction of propagation of wave in Cartesian coordinates, phase, $\phi$ = $\omega t \pm k_{0}z$ and wave vector propagation constant, $k_0$ = $\dfrac {\partial \phi } {\partial t}$ = $\dfrac {2\pi } {\lambda }$, in the direction of propagation of the wave. Propagation constant in medium varies according to $n_{eff}$, the effective \gls{ri} of the medium and is given by: 
 \begin{equation}\label{eq:propagation_const_med_val}
 k = n_{eff}k_0
 \end{equation}
@@ -66,7 +66,7 @@ n_{eff} = \sqrt {\varepsilon _{m}\mu _{m}}
 \end{equation}
 Similar calculations for the magnetic field, $H$ in free space yields, 		
 \begin{equation}\label{eq:wave_sol_magnetic}
-\overrightarrow{H}(z,t)=H_{0}(x,y)e^{i\left(k_{0}z\pm \omega t\right)}
+\overrightarrow{H}(z,t)=H_{0}(x,y)e^{i\left(\omega t \pm k_{0}z\right)}
 \end{equation}
 
 \noindent In the Fig. \ref{fig:2_em_wave} the electric field and magnetic field propagate in directions perpendicular to each other. Moreover, the direction of propagation is also transverse to the \gls{em} field. Hence it is called \gls{tem} wave.
@@ -90,8 +90,8 @@ For planar waveguides the wave equation for electric field \ref{eq:wave_sol_elec
 \begin{equation}\label{eq:wave_sol_planar_wg}
 \begin{aligned}
 \begin{cases}
-\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}\\
-\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(k_{0}z\pm \omega t\right)}
+\overrightarrow{E}(z,t)=E_{x}(y)e^{i\left(\omega t \pm k_{0}z\right)}\\
+\overrightarrow{H}(z,t)=H_{x}(y)e^{i\left(\omega t \pm k_{0}z\right)}
 \end{cases}
 \end{aligned}
 \end{equation}	
@@ -147,24 +147,60 @@ The main requirements of the waveguide to cater the propagation of waves is that
 \end{itemize}
 		
 		\subsection{Snell's law and total internal reflection}
-		\todo{Write this section..}
+If light ray propagating in a medium with \gls{ri} $n_1$, impinges on the interface between two media, at an angle $\theta_1$, as shown in Figure \ref{fig:2_snells_law}, the ray is partially transmitted ($E_t$) and partially reflected ($E_r$). The relationship between the \gls{ri}s $n_1$ and $n_2$, and the angles of incidence ($\theta_1$) and refraction ($\theta_2$), is given by Snell's law:
+\begin{equation}\label{eq:snells_law}
+n_1 \sin \theta_1 = n_2 \sin \theta_2
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-snells-law}
+	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
+	\label{fig:2_snells_law}
+\end{figure}
+For some angle $\theta_1$, the corresponding angle $\theta_2$ will reach $90^{\circ}$, and hence Snell’s law simplifies to:
+\begin{equation}\label{eq:critical angle}
+\begin{aligned}
+\begin{cases}
+n_1 \sin \theta_c = n_2\\
+\sin \theta_c = \dfrac{n_2}{n_1}
+\end{cases}
+\end{aligned}
+\end{equation}
+where, $\theta_c$ is defined as the critical angle. For angles of incidence greater than this critical angle, no light is transmitted and total internal reflection occurs. These properties are important to consider for finding the acceptance angle at which light can be inserted into a waveguide. By enhancing the ray model, a significant understanding of the wave model can be postulated.
 		
 		\subsection{Eigenvalue and wave modes}
-In general, the electric field in the wave equation in \ref{eq:wave_sol_electric} can be written in its constituent parts in Cartesian coordinates as:
-\begin{equation}\label{eq:e_field_cart_cord}
-\overrightarrow{E}=E_{x}\widehat{i}+E_{y}\widehat{j}+E_{z}\widehat{k}
+In general, the electric field and magnetic field in the wave equation in \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic} can be written in its constituent parts in Cartesian coordinates as:
+\begin{equation}\label{eq:em_field_cart_cord}
+\begin{aligned}
+\begin{cases}
+\overrightarrow{E}=E_{x}\widehat{x}+E_{y}\widehat{y}+E_{z}\widehat{z}\\
+\overrightarrow{H}=H_{x}\widehat{x}+H_{y}\widehat{y}+H_{z}\widehat{z}
+\end{cases}
+\end{aligned}
 \end{equation}
-\todo{may be add equations in 5.2 in microphotonica}
-If the wave propagates towards z-direction through any waveguide medium and is a \gls{tem} wave front then we will have a constant electric field vector in the z-direction. In this case there will be different solutions for the propagation constant, $k$ in x and y directions. Now for each solution we can also get certain discrete angles at which the electric field can travel through the medium, which infers that light can propagate only at certain discrete angles through any dielectric medium. Each allowed solution is referred to as the \textit{mode of propagation} and are basically the different eigenvalues of the propagation vector. \par
+The generalized vectorial component of the electric and magnetic field of equation \ref{eq:homogeneous_wave_sol_planar_wg} can be combined into the Helmholtz equation as follows:
+\begin{equation}\label{eq:helmholtz_eq_rib_wg}
+	\begin{aligned}
+		\nabla ^{2}\Psi \left( x,y,z\right) +k_{0}^{2}n^{2}\left(x,y\right) \Psi \left( x,y,z\right) = 0
+	\end{aligned}
+\end{equation}
+where, $\Psi \left( x,y,z\right) = \psi \left( x,y\right)e^{-jkz} $ and then the equation \ref{eq:helmholtz_eq_rib_wg} can be rewritten as,
+\begin{equation}\label{eq:helmholtz_eq_wg_general}
+\begin{aligned}
+\nabla_{xy} ^{2}\psi \left( x,y\right) +\left(k_{0}^{2}n^{2}\left(x,y\right) - k^2\right)\psi \left( x,y\right) = 0
+\end{aligned}
+\end{equation}
 
-The eigenvalues provide the different acceptance angles at which light can be inserted into the waveguide, resulting in different modes in the waveguide. Depending on the dimensions of the waveguide, various modes can be found which are the different eigenvalues of the wave solution \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic}. For example, when light travels through optical fibers different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
+\noindent The equation \ref{eq:helmholtz_eq_wg_general} can be solved for $\psi \left( x,y\right)$, using different numerical methods like \gls{fem}, \gls{bpm}, \gls{fdtd}. The numerical methods first decompose the waveguide into sufficient number small cells (more cells give more robust solution at the cost of increased computing) and then discretization of the refractive index profile is performed. Next the field equations are discretized by replacing the derivatives by their finite difference representations in those cells. In this way a set of linear equations are obtained which can be solved using standard algebraic methods.\par
+
+For given $\omega$, the resulting mode problem is an eigenproblem, solved for eigenvectors, i.e., mode profiles $\psi(x, y)$, and eigenvalues, from which the corresponding propagation constants $k$ of the modes are computed. The geometry of the waveguide is given by the transverse dependence of $\epsilon$, with effective \gls{ri} profile, and by appropriately chosen boundary conditions. Each allowed solution is referred to as the \textit{mode of propagation}. For example, when light travels through a rectangular waveguide different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-rect-te-modes}
 	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
 	\label{fig:2_rect_te_modes}
 \end{figure}
-		\todo{May be update the picture using CST simulation}
+		\todo{I will update the picture using CST simulation}
 		
 		\subsection{Optical polarization and transverse modes}
 In optical waveguide, the transmission distance is limited by several types of dispersion, or spreading of optical pulses as they travel along the waveguide. Dispersion in waveguide is caused by a variety of factors. Intermodal dispersion, caused by the different axial speeds of different transverse modes, limits the performance of multi-mode waveguide. Because single-mode waveguide supports only one transverse mode, intermodal dispersion is eliminated. In single-mode performance is primarily limited by chromatic dispersion (also called group velocity dispersion), which occurs because the \gls{ri} of silicon varies slightly depending on the wavelength of the light, and light from real optical transmitters necessarily has nonzero spectral width (due to modulation). \gls{pmd}, another source of limitation, occurs because although the single-mode waveguide can sustain only one transverse mode, it can carry this mode with two different polarizations, and slight imperfections or distortions in a waveguide can alter the propagation velocities for the two polarizations. This phenomenon is called birefringence and can be counteracted by polarization-rotator. \gls{pmd} limits the bandwidth of the waveguide because the spreading optical pulse limits the rate that pulses can follow one another on the waveguide and still be distinguishable at the receiver.\par
@@ -174,7 +210,7 @@ Polarization is the direction of the electric field associated with the propagat
 			\subsubsection{TE mode}
 \gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
 			\subsubsection{TM mode}
-\gls{tm} mode is the fundamental mode in which there is no magnetic field int he direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
+\gls{tm} mode is the fundamental mode in which there is no magnetic field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
 
 \begin{figure}[H]
 	\centering
@@ -182,7 +218,7 @@ Polarization is the direction of the electric field associated with the propagat
 	\caption{\gls{te} and \gls{tm} modes in a waveguide}
 	\label{fig:2_te_tm_mode}
 \end{figure}
-\todo{Include diagram from my own simulations}	
+\todo{I will include diagram from my own simulations}	
 			
 		\subsection{Confinement factor}
 Often it is necessary to know the confined power inside the core of the waveguide which helps in figuring out the waveguide mode. The confinement is also a measure of the proportion of the power in a given mode that lies within the core \cite{reed_silicon_2008}.  
@@ -197,7 +233,7 @@ Polarized light can be represented using Jones calculus. Polarized light is repr
 			\subsubsection{Jones vector}
 The Jones vector describes the polarization of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
 \begin{equation}\label{eq:jones_vector}
-E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( kz-\omega t+\phi _{x}\right)} \\ E_{y}e^{i\left( kz-wt+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( kz-\omega t\right)} 
+E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( \omega t - kz+\phi _{x}\right)} \\ E_{y}e^{i\left( \omega t - kz+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( \omega t - kz\right)} 
 \end{equation}
 where $\phi_x$ and $\phi_y$ indicate the phasor notation. The Jones vector of the plane wave is described by:
 \begin{equation}\label{eq:jones_vector_form}
@@ -337,14 +373,15 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 \end{figure}
 
 
-	\subsection{Coupling mode theory}
+	\subsection{Coupling mode theory}\label{concept:mode_coupling}
 	\todo{Include the mathematical expressions from ch 5(Microphotonica) on couplers}
-	
-	\subsection{Ring resonator}
+	(Need discussion)
+	\subsection{Ring resonator}\label{concept:ring_resonator}
 	\todo{Write it because used in Berry's phase}
+	(Need discussion)
 	
 	\section{Tuning optical waveguide}
-	
+	\todo{Should this section be written in context of polarization tuning? Should it go after PR?}
 		\subsection{Thermal mechanism}
 	
 		\subsection{Liquid crystals}
@@ -367,7 +404,7 @@ The currently available \gls{oeic} \gls{pr}s can be classified under two categor
 		\subsubsection{Passive PR}
 The fields in \gls{te} and \gls{tm} mode do not couple with each other and are of different symmetry. Thus asymmetric structure in both horizontal and vertical directions are required to break the symmetry which are accomplished using different principles viz. mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014}, mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012}, described in the following sections.
 			
-			\paragraph*{Mode coupling:} Mode coupling \gls{pr} includes a pair of waveguide core layers running parallel to each other, with a small coupling region. When two modes with orthogonal polarizations have equal effective \gls{ri}s, strong mode coupling occurs in the waveguide, and with proper taper orientation and design, length of coupling region, one mode can be effectively converted to the other.
+			\paragraph*{Mode coupling:} Mode coupling \gls{pr} includes a pair of waveguide core layers running parallel to each other, with a small coupling region. When two modes with orthogonal polarizations have equal effective \gls{ri}s, strong mode coupling occurs in the waveguide, and with proper taper orientation and design, length of coupling region, one mode can be effectively converted to the other. This is based on the theory described in \ref{concept:mode_coupling}.
 \begin{itemize}[leftmargin=*]
 	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design: Ultra-compact polarization splitter-rotator based on silicon nanowires}
 	\begin{figure}[H] %h
@@ -509,7 +546,7 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 		\noindent In the passive \gls{pr}s, the individual \gls{pr} had to produce an exact polarization conversion. This was overcome by the design of the \gls{pr} in Fig. \ref{fig:2_ar_1_1}. The \gls{pr} (Fig. \ref{fig:2_ar_1_1}) consists of three \gls{pr}s and three \gls{tpps} which control the \gls{sop}. The operation of the device is illustrated in Fig. \ref{fig:2_ar_1_2} using the Poincaré sphere \ref{concept:poincare_sphare}. First, a certain \gls{pr} will be performed in the first \gls{pr} (point B). Following the first PR there are two pairs of \gls{tpps}–\gls{pr}. Each \gls{tpps} will tune the polarization phase in order to feed the \gls{pr}s with the suitable polarization phase so that, at the output of the third \gls{pr} (point F), the desired \gls{per} is achieved. The last \gls{tpps} then produces the appropriate polarization phase shift so that the desired \gls{sop} is obtained at the output (point G).
 		
 		\item[$\square$] \textbf{Drawbacks of polarization controller with thermo-optic effect:}
-		Although, the design offers good trade-off between performance and size but still it is limited that by the fact that thermal effect can induce phase in other waveguides. This may occur when this system is used in commercial designs with high packing density.
+		Although, the design offers good trade-off between performance and size but still it is limited that by the fact that thermal effect can induce phase in other waveguides due to cross-talk. This may occur when this system is used in commercial designs with high packing density.
 		
 		\paragraph*{Tunable polarization controller using Berry's phase:}Berry’s phase is a quantum-mechanical phenomenon that may be observed at the macroscopic optical level through the use of an enormous number of photons in a single coherent state \cite{chiao_manifestations_1986}. In the special case of planar (non-helical) paths, such as the paths typically taken by planar optical waveguides, no significant optical rotation is observed independent of the complexity of the path \cite{tomita_observation_1986}. The key to manifest Berry’s phase in photonic integrated circuits is to introduce out-of-plane three-dimensional waveguides to create a two-dimensional momentum space with non-zero (Gaussian) curvature.
 		%\subsubsection{Comparative analysis of available PR}
@@ -540,10 +577,10 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 				\caption{\gls{pr} control using three \gls{pr} and three \gls{tpps}, by Xu \textit{et al.} \cite{xu_electrically_2014}}
 			\end{figure}
 		\end{minipage}\\\\
-		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {i}+p_{y}\widehat {j}+p_{z}\widehat {k} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3} using Poincaré sphere \ref{concept:poincare_sphare}. Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. Therefore, the effect is intrinsically broadband. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
+		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {x}+p_{y}\widehat {y}+p_{z}\widehat {z} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3} using Poincaré sphere (\ref{concept:poincare_sphare}). Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. Therefore, the effect is intrinsically broadband. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
 		
 		\item[$\square$] \textbf{Drawbacks of polarization controller with Berry's phase:}
-		This device uses out-of-plane ring cavity which uses the principles of ring resonator. The ring resonator is limited by its narrow band spectral features which limits bandwidth.	
+		This device uses out-of-plane ring cavity which uses the principles of ring resonator \ref{concept:ring_resonator}. The ring resonator is limited by its narrow band spectral features which limits bandwidth.	
 	\end{itemize}
 	
 	%\subsubsection{Comparative analysis of available PR}
