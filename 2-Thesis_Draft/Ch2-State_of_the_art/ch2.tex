@@ -104,7 +104,7 @@ since in X-direction the film is infinite. After using the homogeneous wave equa
 \end{cases}
 \end{aligned}
 \end{equation}
-where \gls{ri} depends only on a single Cartesian coordinate $n_{eff} = n(y)$. These equations can be solved using the various boundary conditions of the waveguides which help in deducing the nature of propagation of the wave in \gls{te} and \gls{tm} mode. Different kinds of numerical methods like \gls{fem}, \gls{fdtd}, \gls{bpm} have been developed to decipher the nature of light propagation in waveguides.
+where \gls{ri} depends only on a single Cartesian coordinate $n_{eff} = n(y)$. These equations can be solved using the various boundary conditions of the waveguides which help in deducing the nature of propagation of the wave in \gls{te} and \gls{tm} mode. Different kinds of numerical methods like \gls{fem}, \gls{fit}, \gls{fdtd}, \gls{bpm} have been developed to decipher the nature of light propagation in waveguides.
 		\subsubsection{Channel waveguides}			
 As mentioned earlier channel waveguides provide confinement in 2-D which helps in depicting more practical waveguides. The three main types of channel waveguides are rib, strip and buried waveguides. As depicted in \ref{fig:2_rib_wg}, \ref{fig:2_strip_wg}, \ref{fig:2_buried_wg} the different conceptual structures of the waveguides can be envisaged. While the rib and strip waveguides are designed using etching technique, the buried waveguide mostly relies on diffusion and epitaxial growth technique for its fabrication.
 \begin{figure}[H] %h
@@ -154,7 +154,7 @@ n_1 \sin \theta_1 = n_2 \sin \theta_2
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-snells-law}
-	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
+	\caption{Light rays refracted and reflected at the interface of two media}
 	\label{fig:2_snells_law}
 \end{figure}
 For some angle $\theta_1$, the corresponding angle $\theta_2$ will reach $90^{\circ}$, and hence Snell’s law simplifies to:
@@ -191,7 +191,7 @@ where, $\Psi \left( x,y,z\right) = \psi \left( x,y\right)e^{-jkz} $ and then the
 \end{aligned}
 \end{equation}
 
-\noindent The equation \ref{eq:helmholtz_eq_wg_general} can be solved for $\psi \left( x,y\right)$, using different numerical methods like \gls{fem}, \gls{bpm}, \gls{fdtd}. The numerical methods first decompose the waveguide into sufficient number small cells (more cells give more robust solution at the cost of increased computing) and then discretization of the refractive index profile is performed. Next the field equations are discretized by replacing the derivatives by their finite difference representations in those cells. In this way a set of linear equations are obtained which can be solved using standard algebraic methods.\par
+\noindent The equation \ref{eq:helmholtz_eq_wg_general} can be solved for $\psi \left( x,y\right)$, using different numerical analysis methods like \gls{fem}, \gls{fit}, \gls{bpm}, \gls{fdtd}. For optical applications, the main used methods are \gls{fem} (Frequency domain solver), \gls{fit} (Time domain solver). The numerical methods first decompose the waveguide into sufficient number small cells (more cells give more robust solution at the cost of increased computing) and then discretization of the refractive index profile is performed. Next the field equations are discretized by replacing the derivatives by their finite difference representations in those cells. In this way a set of linear equations are obtained which can be solved using standard algebraic methods. In general, \gls{fit} has a much lower memory footprint.\par
 
 For given $\omega$, the resulting mode problem is an eigenproblem, solved for eigenvectors, i.e., mode profiles $\psi(x, y)$, and eigenvalues, from which the corresponding propagation constants $k$ of the modes are computed. The geometry of the waveguide is given by the transverse dependence of $\epsilon$, with effective \gls{ri} profile, and by appropriately chosen boundary conditions. Each allowed solution is referred to as the \textit{mode of propagation}. For example, when light travels through a rectangular waveguide different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
 \begin{figure}[H]
@@ -380,7 +380,7 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 	\todo{Write it because used in Berry's phase}
 	(Need discussion)
 	
-	\section{Tuning optical waveguide}
+	\section{Polarization tuning in optical waveguide}
 	\todo{Should this section be written in context of polarization tuning? Should it go after PR?}
 		\subsection{Thermal mechanism}
 	
