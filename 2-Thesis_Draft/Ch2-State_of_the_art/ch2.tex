@@ -415,12 +415,23 @@ where, $\kappa_{ij}$, $\forall \left( i,j\right) \in \left[ 1,2\right] $  are th
 \kappa_{11} & \kappa_{12} \\ 
 \kappa_{21} & \kappa_{22}
 \end{matrix} \right) 
-\end{equation} 	
+\end{equation} 
+where,
+\begin{equation}\label{eq:coupled_mode_coupling_coeff}
+\begin{aligned}
+\begin{cases}
+\kappa_{11} = \dfrac{1}{2}k_0^2\int\int(n_{12}^2-n_{1}^2)\psi_1^2dxdy \\[10pt]
+\kappa_{12} = \dfrac{1}{2}k_0^2\int\int(n_{12}^2-n_{1}^2)\psi_1\psi_2 dxdy \\[10pt]
+\kappa_{21} = \dfrac{1}{2}k_0^2\int\int(n_{12}^2-n_{2}^2)\psi_1\psi_2 dxdy \\[10pt]
+\kappa_{22} = \dfrac{1}{2}k_0^2\int\int(n_{12}^2-n_{2}^2)\psi_2^2 dxdy
+\end{cases}
+\end{aligned}
+\end{equation}	
 Here, $\kappa_{11}$ and $\kappa_{22}$ are the reflection coefficients and $\kappa_{12}$ and $\kappa_{21}$ are the coupling coefficients. Normally, it is assumed that the modes are normalized, and propagate in a lossless system with symmetric coupling coefficients. Hence,
 \begin{equation}\label{eq:symmetric_coupling_coeff}
 \kappa_{12} = \kappa_{21} 
 \end{equation}
-Coupling coefficients and phase mismatch are important factors for power exchange between different modes. In \ref{fig:2_mc_theory_1} both the waveguides are excited where as in \ref{fig:2_mc_theory_2} only waveguide $B$ is excited.
+Coupling coefficients and phase mismatch are important factors for power exchange between different modes. In \ref{fig:2_mc_theory_1} both the waveguides are excited where as in \ref{fig:2_mc_theory_2} only waveguide $B$ is excited.\todo{Change this pic with some other diagram or simulations..}
 \begin{figure}[H]
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{2-mc-theory-1}
@@ -435,8 +446,8 @@ Coupling coefficients and phase mismatch are important factors for power exchang
 	\end{subfigure}
 	\caption{Description of the directional coupler under coupled-mode and normal-mode}
 \end{figure}
-\todo{Change this pic with some other diagram or simulations..}
-In \ref{fig:2_mc_theory_2} for no phase mismatch complete power exchange occurs. This is why phase matching is an important criteria for mode coupling. The coupling length $L_c = \pi / 2\kappa$. 
+
+\noindent In \ref{fig:2_mc_theory_2} for no phase mismatch complete power exchange occurs. This is why phase matching is an important criteria for mode coupling. The coupling length, $L_c = \pi / 2\kappa$. 
 
 \par 
 Coupling mode theory has been successfully applied to the modeling and analysis of various guided-wave optoelectronic devices, such as optical directional couplers made of thin film and channel waveguides, multiple waveguide lenses, phase-locked laser arrays, distributed feedback lasers and distributed Bragg reflectors, grating waveguides and couplers, nonparallel and tapered waveguide structures, Y-branch waveguides, \gls{te}/\gls{tm} polarization converters, mode conversion and radiation loss in slab waveguides, residual coupling among scalar modes. It has also been used to study the wave coupling phenomena in nonlinear media such as harmonic generation in bulk and guided-wave devices, and nonlinear coherent couplers \cite{haus_coupled_1991}.
