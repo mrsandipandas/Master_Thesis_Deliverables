@@ -231,7 +231,7 @@ Confinement factor is an important measure which is function of various factors 
 Polarized light can be represented using Jones calculus. Polarized light is represented using \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is already fully polarized \cite{burch_introduction_1975}.
 		
 			\subsubsection{Jones vector}
-The Jones vector describes the polarization of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
+The Jones vector describes the \gls{sop} of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
 \begin{equation}\label{eq:jones_vector}
 E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( \omega t - kz+\phi _{x}\right)} \\ E_{y}e^{i\left( \omega t - kz+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( \omega t - kz\right)} 
 \end{equation}
@@ -319,9 +319,11 @@ To view a complete representation of all the polarization ellipses generated usi
 \noindent The \gls{sop} of any wave is also defined using \gls{per} and polarization phase, $\phi$ given by the following equations:
 \begin{equation}\label{eq:wave_sop}
 \begin{aligned}
+\begin{cases}
 PER_{TE-TM} = 10\log \dfrac {P_{TM}} {P_{TE}}\\
 PER_{TM-TE} = 10\log \dfrac {P_{TE}} {P_{TM}}\\
 \phi =\phi _{x}-\phi _{y}
+\end{cases}
 \end{aligned}
 \end{equation}
 For complete polarized light, the point on the Poincaré sphere must be fixed on time which requires,
@@ -367,23 +369,84 @@ p = \dfrac {\sqrt {S_{1}^{2}+S_{2}^{2}+S_{3}^{2}}} {S_{0}} \\
 The prescribed notations are portrayed on the Poincaré sphere in the following Fig. \ref{fig:2_stoke_param_poincare_sphere}.    
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{2-stoke-param-poincare-sphere}
+	\includegraphics[width=0.50\textwidth]{2-stoke-param-poincare-sphere}
 	\caption{Poincaré sphere, on or beneath which the three Stokes parameters [S1, S2, S3] are plotted in Cartesian coordinates \cite{stoke_poincare_parameter}}
 	\label{fig:2_stoke_param_poincare_sphere}
 \end{figure}
 
-
 	\subsection{Coupling mode theory}\label{concept:mode_coupling}
-	\todo{Include the mathematical expressions from ch 5(Microphotonica) on couplers}
-	(Need discussion)
-	\subsection{Ring resonator}\label{concept:ring_resonator}
-	\todo{Write it because used in Berry's phase}
-	(Need discussion)
+In a waveguide, an ideal mode is an eigenvector of a propagation constant. Mode coupling enables transfer of energy from one ideal mode to another, during propagation. Mode coupling can be induced by introducing randomness in the waveguide. This can be achieved through random or intentional index perturbations, bends and stresses within a waveguide, or by introducing another independent waveguide structure in close proximity (coupled waveguides in close proximity are modeled as a single structure, forming supermodes). The pairwise coupling strength between two modes depends on a dimensionless ratio between the coupling coefficient (per unit length) and the difference between the two modal propagation constants. Hence, a given perturbation may strongly couple modes having nearly equal propagation constants, but weakly couple modes having highly unequal propagation constants. \gls{pmd} and \gls{pdl} have long been described by field coupling models, in which phase dependent coupling of modal fields is described by complex coefficients. Field coupling models describe not only a redistribution of energy among modes, but also how eigenvectors and their eigenvalues depend on the mode coupling coefficients \cite{kahn_mode_2012}.
+
+\paragraph*{Perturbation Analysis:}
+Supermodes can be represented as weighted sum of individual guided modes. If two modes are represented by $\psi_1(x,y)$ and $\psi_2(x,y)$ in the different waveguides along with the coupling between two modes as $X_i(z)$, then the supermode can be written using Helmholtz identity as, 
+\begin{equation}\label{eq:supermodes}
+	\Psi(x,y,z) = X_1(z)\psi_1(x,y) + X_2(z)\psi_2(x,y)
+\end{equation} 	
+The uncoupled modes, $\psi_1$ and $\psi_2$ satisfy the following propagation equations with propagation constants $k_1$ and $k_2$,
+\begin{equation}\label{eq:uncoupled_mode}
+\begin{aligned}
+\begin{cases}
+\dfrac {dX_{1}} {dz}=-jk_{1}X_{1} \\[10pt]
+\dfrac {dX_{2}} {dz}=-jk_{2}X_{2}
+\end{cases}
+\end{aligned}
+\end{equation}
+A known solution for \ref{eq:uncoupled_mode} is:
+\begin{equation}\label{eq:uncoupled_mode_sol}
+\begin{aligned}
+\begin{cases}
+X_{1} (z) = e ^ {-jk_{1}z} \\
+X_{2} (z) = e ^ {-jk_{2}z}
+\end{cases}
+\end{aligned}
+\end{equation}
+Coupled mode theory postulates that to describe a perturbed system the linear coupling terms need to be added as,
+\begin{equation}\label{eq:coupled_mode_sol}
+\begin{aligned}
+\begin{cases}
+\dfrac {dX_{1}} {dz} = -jk_{1}X_{1}(z) - j(\kappa_{11}X_1+\kappa_{12}X_2) \\[10pt]
+\dfrac {dX_{2}} {dz} = -jk_{2}X_{2}(z) - j(\kappa_{21}X_1+\kappa_{22}X_2)
+\end{cases}
+\end{aligned}
+\end{equation}
+where, $\kappa_{ij}$, $\forall \left( i,j\right) \in \left[ 1,2\right] $  are the linear coefficients which can be understood using the scattering matrix as,
+\begin{equation}\label{eq:scattering_matix_coupler}
+\left(\begin{matrix} 
+\kappa_{11} & \kappa_{12} \\ 
+\kappa_{21} & \kappa_{22}
+\end{matrix} \right) 
+\end{equation} 	
+Here, $\kappa_{11}$ and $\kappa_{22}$ are the reflection coefficients and $\kappa_{12}$ and $\kappa_{21}$ are the coupling coefficients. Normally, it is assumed that the modes are normalized, and propagate in a lossless system with symmetric coupling coefficients. Hence,
+\begin{equation}\label{eq:symmetric_coupling_coeff}
+\kappa_{12} = \kappa_{21} 
+\end{equation}
+Coupling coefficients and phase mismatch are important factors for power exchange between different modes. In \ref{fig:2_mc_theory_1} both the waveguides are excited where as in \ref{fig:2_mc_theory_2} only waveguide $B$ is excited.
+\begin{figure}[H]
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{2-mc-theory-1}
+		\caption{Individual and normal modes in two different waveguides}
+		\label{fig:2_mc_theory_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{2-mc-theory-2}
+		\caption{Power transfer from arm $A$ to arm $B$ by normal-mode coupling}
+		\label{fig:2_mc_theory_2}
+	\end{subfigure}
+	\caption{Description of the directional coupler under coupled-mode and normal-mode}
+\end{figure}
+\todo{Change this pic with some other diagram or simulations..}
+In \ref{fig:2_mc_theory_2} for no phase mismatch complete power exchange occurs. This is why phase matching is an important criteria for mode coupling. The coupling length $L_c = \pi / 2\kappa$. 
+
+\par 
+Coupling mode theory has been successfully applied to the modeling and analysis of various guided-wave optoelectronic devices, such as optical directional couplers made of thin film and channel waveguides, multiple waveguide lenses, phase-locked laser arrays, distributed feedback lasers and distributed Bragg reflectors, grating waveguides and couplers, nonparallel and tapered waveguide structures, Y-branch waveguides, \gls{te}/\gls{tm} polarization converters, mode conversion and radiation loss in slab waveguides, residual coupling among scalar modes. It has also been used to study the wave coupling phenomena in nonlinear media such as harmonic generation in bulk and guided-wave devices, and nonlinear coherent couplers \cite{haus_coupled_1991}.
 	
 	\section{Polarization tuning in optical waveguide}
 	\todo{Should this section be written in context of polarization tuning? Should it go after PR?}
-		\subsection{Thermal mechanism}
-	
+		\subsection{Thermo-optic mechanism}
+		Mach-Zehnder...?? \todo{Is it there?..check}
+		\subsection{Electro-optic mechanism}
+		Mach-Zehnder...? \todo{Is it there?..check}
 		\subsection{Liquid crystals}
 		
 		\subsection{Current injection}
@@ -402,9 +465,9 @@ For an overall robust network, \gls{pr}s are necessary in optical fiber and \gls
 The currently available \gls{oeic} \gls{pr}s can be classified under two categories as passive and active \gls{pr}. In the passive \gls{pr}s the waveguide structures are designed in a specific way to manipulate the effective \gls{ri} of the waveguide, in order to obtain the desired polarization. The \gls{ri} cannot be manipulated or tuned once fabricated. Whereas, in active \gls{pr}s, the effective \gls{ri} can be manipulated by thermo-optic or quantum effects.
 	
 		\subsubsection{Passive PR}
-The fields in \gls{te} and \gls{tm} mode do not couple with each other and are of different symmetry. Thus asymmetric structure in both horizontal and vertical directions are required to break the symmetry which are accomplished using different principles viz. mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014}, mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012}, described in the following sections.
+The fields in \gls{te} and \gls{tm} mode do not couple with each other and are of different symmetry. Thus asymmetric structure in both horizontal and vertical directions are required to break the symmetry which are accomplished using different principles viz. mode coupling \cite{dai_novel_2011,ding_Integrated_2013,wang_design_2014}, mode evolution \cite{zhang_selected_2010,chen_compact_2011,zhang_efficient_2012,justin_conference_2012,kazuhiro_integrated_2015} and mode hybridization \cite{fukuda_integrated_2008,leung_numerical_2011,vermeulen_Silicon_2012,velasco_ultracompact_2012}, described in the following sections. All these principles are based on the coupling mode theory described in \ref{concept:mode_coupling}.
 			
-			\paragraph*{Mode coupling:} Mode coupling \gls{pr} includes a pair of waveguide core layers running parallel to each other, with a small coupling region. When two modes with orthogonal polarizations have equal effective \gls{ri}s, strong mode coupling occurs in the waveguide, and with proper taper orientation and design, length of coupling region, one mode can be effectively converted to the other. This is based on the theory described in \ref{concept:mode_coupling}.
+			\paragraph*{Mode coupling:} Mode coupling \gls{pr} includes a pair of waveguide core layers running parallel to each other, with a small coupling region. When two modes with orthogonal polarizations have equal effective \gls{ri}s, strong mode coupling occurs in the waveguide, and with proper taper orientation and design, length of coupling region, one mode can be effectively converted to the other.
 \begin{itemize}[leftmargin=*]
 	\item[$\square$] \begin{minipage}[t]{\textwidth}\textbf{Design: Ultra-compact polarization splitter-rotator based on silicon nanowires}
 	\begin{figure}[H] %h
@@ -577,10 +640,10 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 				\caption{\gls{pr} control using three \gls{pr} and three \gls{tpps}, by Xu \textit{et al.} \cite{xu_electrically_2014}}
 			\end{figure}
 		\end{minipage}\\\\
-		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {x}+p_{y}\widehat {y}+p_{z}\widehat {z} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3} using Poincaré sphere (\ref{concept:poincare_sphare}). Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. Therefore, the effect is intrinsically broadband. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
+		\noindent Monochromatic light at wavelength $\lambda$ carries a momentum given by $p = p_{x}\widehat {x}+p_{y}\widehat {y}+p_{z}\widehat {z} = \hbar k$, where $k$ is the propagation vector, with magnitude $2\pi/\lambda$ and $\hbar$ is the Planck’s constant divided by $2\pi$. In physical space, the layout consists of three main portions. The first portion, shown in red in Fig. \ref{fig:2_ar_2_2}, consists of an ascending out-of-plane $180^{\circ}$ waveguide bend. The second portion, shown in green, consists of an out-of-plane waveguide that descends to the chip surface. Finally, the third portion consists of an in-plane $180^{\circ}$ bend. In momentum space, the corresponding paths for each waveguide portion are shown in Fig. \ref{fig:2_ar_2_3} using Poincaré sphere (\ref{concept:poincare_sphare}). Light propagation along the three-dimensional path in physical space results in a non-zero subtended solid angle in momentum space, shown as the shaded area in Fig. \ref{fig:2_ar_2_3}. Therefore, the waveguide geometry will exhibit Berry’s phase. A change in wavelength results in a change of the radius of the sphere in momentum space but not the solid angle. If the deflection angle of waveguide portion 1, in the physical space shown in Fig. \ref{fig:2_ar_2_2} is $\theta$, then the output light will appear with polarization rotation equal to $2\theta$ due to Berry’s phase because the magnitude of the solid angle extended by the grey area in momentum space, shown in Fig. \ref{fig:2_ar_2_3}, is $\theta$ \cite{xu_electrically_2014}.
 		
 		\item[$\square$] \textbf{Drawbacks of polarization controller with Berry's phase:}
-		This device uses out-of-plane ring cavity which uses the principles of ring resonator \ref{concept:ring_resonator}. The ring resonator is limited by its narrow band spectral features which limits bandwidth.	
+		This device uses out-of-plane ring cavity which uses the principles of ring resonator. The ring resonator is limited by its narrow band spectral features which limits bandwidth.	
 	\end{itemize}
 	
 	%\subsubsection{Comparative analysis of available PR}
