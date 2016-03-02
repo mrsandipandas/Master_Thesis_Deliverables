@@ -8,7 +8,7 @@ To understand the working principles of \gls{pr} it is important to look into th
 Light can travel through dielectric waveguide. To comprehend the situation we need to look at the physical properties of light and waveguides. The basic understanding of Maxwell's equations is required. Maxwell combined the electric and magnetic fields in a wave equation. Since we need a formal definition of the different \gls{sop}, described using Jones calculus. Moreover, the rotation from one \gls{sop} to another, can be defined formally on the Poincaré sphere. 
 		
 		\subsection{Maxwell's equations}
-Wave is a disturbance that propagates through a medium. Waves transfer both energy and momentum, without transferring any mass. \gls{em} radiation is the radiant energy released by varying \gls{em} field. Light wave is \gls{em} radiation at very high frequency. The frequency of visible light falls in between IR and UV \gls{em} wave.
+Wave is a disturbance that propagates through a medium. Waves transfer both energy and momentum, without transferring any mass. \gls{em} radiation is the radiant energy released by varying \gls{em} field in the form of \gls{tem} waves. Light wave is \gls{em} radiation at very high frequency. The frequency of visible light falls in between IR and UV \gls{em} wave.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-light-spectrum}
@@ -167,7 +167,7 @@ n_1 \sin \theta_c = n_2\\
 \end{cases}
 \end{aligned}
 \end{equation}
-where, $\theta_c$ is defined as the critical angle. For angles of incidence greater than this critical angle, no light is transmitted and total internal reflection occurs. These properties are important to consider for finding the acceptance angle at which light can be inserted into a waveguide. By enhancing the ray model, a significant understanding of the wave model can be postulated.
+where, $\theta_c$ is defined as the critical angle. For angles of incidence greater than this critical angle, no light is transmitted and total internal reflection occurs. These properties are important to consider for finding the acceptance angle at which light can be inserted into a waveguide. The ray model helps in understanding of reflection and refraction of light at boundaries between the medium.
 		
 		\subsection{Eigenvalue and wave modes}
 In general, the electric field and magnetic field in the wave equation in \ref{eq:wave_sol_electric} and \ref{eq:wave_sol_magnetic} can be written in its constituent parts in Cartesian coordinates as:
@@ -179,7 +179,7 @@ In general, the electric field and magnetic field in the wave equation in \ref{e
 \end{cases}
 \end{aligned}
 \end{equation}
-The generalized vectorial component of the electric and magnetic field of equation \ref{eq:homogeneous_wave_sol_planar_wg} can be combined into the Helmholtz equation as follows:
+The generalized vectorial component of the electric and magnetic field of equation \ref{eq:homogeneous_wave_sol_planar_wg} for a traveling wave in $Z$ direction can be combined into the Helmholtz equation as follows:
 \begin{equation}\label{eq:helmholtz_eq_rib_wg}
 	\begin{aligned}
 		\nabla ^{2}\Psi \left( x,y,z\right) +k_{0}^{2}n^{2}\left(x,y\right) \Psi \left( x,y,z\right) = 0
@@ -204,14 +204,17 @@ For given $\omega$, the resulting mode problem is an eigenproblem, solved for ei
 		\todo{I will update the picture using CST simulation}
 		
 		\subsection{Optical polarization and transverse modes}
-In optical waveguide, the transmission distance is limited by several types of dispersion, or spreading of optical pulses as they travel along the waveguide. Dispersion in waveguide is caused by a variety of factors. Intermodal dispersion, caused by the different axial speeds of different transverse modes, limits the performance of multi-mode waveguide. Because single-mode waveguide supports only one transverse mode, intermodal dispersion is eliminated. In single-mode performance is primarily limited by chromatic dispersion (also called group velocity dispersion), which occurs because the \gls{ri} of silicon varies slightly depending on the wavelength of the light, and light from real optical transmitters necessarily has nonzero spectral width (due to modulation). \gls{pmd}, another source of limitation, occurs because although the single-mode waveguide can sustain only one transverse mode, it can carry this mode with two different polarizations, and slight imperfections or distortions in a waveguide can alter the propagation velocities for the two polarizations. This phenomenon is called birefringence and can be counteracted by polarization-rotator. \gls{pmd} limits the bandwidth of the waveguide because the spreading optical pulse limits the rate that pulses can follow one another on the waveguide and still be distinguishable at the receiver.\par
+In optical waveguides, the transmission distance is limited by several types of dispersion, or spreading of optical pulses as they travel along the waveguide. Dispersion in waveguide is caused by a variety of factors. Intermodal dispersion, caused by the different axial speeds of different transverse modes, limits the performance of multi-mode waveguide. Because single-mode waveguide supports only one transverse mode, intermodal dispersion is eliminated. In single-mode performance is primarily limited by chromatic dispersion (also called group velocity dispersion), which occurs because the \gls{ri} of silicon varies slightly depending on the wavelength of the light. \gls{pmd}, another source of limitation, occurs because although the single-mode waveguide can sustain only one transverse mode, it can carry this mode with two different polarizations, which travel at different propagation velocities. This phenomenon is called birefringence and its effect can be counteracted by polarization-rotator. \gls{pmd} limits the bandwidth of the waveguide because the spreading optical pulse limits the rate that pulses can follow one another on the waveguide and still be distinguishable at the receiver.\par
 
-Polarization is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in plane polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in single-mode.
+Polarization is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is linearly polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in linearly polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in single-mode.
 		
 			\subsubsection{TE mode}
-\gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
+\gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light wave. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
 			\subsubsection{TM mode}
-\gls{tm} mode is the fundamental mode in which there is no magnetic field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.					
+\gls{tm} mode is the fundamental mode in which there is no magnetic field in the direction of propagation of light. In Fig. \ref{fig:2_te_tm_mode} it can be seen that magnetic field (red lines) are perpendicular to the plane of incidence in \gls{tm} mode.
+ 
+			\subsubsection{Quasi-TE and Quasi-TM mode}				
+Practically, waveguide cores have electric and magnetic fields that slice through air and the cladding substrate. Hence they do not support pure \gls{te} and \gls{tm} modes. However, since most the power is contained under the waveguide core and inside just the cladding, \gls{te} and \gls{tm} modes can be a good approximation. Generally, in these modes there is some field component in the direction of propagation as well. This is known as quasi-\gls{te} and quasi-\gls{tm} mode.
 
 \begin{figure}[H]
 	\centering
@@ -266,7 +269,7 @@ where $e^{i\phi}$ is an arbitrary phase vector and $\phi = \phi_x - \phi_y$. So,
 since, $\theta=0$ and $\epsilon = 0$.
 			
 			\subsubsection{Jones matrix}
-Jones matrix are the formal representation of the various optical elements such as lenses, beam splitters, mirrors, phase retarders, polarizers at arbitrary angles that can modify polarization. They generally operate on Jones vector and helps in comprehend situations which light encounters multiple polarization elements in sequence. In these situations the products of the Jones matrices can be used to represent the transfer matrix. This situation can be represented using,
+Jones matrix is the formal representation of the various optical elements such as lenses, beam splitters, mirrors, phase retarders, polarizers at arbitrary angles that can modify polarization. They generally operate on Jones vector and helps in comprehend situations which light encounters multiple polarization elements in sequence. In these situations the products of the Jones matrices can be used to represent the transfer matrix. This situation can be represented using,
 \begin{equation}\label{eq:jones_matrix}
 [E_{output}] = J_{system}[E_{input}] 
 \end{equation}
@@ -276,9 +279,9 @@ J_{system} =J_{N}J_{N-1}\ldots \ldots J_{2}J_{1}
 \end{equation}   
 where $J_{N}$ is the Jones matrix for $n^{th}$ polarizing optical element.
 
-		\subsection{Jones matrix for polarizing optical systems}
-To construct optical waveguides for polarization rotation it is imperative to deal with the basic principles of standard available optical systems. Here, the fundamental principles of polarizer and wave plates are interpreted using Jones calculus.  
-			\subsubsection{Polarizer}
+			\subsubsection{Jones matrix for polarizing optical systems}
+To construct optical waveguides for polarization rotation it is imperative to deal with the basic principles of standard available optical systems. Here, the fundamental principles of polarizer and wave plates are interpreted using Jones calculus.
+		\subsubsection*{Polarizer}
 Polarizers have an index of refraction which depends on orientation electric field propagation. If any optical system has a transmission axis and an absorption axis for electric fields, then lights will be passed along he transmission axis and absorbed along the other axis. So, the Jones matrix of a polarizer making an angle $\theta$ with the X-axis will come out as,
 \begin{equation}\label{eq:jones_matrix_polarizer}
 \left(\begin{matrix} 
@@ -286,12 +289,12 @@ Polarizers have an index of refraction which depends on orientation electric fie
 \sin \theta \cos \theta & \sin ^{2}\theta
 \end{matrix} \right) 
 \end{equation} 
-			\subsubsection{Wave plates}
-Wave plates are phase retarders which are made of birefringent crystals. Wave plates can be conceptualized as two polarizers kept apart at certain distance $d$, such that their polarization axes are apart orthogonally ($90^{0}$). The phase difference as light passes through this setup of thickness $d$ is,
+		\subsubsection*{Wave plates}
+Wave plates are phase retarders which are made of birefringent crystals. Wave plates can be conceptualized as two polarizers kept apart at certain distance $d$, such that their polarization axes are apart orthogonally ($90^{0}$). The phase difference as light passes through this setup of thickness $d$ is \cite{peatross_physics_2015},
 \begin{equation}\label{eq:jones_matrix_wp1}
 \left(k_{slow}-k_{fast}\right)d = \dfrac {2\pi d} {\lambda_{vac} }\left( n_{slow}-n_{fast}\right) 
 \end{equation}
-In, general the Jones matrix for a wave plate is given by,
+In, general the Jones matrix for a wave plate is given by \cite{peatross_physics_2015},
 \begin{equation}\label{eq:jones_matrix_wp2}
 \left( \begin{matrix} 
 \cos ^{2}\theta +\xi \sin ^{2}\theta & \sin \theta \cos \theta -\xi \sin \theta \cos \theta\\ 
@@ -307,7 +310,7 @@ where $\xi$ is calculated based on the type of wave plate. The following equatio
 \end{cases}
 \end{aligned}
 \end{equation}
-Similar concept is used in the construction of \gls{pr} waveguides which will be discussed in later sections shortly.
+and $m \in \mathbb{Z}$. $\xi$ is the phase delay of the wave plates. Similar concept is used in the construction of \gls{pr} waveguides which will be discussed in later sections shortly.
  		
 		\subsection{Poincaré sphere and state of polarization} \label{concept:poincare_sphare}
 To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well.     
@@ -317,7 +320,7 @@ To view a complete representation of all the polarization ellipses generated usi
 	\caption{(a) Representation of the Poincaré sphere (b) Representation of the ellipse parameters \cite{flossmann_stokes_2006}}
 	\label{fig:2_poincare}
 \end{figure}
-\noindent The \gls{sop} of any wave is also defined using \gls{per} and polarization phase, $\phi$ given by the following equations:
+\noindent The \gls{sop} of any wave are \gls{fom} for \gls{pr} and described using \gls{per} and polarization phase, $\phi$ given by the following equations:
 \begin{equation}\label{eq:wave_sop}
 \begin{aligned}
 \begin{cases}
@@ -457,11 +460,13 @@ Coupling mode theory has been successfully applied to the modeling and analysis 
 	\todo{Should this section be written in context of polarization tuning? Should it go after PR?}
 		\subsection{Thermo-optic mechanism}
 		Mach-Zehnder...?? \todo{Is it there?..check}
+		
 		\subsection{Electro-optic mechanism}
 		Mach-Zehnder...? \todo{Is it there?..check}
-		\subsection{Liquid crystals}
 		
-		\subsection{Current injection}
+		\subsection{Liquid crystals mechanism}
+		
+		\subsection{Current injection mechanism}
 		
 		\subsection{MEMS}
 		\todo{Why is MEMS better?}Actuation principle... 	
