@@ -38,7 +38,7 @@ h.SizeData = 150;
 
 strxmin = [' Rib_{width} = ',num2str(w_RR1(i))];
 strymin = [', Slab_{width} = ',num2str(w_slab(i))];
-%text(w_RR1(i),w_slab(i),strcat('Minimum at',strxmin,'\mum',strymin,'\mum'),'HorizontalAlignment','left', 'Color', 'red', 'FontSize', 12)
+text(w_RR1(i),w_slab(i),strcat('Minimum at',strxmin,'\mum',strymin,'\mum'),'HorizontalAlignment','left', 'Color', 'red', 'FontSize', 12)
 hold off
 
 %% Labels
