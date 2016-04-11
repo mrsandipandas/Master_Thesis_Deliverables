@@ -311,14 +311,8 @@ where $\xi$ is calculated based on the type of wave plate. The following equatio
 and $m \in \mathbb{Z}$. $\xi$ is the phase delay of the wave plates. Similar concept is used in the construction of \gls{pr} waveguides which will be discussed in later sections shortly.
  		
 		\subsection{Poincaré sphere and state of polarization} \label{concept:poincare_sphare}
-To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well.     
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]{2-poincare}
-	\caption{(a) Representation of the Poincaré sphere (b) Representation of the ellipse parameters \cite{flossmann_stokes_2006}}
-	\label{fig:2_poincare}
-\end{figure}
-\noindent The \gls{sop} of any wave are \gls{fom} for \gls{pr} and are described using \gls{per} and polarization phase, $\phi$ given by the following equations:
+To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well. 
+\par The \gls{sop} of any wave are \gls{fom} for \gls{pr} and are described using \textbf{\gls{per}} and polarization phase, $\phi$ given by the following equations:
 \begin{equation}\label{eq:wave_sop}
 \begin{aligned}
 \begin{cases}
@@ -328,7 +322,14 @@ PER_{TM-TE} = 10\log \dfrac {P_{TE}} {P_{TM}}\\
 \end{cases}
 \end{aligned}
 \end{equation}
-For complete polarized light, the point on the Poincaré sphere must be fixed on time which requires,
+     
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{2-poincare}
+	\caption{(a) Representation of the Poincaré sphere (b) Representation of the ellipse parameters \cite{flossmann_stokes_2006}}
+	\label{fig:2_poincare}
+\end{figure}
+\noindent For complete polarized light, the point on the Poincaré sphere must be fixed on time which requires,
 \begin{equation}\label{eq:polarization_condition_1}
 \dfrac {E_{x}\left( t\right) } {E_{y}\left( t\right) }=constant
 \end{equation}
@@ -336,6 +337,11 @@ and,
 \begin{equation}\label{eq:polarization_condition_2}
 \phi = \phi_{x}(t) - \phi_{y}(t)=constant
 \end{equation}
+\par Apart from the afore mentioned \gls{fom} another important characteristic which must be optimized is \textbf{Insertion loss}. It is the loss of signal power resulting from the insertion of a device in a transmission line or optical fiber and is usually expressed in decibels (dB). If the power transmitted to the load before insertion is $P_T$ and the power received by the load after insertion is $P_R$, then the \gls{il} in dB is given by,
+\begin{equation}\label{eq:insertion_loss}
+\gls{il} (dB) = 10\log _{10} \dfrac {P_{T}} {P_{R}}
+\end{equation}
+  
 		\subsection{Stoke's parameter} 		
 Quasi-monochromatic waves are mathematically treated using Stokes parameters ($S_0,S_1,S_2,S_3$), which constitute a vector generally known as Stokes vectors. Stokes vectors are used to keep track of the partial polarization (and attenuation) of a light beam in terms of total intensity (I), degree of polarization (p) and ellipse parameters, as the light progresses through an optical system. A Stokes vector can generally be represented as,
 \begin{equation}\label{eq:stokes_vector}
@@ -600,7 +606,7 @@ Mode hybridization works by abruptly breaking the symmetry of the silicon wavegu
 			
 \end{itemize}
 		
-		\subsubsection{Active PR}
+		\subsubsection{Active PR}\label{sec:active_pr}
 An active \gls{pr} is generally achieved by multiple tunable controllers which gives a good trade-off between integration and performance. 
 	\paragraph*{Tunable PR with thermo-optic effect:} The \gls{pr}s mainly change the \gls{per}, whereas the \gls{tpps} control the polarization phase. The \gls{tpps} are implemented using waveguide heaters placed alongside the waveguide to avoid losses due to interaction of the evanescent field with the metal. The intensity of the waveguide heaters are electrically controlled.	
 	
@@ -661,6 +667,6 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 		\item[$\square$] \textbf{Drawbacks of PR using Berry's phase:}
 		This device uses out-of-plane ring cavity which uses the principles of ring resonator. The ring resonator is limited by its narrow band spectral features which limits bandwidth. Also, the device uses a non-birefringent waveguide, which is lossy in terms of photonic substrate, as an oxide cladding is used to confine light. 	
 	\end{itemize}
-	
+	\todo{Add FOM}
 	%\subsubsection{Comparative analysis of available PR}
 \end{document}
