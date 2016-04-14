@@ -11,9 +11,16 @@
 	To design the geometry of the waveguide standard mode solver softwares are used. Both, Comsol\cite{comsol_2015} and CST \cite{cst_2015} are used to solve the modes in equation \ref{eq:helmholtz_eq_wg_general}. Mostly, in this thesis Comsol is used to find and optimize the port modes in 2-D geometry. Whereas, CST is used to optimize the 3-D structure using the S-parameters obtained for various port modes after running the simulation. 
 		
 		\subsection{Design principle}
-To design a \gls{pr} in quantum scale, precision is a key factor. Index profile of chosen Silicon can also affect the structural dimensions of the design in a rigorous manner. Meshing of the geometry, cladding dimensions and its material composition, frequency domain of the solvers etc. are the key things to watch for in designing the simulation in the mode solver softwares. As the idea is to make the \gls{tpr} as broadband as possible, it is necessary to frequency analysis simulation for a wide-band spectrum in which the optical fibers for telecommunications work. As, the operating wavelength of the telecommunications optical fiber network in C-band and L-band are between $\SI{1530}{\nano\metre}$ and $\SI{1625}{\nano\metre}$ the corresponding frequency domain becomes $\SI{184.48}{\THz}$ - $\SI{195.94}{\THz}$.
+To design a \gls{pr} in quantum scale, precision is a key factor. Index profile of chosen Silicon can also affect the structural dimensions of the design in a rigorous manner. Meshing of the geometry, cladding dimensions and its material composition, frequency domain of the solvers etc. are the key things to watch for in designing the simulation in the mode solver softwares. As the idea is to make the \gls{tpr} as broadband as possible, it is necessary to frequency analysis simulation for a wide-band spectrum in which the optical fibers for telecommunications work. As, the operating wavelength of the telecommunications optical fiber network in C-band and L-band are between $\SI{1530}{\nano\metre}$ and $\SI{1625}{\nano\metre}$, the corresponding frequency domain becomes $\SI{184.48}{\THz}$ - $\SI{195.94}{\THz}$.
+
+\begin{equation}\label{eq:wg_width_param}
+Base_{width} = Rib_{width} + Slab_{width} 
+\end{equation}
+  
 	
 		\subsection{Design A: Single stair Si waveguide on SOI with air cladding}
+
+\subsubsection{Optimized dimensions of bus waveguide}
 
 \begin{figure}[H] %h
 	\centering
@@ -22,16 +29,7 @@ To design a \gls{pr} in quantum scale, precision is a key factor. Index profile 
 	\label{fig:3_graph_mode_sum}
 \end{figure}
 
-$\sum _{mode}Abs_{real}\left( \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right) $
-
-\begin{figure}[H] %h
-	\centering
-	\includegraphics[width=1\textwidth]{3-graph-mode-sum-stem3}
-	\caption{Summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields plotted against rib and slab width in a Scatter plot to easily identify the minimum value using MATLAB}
-	\label{fig:3_graph_mode_sum_stem3}
-\end{figure}
-
-
+$\sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right| \rightarrow 0$. Since, at $45{^\circ}$, $E_X \approx E_Y$. Hence, $\dfrac {E_{X_{mode}}} {E_{Y_{mode}}} \rightarrow 1$    
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -84,6 +82,49 @@ $\sum _{mode}Abs_{real}\left( \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\rig
 	\caption{Simulated S-parameters in the single-stair waveguide with initial dimensions at the port as width = 230nm and height = 220 nm. Stair cross-section dimensions are: Rib width = 200nm, Rib height = 110nm, Slab width = 30nm, Slab height = 110nm, and cross-section length = \SI{51}{\micro\meter} obtained using CST 3-D simulation}
 	\label{fig:3_stair_s_param_200_230}
 \end{figure}
+
+\subsubsection{Optimized dimensions of MEMS waveguide}
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{3-graph-mode-sum-mems}
+	\caption{Summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields plotted against rib and total width in an area chart using MATLAB}
+	\label{fig:3_graph_mode_sum_mems}
+\end{figure}
+
+$\sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right| \rightarrow \infty$. Since, at TE or TM mode, $E_X \gg E_Y$, or $E_Y \gg E_X$. Hence, $\dfrac {E_{X_{mode}}} {E_{Y_{mode}}} \rightarrow \infty$ or $\dfrac {E_{Y_{mode}}} {E_{X_{mode}}} \rightarrow \infty$, depending on \gls{te} or \gls{tm}-mode.
+
+		
+\begin{figure}[H] %h
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{3-mems-mode1-200-230}
+		\caption{\gls{te} mode with the \gls{mems} cross-section}
+		\label{fig:3_mems_mode1_200_230}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{3-mems-mode2-200-230}
+		\caption{\gls{tm} mode with the MEMS cross-section}
+		\label{fig:3-mems-mode2-200-230}
+	\end{subfigure}
+	\caption{Modes in the cross-section with Rib width = 200nm, Slab width = 30nm, Slab height = Rib height = 110nm, in both bus and \gls{mems} waveguide, obtained using Comsol 2-D simulation}
+\end{figure}
+
+
+\subsubsection{Device tolerance}
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{3-graph-mode-sum-120nm-slab-height}
+	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 120nm}
+	\label{fig:3_graph_mode_sum_120nm_slab_height}
+\end{figure}
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{3-graph-mode-sum-120nm-slab-height}
+	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 90nm}
+	\label{fig:3_graph_mode_sum_90nm_slab_height}
+\end{figure}
 				
 		\subsection{Design B: Tapered Si waveguide with horizontal gradual asymmetry on SOI with air cladding}
 		
@@ -101,8 +142,6 @@ $\sum _{mode}Abs_{real}\left( \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\rig
 	\end{subfigure}
 	\caption{Hybrid modes in the cross-section with width = 200nm, height = 220nm, obtained using Comsol 2-D simulation}
 \end{figure}
-	
-	\section{Choice of simulation}
 	
 	\section{Simulation results and analysis}
 	

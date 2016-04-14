@@ -22,7 +22,7 @@ w_slab = data(:,2);
 sum1 = data(:,3);
 
 %% Axis changing for correction of data
-w_slab = w_slab + 0.15 - w_RR1;
+w_slab = w_slab + 0.15;
 indicator = w_slab >= 0;
 
 %% Draw figure Method 1
@@ -41,13 +41,13 @@ h = scatter3(w_RR1(i),w_slab(i),sum1(i),'filled', 'MarkerFaceColor','red');
 h.SizeData = 150;
 
 strxmin = [' Rib_{width} = ',num2str(w_RR1(i))];
-strymin = [', Slab_{width} = ',num2str(w_slab(i))];
-text(0.25,0.15, 1,strcat('Minimum at',strxmin,'\mum',strymin,'\mum'),'HorizontalAlignment','left', 'Color', 'red', 'FontSize', 12)
+strymin = [', Base_{width} = ',num2str(w_slab(i))];
+text(0.15,0.21, 0.2,strcat('Minimum at',strxmin,'\mum',strymin,'\mum'),'HorizontalAlignment','left', 'Color', 'red', 'FontSize', 12)
 hold off
 
 %% Labels
 xlabel('Rib width in \mum', 'FontSize',18,'FontWeight','bold','Color','black')
-ylabel('Slab width in \mum', 'FontSize',18,'FontWeight','bold','Color','black')
+ylabel('Base width in \mum', 'FontSize',18,'FontWeight','bold','Color','black')
 
 zlabel_eq = '$$\sum_{mode}{abs\left(log \frac{E_{x_{mode}}}{E_{y_{mode}}}\right)}$$';
 zlabel(strcat('Log ratio of E-field = ', zlabel_eq), 'FontSize',22,'FontWeight','bold','Color','blue','Interpreter','latex')
