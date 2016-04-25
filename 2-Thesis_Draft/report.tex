@@ -31,6 +31,10 @@
 \usepackage[english]{babel}
 \usepackage[square,numbers]{natbib}
 \usepackage{url}
+
+%Matlab code preetifier
+\usepackage[numbered,framed]{matlab-prettifier}
+
 %\usepackage[disable]{todonotes}
 \usepackage{todonotes} %Just to generate todo list, remove in future
 %%%%%%%%%%%%%%%%%%%%%%%Customized Chapter Title%%%%%%%%%%%%%%%%%%%%
@@ -90,14 +94,16 @@
     \subfile{Ch5-Results/ch5}
     \subfile{Ch6-Discussion/ch6}
     \subfile{Ch7-Conclusion/ch7}
-    \subfile{Ch8-Appendix/glossary}
-    % Abbreviations
-    \printglossary[type=acronym,title={Appendix: Abbreviations}] 
     
-    \subfile{Ch8-Appendix/scripts}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
+    \subfile{Ch8-Appendix/glossary}
+    % Abbreviations
+    \printglossary[type=acronym,title={Appendix A: Abbreviations}] 
+    
+    \subfile{Ch8-Appendix/scripts}
+    
     \listoftodos %To do list, remove later  
     
     % Bibliography
