@@ -98,7 +98,7 @@ where A=output port, B=input port and M,N = mode number. For example, S2(2),S(1)
 \end{figure}
 
 \subsubsection{Optimized dimensions of MEMS waveguide}
-After finding the dimensions of the passive \gls{pr}, the design of the \gls{mems} tunable waveguide was designed to neglect the effect of rotation. Intuitively, if any waveguide which is the mirror image of the bus waveguide is place along side the bus waveguide, then \gls{pr} would be nullified. This is verified by plotting the graph in Fig. \ref{fig:3_graph_mode_sum_mems}. Since, at TE or TM mode, $E_X \gg E_Y$, or $E_Y \gg E_X$. Hence, $\left|\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right| \rightarrow \infty$ or $\left|\dfrac {E_{Y_{mode}}} {E_{X_{mode}}}\right| \rightarrow \infty$, depending on \gls{te} or \gls{tm}-mode.
+After finding the dimensions of the passive \gls{pr}, the design of the \gls{mems} tunable waveguide was designed to neglect the effect of rotation. Intuitively, if any waveguide which is the mirror image of the bus waveguide is place along side the bus waveguide, then \gls{pr} effect would be nullified. This is verified by plotting the graph in Fig. \ref{fig:3_graph_mode_sum_mems}. Since, at TE or TM mode, $E_X \gg E_Y$, or $E_Y \gg E_X$. Hence, $\left|\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right| \rightarrow \infty$ or $\left|\dfrac {E_{Y_{mode}}} {E_{X_{mode}}}\right| \rightarrow \infty$, depending on \gls{te} or \gls{tm}-mode.
 Hence, 
 \begin{equation}\label{eq:mems_dim_eq}
 \sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right| \rightarrow \infty,
@@ -127,9 +127,12 @@ and the maximum points on the graph will represent the dimensions of the \gls{me
 	\caption{Modes in the cross-section with Rib width = 200nm, Slab width = 30nm, Slab height = Rib height = 110nm, in both bus and \gls{mems} waveguide, obtained using Comsol 2-D simulation}
 \end{figure}
 
-In this case the best dimensions for the \gls{mems} waveguide comes out to be $Rib_{width}$ = \SI{200}{nano meter}, $Rib_{height}$ = \SI{110}{nano meter}, $Base_{width}$ = \SI{230}{nano meter}, $Base_{height}$ = \SI{110}{nano meter}. Fig. \ref{fig:3-mems-mode2-200-230}, obtained using Comsol 2D simulation displays the port modes in the cross-section. This corroborated the claim that the \gls{mems} waveguide must be mirror image of the bus waveguide to inhibit \gls{pr}.
+In this case the best dimensions for the \gls{mems} waveguide comes out as, $Rib_{width}$ = \SI{200}{nano meter}, $Rib_{height}$ = \SI{110}{nano meter}, $Base_{width}$ = \SI{230}{nano meter}, $Base_{height}$ = \SI{110}{nano meter}. Fig. \ref{fig:3-mems-mode2-200-230}, obtained using Comsol 2D simulation displays the port modes in the cross-section. This corroborates the claim that the \gls{mems} waveguide must be mirror image of the bus waveguide to inhibit \gls{pr}.
 
 \subsubsection{Device tolerance}
+When fabricating devices in nanometer scale often it is very difficult to control the device dimensions precisely. Hence, a brief study on simulation level is performed to check for deviance resulting due to variations in etch depth during the fabrication process discussed later in section \ref{sec:fab_process}.\\  
+
+Since the wafer used in the fabrication process is of height 220nm, the different etch depths considered are 100nm and 130nm which corresponds to 120nm and 90nm slab height respectively. Fist 20 minimum values of $\sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right|$, is plotted against $Rib_{width}$ and $Slab_{width}$ in the following figure in Fig. \ref{fig:3_graph_mode_sum_120nm_slab_height} for an etch depth of 100nm. 
 
 \begin{figure}[H] %h
 	\centering
@@ -137,15 +140,21 @@ In this case the best dimensions for the \gls{mems} waveguide comes out to be $R
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 120nm}
 	\label{fig:3_graph_mode_sum_120nm_slab_height}
 \end{figure}
+\noindent It can be seen in the above Fig. \ref{fig:3_graph_mode_sum_120nm_slab_height} that the hybridized modes appear to be at $45^{\circ}$ around $230nm \leq Slab_{width} \leq 300nm$ and $180nm \leq Rib_{width} \leq 200nm$. So, if the $Rib_{width}$ and $Slab_{width}$ are controlled in the fabrication process, the device can still function in a modest way.\\
 
+The same process is followed for a speculated etch depth of 130nm and the 20 best dimensions are plotted which comes out to be $230nm \leq Slab_{width} \leq 300nm$ and $160nm \leq Rib_{width} \leq 200nm$. The exact pairs can be identified in the Fig. \ref{fig:3_graph_mode_sum_90nm_slab_height}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{3-graph-mode-sum-90nm-slab-height}
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 90nm}
 	\label{fig:3_graph_mode_sum_90nm_slab_height}
 \end{figure}
-				
-		\subsection{Design B: Tapered Si waveguide with horizontal gradual asymmetry on SOI with air cladding}
+
+\subsubsection{Representational product based on simulation}			
+
+		\subsection{Design B: Tapered Si waveguide with horizontal gradual asymmetry on SOI with air cladding based on mode evolution}
+
+\subsubsection{Optimized dimensions of bus waveguide}
 		
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -161,7 +170,11 @@ In this case the best dimensions for the \gls{mems} waveguide comes out to be $R
 	\end{subfigure}
 	\caption{Hybrid modes in the cross-section with width = 200nm, height = 220nm, obtained using Comsol 2-D simulation}
 \end{figure}
-	
-	\section{Simulation results and analysis}
-	
+
+\subsubsection{Optimized dimensions of MEMS waveguide}	
+
+\subsubsection{Device tolerance}
+
+\subsubsection{Representational product based on simulation}
+
 \end{document}
