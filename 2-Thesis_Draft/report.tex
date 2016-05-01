@@ -12,6 +12,9 @@
 \usepackage{amsmath,booktabs,caption,color,datetime,graphicx,float,listings,lmodern,microtype,multirow,pifont,rotating,siunitx,subcaption,subfiles,tabularx,xcolor}
 \graphicspath{{images/}{../images/}}
 
+% Chemistry formula in subscripts typesetting
+\newcommand*\chem[1]{\ensuremath{\mathrm{#1}}}
+
 % For "Acronym" and "Glossary"  
 \usepackage[acronym,toc,xindy]{glossaries}
 \makeglossaries
@@ -21,7 +24,6 @@
 %section      %use section level for toc entries
 
 % Import the glossary and acronym here
-
 \usepackage[automark,komastyle,headsepline]{scrpage2}
 \usepackage[pdfpagelabels]{hyperref}
 \usepackage{amssymb}
@@ -58,6 +60,7 @@
 		\end{picture} 
 	\endgroup
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}

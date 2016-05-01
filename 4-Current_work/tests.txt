@@ -1,0 +1,9 @@
+1. Si, SiO2 (ridge wavegui)
+2. Si air
+3. Si (square bix)
+
+w = (350:50:500nm)
+4 modes
+4 microns box
+
+Check if mode 
