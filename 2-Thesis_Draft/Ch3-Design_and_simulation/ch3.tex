@@ -140,17 +140,27 @@ Since the wafer used in the fabrication process is of height 220nm, the differen
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 120nm}
 	\label{fig:3_graph_mode_sum_120nm_slab_height}
 \end{figure}
-\noindent It can be seen in the above Fig. \ref{fig:3_graph_mode_sum_120nm_slab_height} that the hybridized modes appear to be at $45^{\circ}$ around $230nm \leq Slab_{width} \leq 300nm$ and $180nm \leq Rib_{width} \leq 200nm$. So, if the $Rib_{width}$ and $Slab_{width}$ are controlled in the fabrication process, the device can still function in a modest way.\\
+\noindent It can be seen in the above Fig. \ref{fig:3_graph_mode_sum_120nm_slab_height} that the hybridized modes appear to be at $45^{\circ}$ around $\chem{230nm \leq Slab_{width} \leq 300nm}$ and $\chem{180nm \leq Rib_{width} \leq 200nm}$. So, if the $\chem{Rib_{width}}$ and $\chem{Slab_{width}}$ are controlled in the fabrication process, the device can still function in a modest way.\\
 
-The same process is followed for a speculated etch depth of 130nm and the 20 best dimensions are plotted which comes out to be $230nm \leq Slab_{width} \leq 300nm$ and $160nm \leq Rib_{width} \leq 200nm$. The exact pairs can be identified in the Fig. \ref{fig:3_graph_mode_sum_90nm_slab_height}.
+The same process is followed for a speculated etch depth of 130nm and the 20 best dimensions are plotted which comes out to be $\chem{230nm \leq Slab_{width} \leq 300nm}$ and $\chem{160nm \leq Rib_{width} \leq 200nm}$. The exact pairs can be identified in the Fig. \ref{fig:3_graph_mode_sum_90nm_slab_height}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{3-graph-mode-sum-90nm-slab-height}
-	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 90nm}
+	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $\chem{E_x}$ and $\chem{E_y}$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 90nm}
 	\label{fig:3_graph_mode_sum_90nm_slab_height}
 \end{figure}
 
 \subsubsection{Representational design based on simulation}			
+Based on the simulations performed and the dimensions of the cross-section obtained the tunable \gls{pr} was designed as depicted in Fig. \ref{fig:3_wg_design_1_mems}. However, for quicker simulation purposes the remaining portions of the \gls{mems} waveguide cantilever are not considered in the simulation design.  
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=0.9\textwidth]{3-wg-design-1-mems}
+	\caption{Design of single-stair waveguide with MEMS tuning waveguide. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = 200nm, $\chem{Rib_{height}}$ = 110nm, $\chem{Slab_{width}}$ = 230nm, $\chem{Slab_{height}}$ = 110nm, and cross-section length = \SI{51}{\micro\meter}, in both the PR waveguide and MEMS waveguide. The output port is along the Z-axis}
+	\label{fig:3_wg_design_1_mems}
+\end{figure}
+
+\begin{comment}
 
 		\subsection{Design B: Tapered Si waveguide with horizontal gradual asymmetry on SOI with air cladding based on mode evolution}
 
@@ -176,5 +186,5 @@ The same process is followed for a speculated etch depth of 130nm and the 20 bes
 \subsubsection{Device tolerance}
 
 \subsubsection{Representational design based on simulation}
-
+\end{comment}
 \end{document}

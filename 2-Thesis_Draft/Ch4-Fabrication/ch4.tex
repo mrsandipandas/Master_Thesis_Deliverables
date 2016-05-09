@@ -12,19 +12,52 @@ To test the \gls{tpr} it is necessary to design auxiliary components like gratin
 \end{figure}
 
 \section{Unit tests}
-Unit Test \todo{Discuss Unit test with optical microscope/SEM images}
-Same strategy as Software unit test\\
-Gratings-1200 microns\\
-Tapers narrow to-700 microns (with PBS)\\
-Our waveguides-230 nm\\
-1. Test if a normal waveguide with TE-TE grating is working with taper.\\
-2. Test if a normal waveguide with TE-TM grating is working with taper.\\
-3. Test if a normal waveguide with TM-TE grating is working with taper.\\
-4. Test if a normal waveguide with TM-TM grating is working with taper.\\
-4. Test if a normal waveguide with PBS TE/TM-TM/TE grating is working with taper.\\
-5. Test if PR waveguide works with PBS and TE/TM grating for different lengths with taper.\\
-6. Check if a normal cantilever is working and it does not stick.\\
-7. Check actuation using separation strategy.\\
+To fabricate the design in the clean-room in a precise manner various tests are performed. The tests in the fabrication iterations helps to improve the design in each iteration. The strategy followed resembles similarity to unit tests where each of the components are tested and verified to understand the design. In the design, the gratings used are \SI{1200}{\micro\meter} wide which narrow down to a width of \SI{700}{\micro\meter} with \gls{pbs}. The waveguide width in the \gls{pr} section is \SI{230}{\micro\meter}. The slab waveguide width of the \gls{pbs} section is chosen as \SI{700}{\micro\meter} to avoid mode conversion at wider cross-sections. This is simulated using COMSOL and the results are plotted in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} slab width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. 
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=.75\textwidth]{4-slab-modes-700nm}
+	\caption{TE and TM modes at different slab widths obtained using COMSOL mode solvers}
+	\label{fig:4_slab_modes_700nm}
+\end{figure}
+
+\begin{figure}[H] %h
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{4-te-1500-slab}
+		\caption{TE mode with $\chem{Slab_{width}}$ = 1500nm}
+		\label{fig:4_te_1500_slab}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{4-tm-1500-slab}
+		\caption{TM mode with $\chem{Slab_{width}}$ = 1500nm}
+		\label{fig:4_tm_1500_slab}
+	\end{subfigure}
+	\caption{Mode conversion in Slab modes at $\chem{Slab_{width}}$ = 1500nm, obtained using Comsol 2-D simulation}
+\end{figure}
+
+\noindent The test cases followed during the fabrication process are discussed below. 
+\begin{itemize}[leftmargin=*]
+	\item[$\square$] \textbf{Dose test:} The first test requires to verify the dose of \gls{hsq} and \gls{zep} used in masking to prevent the damage of masked Si. For this different doses are applied on different portion of the chip by using similar CAD model.
+			
+	\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with a normal waveguide:} To check any optical design it is necessary to couple the light into the chip with good transmission. That is why gratings are necessary. To check \gls{pr} design, it was necessary first to check the \gls{te} and \gls{tm} transmissions. Hence, the first test case was to check the \gls{te}/\gls{tm} grating with a normal waveguide. This give an idea of transmission parameters and the next results were referenced to this value. This test ensured that the gratings worked as intended. 
+	
+	\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with tapers:} The next test was to check the transmission parameters of the tapers, which was obtained by just putting the tapers end-to-end after the gratings from both ends. In this test it was made sure that there was good transmission in the tapers.
+	
+	\item[$\square$] \textbf{TE/TM\textemdash TM/TE grating with taper, normal waveguide and PBS:} Next it was necessary to check the \gls{pbs} design, \todo{citation of used PBS design} required for the characterization of the converted modes.
+	
+	\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with taper and thinner waveguide:} Since, the \gls{pr} was on a thinner waveguide of thickness \SI{230}{\nano \meter} whereas the gratings had a thickness of \SI{1200}{\nano \meter}, it was necessary to use tapers to connect the gratings to the \gls{pr} section. But before checking the \gls{pr}, it was necessary to check if the transmission in the Si nano wires. That is the reason why this test case was performed. 
+	
+	\item[$\square$] \textbf{TE/TM Grating with PR and PBS:} Now that all the auxiliary components have been tested, the \gls{pr} design was tested as well with \gls{pbs} and \gls{te}/\gls{tm} grating for different lengths with taper.
+	
+	\item[$\square$] \textbf{Cantilever actuation with separation strategy:} Since, the actuation is done by applying a voltage it is necessary to check that the cantilever actuates properly on applying voltage and does not stick after removal of voltage. This is done by segregating the cantilever portion from other parts of the chip so that other portions of the chip are not affected. 
+	
+	\item[$\square$] \textbf{TE/TM Grating with PR, PBS, MEMS waveguide and actuation:} Finally, if all the previous tests have succeeded the final design is tested with all the components and characterized.
+\end{itemize}
+	
+\noindent The goal of the unit test strategy was to find and understand any short-comings which might occur at nano-scale at any stage of the fabricated process.
+	
+
 
 \section{Fabrication process}\label{sec:fab_process}
 The \gls{mems} tunable device was fabricated using a standardized two step dry etch process on \gls{soi} for the silicon device layer (resulting in two heights) and a wet $\chem{SiO_2}$ under-etch \cite{errando-herranz_low-power_2015}. The first lithography step defines the asymmetric shape of the ridge waveguides in the bus waveguide and the \gls{mems} coupling waveguide, which form a slot waveguide. The second lithography step and the wet under-etch define the free standing cantilever in the \gls{mems} coupling waveguide. The cantilever is delimited by the fully etched slot waveguides, and its free suspended area is determined by the placement of etch holes. The details of the fabrication process steps are described in the following section.
