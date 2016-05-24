@@ -187,4 +187,46 @@ Based on the simulations performed and the dimensions of the cross-section obtai
 
 \subsubsection{Representational design based on simulation}
 \end{comment}
+
+\section{Designing auxiliary components for measurement setup}
+To test the \gls{tpr} auxiliary components like grating couplers (\gls{te} \& \gls{tm}), tapers, \gls{pbs} are designed. The gratings are designed in way to couple \gls{te} and \gls{tm}-modes from the LASER to the waveguide taper. The tapers are connected to the \gls{tpr}, to reduce the mode size. Finally, a \gls{pbs} is designed which again decouples the \gls{te} and \gls{tm}-modes to the grating couplers via tapers where a photo-detector measures the intensity of output light. Another approach like butt-coupling can be used. But it is difficult to couple light into narrow waveguides in a low-loss manner as the mode size is bigger.  
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{4-sys-design}
+	\caption{System level block diagram of the fabricated device}
+	\label{fig:4_sys_design}
+\end{figure}
+
+\subsection{Grating coupler design}
+In the design, the gratings used are \SI{1200}{\nano\meter} wide which narrows down to a width of \SI{230}{\nano\meter} in the \gls{pr} section.
+
+\subsection{Taper with slab design}
+ The slab waveguide width of the \gls{pbs} section is chosen as \SI{700}{\nano\meter} to avoid mode conversion at wider cross-sections. This is simulated using COMSOL and the results are plotted in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} slab width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. 
+ 
+ \begin{figure}[H] %h
+ 	\centering
+ 	\includegraphics[width=.75\textwidth]{4-slab-modes-700nm}
+ 	\caption{TE and TM modes at different slab widths obtained using COMSOL mode solvers}
+ 	\label{fig:4_slab_modes_700nm}
+ \end{figure}
+ 
+ \begin{figure}[H] %h
+ 	\begin{subfigure}[t]{0.45\textwidth}
+ 		\includegraphics[width=\textwidth]{4-te-1500-slab}
+ 		\caption{TE mode with $\chem{Slab_{width}}$ = 1500nm}
+ 		\label{fig:4_te_1500_slab}
+ 	\end{subfigure}
+ 	\hfill
+ 	\begin{subfigure}[t]{0.45\textwidth}
+ 		\includegraphics[width=\textwidth]{4-tm-1500-slab}
+ 		\caption{TM mode with $\chem{Slab_{width}}$ = 1500nm}
+ 		\label{fig:4_tm_1500_slab}
+ 	\end{subfigure}
+ 	\caption{Mode conversion in Slab modes at $\chem{Slab_{width}}$ = 1500nm, obtained using Comsol 2-D simulation}
+ \end{figure}
+
+
+\subsection{Polarization beam splitter design}
+
 \end{document}
