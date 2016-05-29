@@ -459,29 +459,17 @@ Coupling coefficients and phase mismatch are important factors for power exchang
 
 \par 
 Coupling mode theory has been successfully applied to the modeling and analysis of various guided-wave optoelectronic devices, such as optical directional couplers made of thin film and channel waveguides, multiple waveguide lenses, phase-locked laser arrays, distributed feedback lasers and distributed Bragg reflectors, grating waveguides and couplers, nonparallel and tapered waveguide structures, Y-branch waveguides, \gls{te}/\gls{tm} polarization converters, mode conversion and radiation loss in slab waveguides, residual coupling among scalar modes. It has also been used to study the wave coupling phenomena in nonlinear media such as harmonic generation in bulk and guided-wave devices, and nonlinear coherent couplers \cite{haus_coupled_1991}.
-	
-	\section{Polarization tuning in optical waveguide}
-	\todo{Should this section be written in context of polarization tuning? Should it go after PR?}
-		\subsection{Thermo-optic mechanism}
-		Mach-Zehnder...?? \todo{Is it there?..check}
-		
-		\subsection{Electro-optic mechanism}
-		Mach-Zehnder...? \todo{Is it there?..check}
-		
-		\subsection{Liquid crystals mechanism}
-		
-		\subsection{Current injection mechanism}
-		
-		\subsection{MEMS}
-		\todo{Why is MEMS better?}Actuation principle... 	
-			
-	\section{Polarization rotator (PR)}
+				
+	\section{Polarization rotator (PR)}	
 For an overall robust network, \gls{pr}s are necessary in optical fiber and \gls{oeic}, which are realized in different approach.	
-	\subsection{Optical fiber PR}
-	\todo{Write about the PR in optical fiber short with industry standards..}
-	Check here..\href{http://www.amstechnologies.com/es/products/optical-technologies/equipment/fiber-optic-test-measurement/measurement-of-fiber-properties/polarisation-mode/view/electrically-driven-polarization-controllers-scramblers/}{Industry standards..}
-	\todo{I am not sure how to approach this section}
-	
+
+	\subsection{Optical fiber PR}	
+In an ordinary (non-polarization-maintaining) fiber, \gls{te} and \gls{tm} have the same nominal phase velocity due to the fiber's circular symmetry. However tiny amounts of random birefringence in such a fiber, or bending in the fiber, will cause a tiny amount of crosstalk from the \gls{tm} to \gls{te} mode. And since even a short portion of fiber, over which a tiny coupling coefficient may apply, is many thousands of wavelengths long, even that small coupling between the two polarization modes, applied coherently, can lead to a large power transfer to the \gls{te} mode, completely changing the wave's net state of polarization. Since that coupling coefficient was unintended and a result of arbitrary stress or bending applied to fiber, the output state of polarization will itself be random, and will vary as those stresses or bends vary; it will also vary with wavelength.\par
+
+Polarization-maintaining fibers work by intentionally introducing a systematic linear birefringence in the fiber, so that there are two well defined polarization modes which propagate along the fiber with very distinct phase velocities. The beat length $L_b$ of such a fiber (for a particular wavelength) is the distance (typically a few millimeters) over which the wave in one mode will experience an additional delay of one wavelength compared to the other polarization mode. Thus a length $\dfrac{L_b}{2}$ of such fiber is equivalent to a half-wave plate. Now consider that there might be a random coupling between the two polarization states over a significant length of such fiber. At point 0 along the fiber, the wave in polarization mode 1 induces an amplitude into mode 2 at some phase. However at point $\dfrac{L_b}{2}$ along the fiber, the same coupling coefficient between the polarization modes induces an amplitude into mode 2 which is now $180_\circ$ out of phase with the wave coupled at point zero, leading to cancellation. At point $L_b$ along the fiber the coupling is again in the original phase, but at $\dfrac{3L_b}{2}$ it is again out of phase and so on. The possibility of coherent addition of wave amplitudes through crosstalk over distances much larger than $L_b$ is thus eliminated. Most of the wave's power remains in the original polarization mode, and exits the fiber in that mode's polarization as it is oriented at the fiber end \cite{polarization_maintaining_fiber}. \par	
+
+Electrically driven polarization controller currently available provides a simple, efficient means to manipulate the state of polarization within a singlemode fiber. These operate with negligible insertion and return losses at 100Hz response speed with continuous polarization control capability at low voltage \cite{polarization_maintaining_device}.
+		
 	\subsection{On-chip PR}
 The currently available \gls{oeic} \gls{pr}s can be classified under two categories as passive and active \gls{pr}. In the passive \gls{pr}s the waveguide structures are designed in a specific way to manipulate the effective \gls{ri} of the waveguide, in order to obtain the desired polarization. The \gls{ri} cannot be manipulated or tuned once fabricated. Whereas, in active \gls{pr}s, the effective \gls{ri} can be manipulated by thermo-optic or quantum effects.
 	
@@ -667,6 +655,20 @@ An active \gls{pr} is generally achieved by multiple tunable controllers which g
 		\item[$\square$] \textbf{Drawbacks of PR using Berry's phase:}
 		This device uses out-of-plane ring cavity which uses the principles of ring resonator. The ring resonator is limited by its narrow band spectral features which limits bandwidth. Also, the device uses a non-birefringent waveguide, which is lossy in terms of photonic substrate, as an oxide cladding is used to confine light. 	
 	\end{itemize}
-	\todo{Add FOM}
-	%\subsubsection{Comparative analysis of available PR}
+	
+\subsubsection{Other Polarization tuning mechanisms}
+
+\paragraph*{Thermal tuning:} Thermal tuning mechanisms rely on the thermo-optic effect of materials, where their \gls{ri} changes with temperature. In silicon, the thermo-optic coefficient (dn/dT) around 1550 nm and 300 K is about $+1.8 \times 10^{-4} K^{-1}$. Above room temperature, this coefficient increases with a weak quadratic dependence. Similarly, the thermo-optic coefficient of materials such as InP, GaAs, and SiC also increase quadratically with temperature.
+
+\paragraph*{Electro-optic mechanism:}
+Electro-optic effects refer to changes in the optical constants of a material due to an applied electric field, and are broadly divided into changes in absorption or refractive index. They do not involve carrier injection or depletion. Electro-absorption refers to a change in the absorption of a material due to an applied electric field. Other effects, such as the Pockels effect, explain the change in the refractive index of a material with an applied electric field. The Pockels effect is linear with the electric field, but is only observed in materials that lack inversion symmetry (hence, not in silicon). Electro-optic effects have been realized using III–V materials through microdisks and microrings. However, only moderate resonant wavelength shifts are achieved \cite{elfadel_3d_2016}. 
+
+\paragraph*{Liquid crystals mechanism:} \gls{nlc} are materials that flow like a liquid but have their molecules oriented as a solid crystal. \gls{nlc} are birefringent, i.e., they have a refractive index that is dependent on the polarization and direction of propagation of
+light. In the presence of an electric field, the \gls{nlc} molecules align themselves along the field lines. This changes the polarization of the light passing through it, and therefore changes its refractive index. It is therefore possible to achieve electrically tunable optical devices based on \gls{nlc} \cite{deCort_tlc_09}.
+
+\paragraph*{Free carrier plasma dispersion effect:} The injection of free carriers into a material causes a change in its refractive index. This effect is known as the plasma dispersion effect. The free carriers are generated by single- or two-photon absorption from a pump laser, or injected through forward bias of a p-i-n junction. Alternatively, free carriers can be depleted from a previously doped region. The change in the free carrier concentration will therefore affect the optical properties of the material. When carriers are injected into an intrinsic region, the electron–hole pair density increases, which decreases the effective index \cite{soref_electrooptical_1987}.
+
+\paragraph*{Opto-mechanical tuning:} Opto-mechanical tuning refers to the integration of \gls{mems} with photonic devices. When applied to micro-resonators, the evanescent field of the resonant mode can be externally perturbed, either from the top or from the side. Two effects may result as a consequence of such perturbation: change in the effective index of refraction of the mode inside the resonator (since the evanescent tail of the mode sees a different cladding), and increase in the optical
+loss due to coupling/absorption of the propagating mode into/by the perturbing structure. Coupling ratios between bus waveguides and micro-resonators can also be modified through mechanical movement of suspended bus waveguides, normally needed for post-fabrication tuning or trimming \cite{elfadel_3d_2016}. Opto-mechanical tuning by electrostatic actuation can potentially provide a broad wavelength tuning range, while requiring low energy for operation.
+
 \end{document}

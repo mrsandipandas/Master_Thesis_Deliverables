@@ -160,6 +160,30 @@ and the maximum points on the graph will represent the dimensions of the \gls{me
 
 In this case the best dimensions for the \gls{mems} waveguide comes out as, $\chem{Rib_{width}}$ = \SI{200}{nano meter}, $\chem{Rib_{height}}$ = \SI{110}{nano meter}, $\chem{Base_{width}}$ = \SI{230}{nano meter}, $\chem{Slab_{height}}$ = \SI{110}{nano meter}. Fig. \ref{fig:3_mems_mode1_200_230} and Fig. \ref{fig:3_mems_mode2_200_230}, obtained using Comsol 2D simulation displays the port modes in the cross-section. This corroborates the claim that the \gls{mems} waveguide must be mirror image of the bus waveguide to inhibit \gls{pr}.
 
+\subsubsection{Representational design based on simulation}			
+Based on the simulations performed and the dimensions of the cross-section obtained the tunable \gls{pr} was designed as depicted in Fig. \ref{fig:3_wg_design_1_mems}. However, for quicker simulation purposes the remaining portions of the \gls{mems} waveguide cantilever are not considered in the simulation design.  
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=0.5\textwidth]{3-wg-design-1-mems}
+	\caption{Design of single-stair waveguide with MEMS tuning waveguide. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = 200nm, $\chem{Rib_{height}}$ = 110nm, $\chem{Slab_{width}}$ = 230nm, $\chem{Slab_{height}}$ = 110nm, and cross-section length = \SI{51}{\micro\meter}, in both the PR waveguide and MEMS waveguide. The output port is along the Z-axis}
+	\label{fig:3_wg_design_1_mems}
+\end{figure}
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{3-wg-tpr-mems-transmission}
+	\caption{\gls{tpr} transmission in silica cladding without \gls{mems} waveguide actuation}
+	\label{fig:3_wg_tpr_mems_transmission}
+\end{figure}
+
+\begin{figure}[H] %h
+	\centering
+	\includegraphics[width=1\textwidth]{3-wg-tpr-mems-transmission-air}
+	\caption{\gls{tpr} transmission in air cladding without \gls{mems} waveguide actuation}
+	\label{fig:3_wg_tpr_mems_transmission_air}
+\end{figure}
+
 \subsubsection{Device tolerance}
 When fabricating devices in nanometer scale often it is very difficult to control the device dimensions precisely. Hence, a brief study on simulation level is performed to check for deviance resulting due to variations in etch depth during the fabrication process discussed later in section \ref{sec:fab_process}.\\  
 
@@ -179,23 +203,6 @@ The same process is followed for a speculated etch depth of 130nm and the 20 bes
 	\includegraphics[width=1\textwidth]{3-graph-mode-sum-90nm-slab-height}
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $\chem{E_x}$ and $\chem{E_y}$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = 90nm}
 	\label{fig:3_graph_mode_sum_90nm_slab_height}
-\end{figure}
-
-\subsubsection{Representational design based on simulation}			
-Based on the simulations performed and the dimensions of the cross-section obtained the tunable \gls{pr} was designed as depicted in Fig. \ref{fig:3_wg_design_1_mems}. However, for quicker simulation purposes the remaining portions of the \gls{mems} waveguide cantilever are not considered in the simulation design.  
-
-\begin{figure}[H] %h
-	\centering
-	\includegraphics[width=0.75\textwidth]{3-wg-design-1-mems}
-	\caption{Design of single-stair waveguide with MEMS tuning waveguide. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = 200nm, $\chem{Rib_{height}}$ = 110nm, $\chem{Slab_{width}}$ = 230nm, $\chem{Slab_{height}}$ = 110nm, and cross-section length = \SI{51}{\micro\meter}, in both the PR waveguide and MEMS waveguide. The output port is along the Z-axis}
-	\label{fig:3_wg_design_1_mems}
-\end{figure}
-
-\begin{figure}[H] %h
-	\centering
-	\includegraphics[width=0.75\textwidth]{3-wg-tpr-mems-transmission}
-	\caption{Transmission with a \gls{mems} waveguide for \gls{tpr} in Silica cladding}
-	\label{fig:3_wg_tpr_mems_transmission}
 \end{figure}
 
 \begin{comment}
@@ -232,14 +239,14 @@ To test the \gls{tpr} auxiliary components like grating couplers (\gls{te} \& \g
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{3-sys-design}
-	\caption{System level block diagram of the fabricated device}
+	\caption{System level block diagram of the fabricated measurement setup}
 	\label{fig:3_sys_design}
 \end{figure}
 \noindent In the Fig. \ref{fig:3_sys_design} a high level block diagram of the measurement setup is shown. Whereas, in Fig. \ref{fig:3_tpr_test_setup} top view of the low level system design is shown with gratings, tapers, \gls{tpr}, \gls{tm} coupler and bridges. 
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{3-tpr-test-setup}
-	\caption{Top view schematic representation of the measurement setup}
+	\caption{Low level schematic representation of the fabricated measurement setup}
 	\label{fig:3_tpr_test_setup}
 \end{figure}
 
@@ -289,21 +296,21 @@ While tapering down to the \gls{tpr} cross-section from the grating coupler cros
 
 
 \subsection{Polarization beam splitter design}
-The \gls{pbs} based on an asymmetrical directional coupler by utilizing the evanescent coupling between a strip-nanowire and a nanoslot waveguide \cite{pbs_dai_2011}. First, \gls{ri} is calculated for different core widths with height = 220nm. The results are displayed in Fig. \ref{fig:3_pbs_core_waveguide}.
+The \gls{pbs} is based on an asymmetrical directional coupler by utilizing the evanescent coupling between a strip-nanowire and a nanoslot waveguide \cite{pbs_dai_2011}. First, \gls{ri} is calculated for different core widths with height = 220nm. The results are displayed in Fig. \ref{fig:3_pbs_core_waveguide}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.75\textwidth]{3-pbs-core_waveguide}
 	\caption{\gls{ri} for different dimensions of core waveguide width}
 	\label{fig:3_pbs_core_waveguide}
 \end{figure}
-\noindent Next, the \gls{ri} is calculated for different widths of nanoslot waveguide with a height of 220nm and slot width of 100nm. The gap between the core waveguide and the nanoslot waveguide is 150nm. The results are plotted in Fig. \ref{fig:3_pbs_slot_waveguide}.
+\noindent Next, the \gls{ri} is calculated for different widths of nanoslot waveguide with a height of 220nm and slot width of 100nm. The gap between the strip-nanowire and the nanoslot waveguide is 150nm. The results are plotted in Fig. \ref{fig:3_pbs_slot_waveguide}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.75\textwidth]{3-pbs-slot_waveguide}
 	\caption{\gls{ri} for different dimensions of slot cross-section}
 	\label{fig:3_pbs_slot_waveguide}
 \end{figure}
-\noindent It can be seen in Fig. \ref{fig:3_pbs_core_waveguide} that the effective index of $TM_0$ at a width of 550nm is 1.20. Whereas, it can be seen in Fig. \ref{fig:3_pbs_slot_waveguide} that the effective index of 1.20 in $TE_1$ is obtained around a width of 330nm for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section keeping the strip-nanowire and the nanoslot waveguide to understand the coupled modes shown in Fig. \ref{fig:3_pbs_te_coupling} and Fig. \ref{fig:3_pbs_tm_coupling}.
+\noindent It can be seen in Fig. \ref{fig:3_pbs_core_waveguide} that the effective index of $TM_0$ at a width of 500nm is 1.20. Whereas, it can be seen in Fig. \ref{fig:3_pbs_slot_waveguide} that the effective index of 1.20 in $TE_1$ is obtained around a width of 330nm for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section keeping the strip-nanowire and the nanoslot waveguide to understand the coupled modes shown in Fig. \ref{fig:3_pbs_te_coupling} and Fig. \ref{fig:3_pbs_tm_coupling}.
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{3-pbs-te-coupling}
@@ -319,7 +326,7 @@ The \gls{pbs} based on an asymmetrical directional coupler by utilizing the evan
 	\caption{\gls{te} and \gls{tm} coupling in \gls{pbs} slot waveguide at the mode coupling region}
 \end{figure}
 
-\noindent Finally, the designed is simulated in 3-D using CST for checking the transmission with strip-nanowire of width 500nm and nanoslot waveguide of width 330nm each with slot width of 100nm. The coupling length is estimated from \ref{eq:lpi_calc}. As, $n_{TE0}$ = 2.35 and $n_{TM0}$ = 1.20, hence $L_{\pi}$ = \SI{1.4}{\micro\meter}. As seen in Fig. \ref{fig:3_te_coupler}, the TE goes through the without coupling. Whereas, as seen in Fig. \ref{fig:3_tm_coupler}, the TM mode crosses through in the coupling region. As, it can be seen some portion of the TM mode goes through as well. However, the measured \gls{per} is more than 15dB. The purpose of this setup is to make sure that both TE and TM modes can be measured at different ports. In the final design in the measurement setup the nanoslot waveguide is not bend after the coupling region to minimize bents for TM. As TM mode is highly deconfined, bends can cause lossy transmission. Whereas, sine TE mode is confined the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. 
+\noindent Finally, the designed is simulated in 3-D using CST for checking the transmission with strip-nanowire of width 500nm and nanoslot waveguide of width 330nm each with slot width of 100nm. The coupling length is estimated from \ref{eq:lpi_calc}. As, $n_{TE0}$ = 2.35 and $n_{TM0}$ = 1.20, hence $L_{\pi}$ = \SI{1.4}{\micro\meter}. As seen in Fig. \ref{fig:3_te_coupler}, the TE mode goes through the without coupling. Whereas, as seen in Fig. \ref{fig:3_tm_coupler}, the TM mode crosses through in the coupling region. As, it can be seen some portion of the TM mode goes through as well. However, the measured \gls{per} is more than 15dB. The purpose of this setup is to make sure that both TE and TM modes can be measured at different ports. In the final design of the measurement setup the nanoslot waveguide is not bend after the coupling region to minimize losses for TM mode. As TM mode is highly deconfined, bends can cause lossy transmission for TM modes. Whereas, sine TE mode is confined the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. The idea can be viewed in Fig. \ref{fig:3_tpr_test_setup}.
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
