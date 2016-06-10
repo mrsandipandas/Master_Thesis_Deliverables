@@ -15,6 +15,12 @@
 % Chemistry formula in subscripts typesetting
 \newcommand*\chem[1]{\ensuremath{\mathrm{#1}}}
 
+% Bold LaTeX Vector
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+% Change margin of a particular portion of page
+\usepackage{changepage}
+
 % For "Acronym" and "Glossary"  
 \usepackage[acronym,toc,xindy]{glossaries}
 \makeglossaries
@@ -68,7 +74,7 @@
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
     % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
-    \subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    %\subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
     \subfile{Ch0.2-Title/title}
     %\subfile{Ch0.3-Acknowledgement/ack}
     %\subfile{Ch0.4-Abstract/abstract}      
@@ -91,27 +97,28 @@
     % These introductory pages have a arabic numeral numbering
     \pagenumbering{arabic}
     \subfile{Ch1-Introduction/ch1}
-    \subfile{Ch2-State_of_the_art/ch2}
-    \subfile{Ch3-Design_and_simulation/ch3}
-    \subfile{Ch4-Fabrication/ch4}
-    \subfile{Ch5-Results/ch5}
-    \subfile{Ch6-Discussion/ch6}
-    \subfile{Ch7-Conclusion/ch7}
+    \subfile{Ch2-Background_literature/ch2}
+    \subfile{Ch3-State_of_the_art/ch3}
+    \subfile{Ch4-Design_and_simulation/ch4}
+    \subfile{Ch5-Fabrication/ch5}
+    \subfile{Ch6-Experiments/ch6}
+    \subfile{Ch7-Discussion/ch7}
+    \subfile{Ch8-Conclusion/ch8}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
-    \subfile{Ch8-Appendix/glossary}
+    \subfile{Ch9-Appendix/glossary}
     % Abbreviations
     \printglossary[type=acronym,title={Appendix A: Abbreviations}] 
     
-    \subfile{Ch8-Appendix/scripts}
+    \subfile{Ch9-Appendix/scripts}
     
     \listoftodos %To do list, remove later  
     
     % Bibliography
     \bibliographystyle{ieeetr}
-    \bibliography{Ch9-Bibliography/ref}   
+    \bibliography{Ch10-Bibliography/ref}   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 
