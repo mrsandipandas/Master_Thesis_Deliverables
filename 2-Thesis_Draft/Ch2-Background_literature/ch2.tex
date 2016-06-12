@@ -176,21 +176,25 @@ where, $\Psi \left( x,y,z\right) = \psi \left( x,y\right)e^{-jkz} $ and then the
 \end{aligned}
 \end{equation}
 
-\noindent The equation \ref{eq:helmholtz_eq_wg_general} can be solved for $\psi \left( x,y\right)$, using different numerical analysis methods like \gls{fem}, \gls{fit}, \gls{bpm}, \gls{fdtd}. For optical applications, the main used methods are \gls{fem} (Frequency domain solver), \gls{fit} (Time domain solver). The numerical methods first decompose the waveguide into sufficient number small cells (more cells give more robust solution at the cost of increased computing) and then discretization of the refractive index profile is performed. Next the field equations are discretized by replacing the derivatives by their finite difference representations in those cells. In this way a set of linear equations are obtained which can be solved using standard algebraic methods. In general, \gls{fit} has a much lower memory footprint.\par
+\noindent The equation \ref{eq:helmholtz_eq_wg_general} can be solved for $\psi \left( x,y\right)$, using different numerical methods like \gls{fem}, \gls{fit}, \gls{bpm}, \gls{fdtd}. The numerical methods first decompose the waveguide into sufficient number small cells (more cells give more robust solution at the cost of increased computing turns) and then discretization of the refractive index profile is performed. Next the field equations are discretized by replacing the derivatives by their finite difference representations in those cells. In this way a set of linear equations are obtained which can be solved using standard algebraic methods. In general, \gls{fit} has a much lower memory footprint.\par
 
-For given $\omega$, the resulting mode problem is an eigenproblem, solved for eigenvectors, i.e., mode profiles $\psi(x, y)$, and eigenvalues, from which the corresponding propagation constants $k$ of the modes are computed. The geometry of the waveguide is given by the transverse dependence of $\epsilon$, with effective \gls{ri} profile, and by appropriately chosen boundary conditions. Each allowed solution is referred to as the \textit{mode of propagation}. For example, when light travels through a rectangular waveguide different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
+For given $\omega$, the resulting mode problem is an eigenproblem, solved for eigenvectors, i.e., mode profiles $\psi(x, y)$, and eigenvalues, from which the corresponding propagation constants $k$ of the modes are computed. The geometry of the waveguide is given by the transverse dependence of $\epsilon$, with effective \gls{ri} profile, and by appropriately chosen boundary conditions. Each allowed solution is referred to as the \textbf{mode of propagation}. For example, when light travels through a rectangular waveguide different modes can be visualized as follows in Fig. \ref{fig:2_rect_te_modes}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{2-rect-te-modes}
-	\caption{Rectangular transverse mode patterns \gls{te}(mn)}
-	\label{fig:2_rect_te_modes}
+	\caption{TEM modes labelled with corresponding indices. The indices describe the shape of the modes as m+1 columns and n+1 rows. i.e. $\chem{TEM_{21}}$ mode shape has 3 columns and 2 rows.
+	\label{fig:2_rect_te_modes}}
 \end{figure}
 		
-		\section{Polarization and transverse modes}
-In optical waveguides, the transmission distance is limited by several types of dispersion, or spreading of optical pulses as they travel along the waveguide. Dispersion in waveguide is caused by a variety of factors. Intermodal dispersion, caused by the different axial speeds of different transverse modes, limits the performance of multi-mode waveguide. Because single-mode waveguide supports only one transverse mode, intermodal dispersion is eliminated. In single-mode performance is primarily limited by chromatic dispersion (also called group velocity dispersion), which occurs because the \gls{ri} of silicon varies slightly depending on the wavelength of the light. \gls{pmd}, another source of limitation, occurs because although the single-mode waveguide can sustain only one transverse mode, it can carry this mode with two different polarizations, which travel at different propagation velocities. This phenomenon is called birefringence and its effect can be counteracted by polarization-rotator. \gls{pmd} limits the bandwidth of the waveguide because the spreading optical pulse limits the rate that pulses can follow one another on the waveguide and still be distinguishable at the receiver.\par
+		\section{Polarization}
+Polarization is a wave mode solution which fits in the waveguide and is represented by the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is linearly polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in linearly polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in single-mode.
 
-Polarization is the direction of the electric field associated with the propagating wave. In the example in Fig. \ref{fig:2_em_wave} the wave is linearly polarized since the electric field and magnetic field exist in one direction only. In a dielectric optical waveguide, light propagates in linearly polarized modes and the plane in which light is polarized is either vertical or horizontal to the direction of wave, as shown in Fig. \ref{fig:2_te_tm_mode} in single-mode.
-		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{2-te-tm-mode}
+		\caption{\gls{te} and \gls{tm} fundamental mode in a waveguide using CST simulation}
+		\label{fig:2_te_tm_mode}
+	\end{figure}	
 			\subsection{TE mode}
 \gls{te} mode is the fundamental mode in which there is no electric field in the direction of propagation of light wave. In Fig. \ref{fig:2_te_tm_mode} the electric field lines (blue) are perpendicular to the plane of incidence in \gls{te} mode. The plane of incidence is the plane in which optical waves strike the surface of the waveguide.						
 			\subsection{TM mode}
@@ -198,40 +202,26 @@ Polarization is the direction of the electric field associated with the propagat
  
 			\subsection{Quasi-TE and Quasi-TM mode}				
 Practically, waveguide cores have electric and magnetic fields that slice through air and the cladding substrate. Hence they do not support pure \gls{te} and \gls{tm} modes. However, since most the power is contained under the waveguide core and inside just the cladding, \gls{te} and \gls{tm} modes can be a good approximation. Generally, in these modes there is some field component in the direction of propagation as well. This is known as quasi-\gls{te} and quasi-\gls{tm} mode.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{2-te-tm-mode}
-	\caption{\gls{te} and \gls{tm} fundamental mode in a waveguide using CST simulation}
-	\label{fig:2_te_tm_mode}
-\end{figure}
-			
-		\section{Confinement factor}
-Often it is necessary to know the confined power inside the core of the waveguide which helps in figuring out the waveguide mode. The confinement is also a measure of the proportion of the power in a given mode that lies within the core \cite{reed_silicon_2008}.  
-\begin{equation}\label{eq:per}
-\text{ Confinement factor } = \dfrac {\int _{-H / 2}^{H/2}E_{x}^{2}\left( y\right) dy} {\int _{-\infty }^{\infty }E_{x}^{2}\left( y\right) dy}
-\end{equation}
-Confinement factor is an important measure which is function of various factors like polarization, \gls{ri} difference between the core and cladding, mode number etc.	
-		
+	
 		\section{Jones calculus}
-Polarized light can be represented using Jones calculus. Polarized light is represented using \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is already fully polarized \cite{burch_introduction_1975}.
+Polarized light can be represented using Jones calculus. Polarized light is represented using a \textit{Jones vector} and linear optical elements are represented by \textit{Jones matrices}.	When light crosses an optical element the resulting polarization of the emerging light is found by taking the product of the Jones matrix of the optical element and the Jones vector of the incident light. \textit{Jones calculus} is only applicable to light that is fully polarized \cite{burch_introduction_1975}.
 		
 			\subsection{Jones vector}
 The Jones vector describes the \gls{sop} of light in free space or another homogeneous isotropic non-attenuating medium, where the light can be properly described as transverse waves \cite{burch_introduction_1975}. The Jones vector is a complex vector that is a mathematical representation of a real wave. A typical representation of the electric field for the optical wave described in \ref{eq:wave_sol_electric} can be as follows:
 \begin{equation}\label{eq:jones_vector}
-E = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( \omega t - kz+\phi _{x}\right)} \\ E_{y}e^{i\left( \omega t - kz+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( \omega t - kz\right)} 
+\vec{E} = \left( \begin{matrix} E_{x}\left( t\right) \\ E_{y}\left( t\right) \\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\left( \omega t - kz+\phi _{x}\right)} \\ E_{y}e^{i\left( \omega t - kz+\phi _{y}\right) }\\ 0\end{matrix} \right) = \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\\ 0 \end{matrix} \right)e^{i\left( \omega t - kz\right)} 
 \end{equation}
-where $\phi_x$ and $\phi_y$ indicate the phasor notation. The Jones vector of the plane wave is described by:
+where $\phi_x$ and $\phi_y$ represent the phase of $E_x$ and $E_y$ fields. The Jones vector of the plane wave is described by:
 \begin{equation}\label{eq:jones_vector_form}
 \left( \begin{matrix} E_{x}e^{i\phi_x}\\ E_{y}e^{i\phi_y}\end{matrix} \right) 
 \end{equation}
-and the intensity of the optical, $I$ wave can be written as,
+and the intensity of the optical wave, $I$ wave can be written as,
 \begin{equation}\label{eq:jones_vector_intensity}
 I = \left| E_x\right| ^{2}+\left| E_y\right| ^{2} 
 \end{equation}
-Generally, when considering Jones vector a wave of unit intensity is required for the consideration polarization, so Jones vector is noted using an unit vector where,
+Generally, a wave of unit intensity is used for the consideration polarization. So Jones vector is noted using an unit vector as,
 \begin{equation}\label{eq:jones_unit_vector_form}
-	E\overline {E} = 1
+	\vec{E}\overline {\vec{E}} = 1,
 \end{equation}
 where $\overline {E}$ is the complex conjugate of $E$. 
 In general the Jones representation of a normalized elliptically polarized beam with azimuth $\theta$ and elliptical angle $\epsilon$ is given by,
@@ -251,7 +241,7 @@ where $e^{i\phi}$ is an arbitrary phase vector and $\phi = \phi_x - \phi_y$. So,
 since, $\theta=0$ and $\epsilon = 0$.
 			
 			\subsection{Jones matrix}
-Jones matrix is the formal representation of the various optical elements such as lenses, beam splitters, mirrors, phase retarders, polarizers at arbitrary angles that can modify polarization. They generally operate on Jones vector and helps in comprehend situations which light encounters multiple polarization elements in sequence. In these situations the products of the Jones matrices can be used to represent the transfer matrix. This situation can be represented using,
+Jones matrix is the formal representation of the various optical elements such as lenses, beam splitters, mirrors, phase retarders, polarizers at arbitrary angles that can modify polarization. They generally operate on Jones vectors and helps in comprehending situations which light encounters multiple polarization elements in sequence. In these situations the products of the Jones matrices can be used to represent the transfer matrix. This situation can be represented using,
 \begin{equation}\label{eq:jones_matrix}
 [E_{output}] = J_{system}[E_{input}] 
 \end{equation}
@@ -262,16 +252,16 @@ J_{system} =J_{N}J_{N-1}\ldots \ldots J_{2}J_{1}
 where $J_{N}$ is the Jones matrix for $n^{th}$ polarizing optical element.
 
 			\subsection{Jones matrix for polarizing optical systems}
-To construct optical waveguides for polarization rotation it is imperative to deal with the basic principles of standard available optical systems. Here, the fundamental principles of polarizer and wave plates are interpreted using Jones calculus.
-		\subsection*{Polarizer}
-Polarizers have an index of refraction which depends on orientation electric field propagation. If any optical system has a transmission axis and an absorption axis for electric fields, then lights will be passed along he transmission axis and absorbed along the other axis. So, the Jones matrix of a polarizer making an angle $\theta$ with the X-axis will come out as,
+Polarizer and wave plates are fundamental components which is required in an optical test-bench. These are discussed using Jones Calculus in the following sections.
+		\subsubsection{Polarizer}
+Polarizers have an index of refraction which depends on orientation electric field propagation. If any optical system has a transmission axis and an absorption axis for electric fields, then lights will be passed along the transmission axis and absorbed along the other axis. So, the Jones matrix of a polarizer making an angle $\theta$ with the X-axis will come out as,
 \begin{equation}\label{eq:jones_matrix_polarizer}
 \left(\begin{matrix} 
 \cos ^{2}\theta & \sin \theta \cos \theta \\ 
 \sin \theta \cos \theta & \sin ^{2}\theta
 \end{matrix} \right) 
 \end{equation} 
-		\subsection*{Wave plates}
+		\subsubsection{Wave plates}
 Wave plates are phase retarders which are made of birefringent crystals. Wave plates can be conceptualized as two polarizers kept apart at certain distance $d$, such that their polarization axes are apart orthogonally ($90^{0}$). The phase difference as light passes through this setup of thickness $d$ is \cite{peatross_physics_2015},
 \begin{equation}\label{eq:jones_matrix_wp1}
 \left(k_{slow}-k_{fast}\right)d = \dfrac {2\pi d} {\lambda_{vac} }\left( n_{slow}-n_{fast}\right) 
@@ -283,7 +273,7 @@ In, general the Jones matrix for a wave plate is given by \cite{peatross_physics
 \sin \theta \cos \theta -\xi \sin \theta \cos \theta & \sin ^{2}\theta +\xi \cos ^{2}\theta
 \end{matrix} \right) 
 \end{equation}
-where $\xi$ is calculated based on the type of wave plate. The following equations addresses some general scenarios:
+where $\xi$ is calculated based on the type of wave plate. The following equations addresses some specific scenarios:
 \begin{equation}\label{eq:jones_matrix_wp3}
 \begin{aligned}
 \begin{cases} 
@@ -295,17 +285,7 @@ where $\xi$ is calculated based on the type of wave plate. The following equatio
 and $m \in \mathbb{Z}$. $\xi$ is the phase delay of the wave plates. Similar concept is used in the construction of \gls{pr} waveguides which will be discussed in later sections shortly.
  		
 		\section{Poincaré sphere and state of polarization} \label{concept:poincare_sphare}
-To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be depicted on the Poincaré sphere as well. 
-\par The \gls{sop} of any wave are \gls{fom} for \gls{pr} and are described using \textbf{\gls{per}} and polarization phase, $\phi$ given by the following equations:
-\begin{equation}\label{eq:wave_sop}
-\begin{aligned}
-\begin{cases}
-PER_{TE-TM} = 10\log \dfrac {P_{TM}} {P_{TE}}\\
-PER_{TM-TE} = 10\log \dfrac {P_{TE}} {P_{TM}}\\
-\phi =\phi _{x}-\phi _{y}
-\end{cases}
-\end{aligned}
-\end{equation}
+To view a complete representation of all the polarization ellipses generated using Jones vectors, a spherical structure with unit radius is used, which is known as Poincaré sphere. If the orientation in space of of the ellipse of polarization is determined by the azimuth, $\theta$ and ellipticity, $\epsilon$ then that point can be completely characterized by its longitude $2\theta$ and latitude $2\epsilon$. The north and south poles represent the right-handed and left-handed circular polarization respectively. In general the diametrically opposite points represent pairs of orthogonal polarization. The \gls{sop} and its corresponding location in the Poincaré sphere is visualized in the Fig. \ref{fig:2_poincare}. To go from one \gls{sop} to another the polarized light can be passed through various optical components which can be computed using the Jones matrix and the corresponding \gls{sop} can be represented on the Poincaré sphere. 
      
 \begin{figure}[H]
 	\centering
@@ -320,10 +300,6 @@ PER_{TM-TE} = 10\log \dfrac {P_{TE}} {P_{TM}}\\
 and,
 \begin{equation}\label{eq:polarization_condition_2}
 \phi = \phi_{x}(t) - \phi_{y}(t)=constant
-\end{equation}
-\par Apart from the afore mentioned \gls{fom}, another important characteristic which must be optimized is \textbf{Insertion loss}. It is the loss of signal power resulting from the insertion of a device in a transmission line or optical fiber and is usually expressed in decibels (dB). If the power transmitted to the load before insertion is $P_{in}$ and the power received by the load after insertion is $P_{out}$, then the \gls{il} in dB is given by,
-\begin{equation}\label{eq:insertion_loss}
-\gls{il} (dB) = 10\log _{10} \dfrac {P_{in}} {P_{out}}
 \end{equation}
   
 		\section{Stoke's parameter} 		
@@ -367,7 +343,7 @@ The prescribed notations are portrayed on the Poincaré sphere in the following 
 \end{figure}
 
 	\section{Coupled mode theory}\label{concept:mode_coupling}
-In a waveguide, an ideal mode is an eigenvector of a propagation constant. Mode coupling enables transfer of energy from one ideal mode to another, during propagation. Mode coupling can be induced by introducing randomness in the waveguide. This can be achieved through random or intentional index perturbations, bends and stresses within a waveguide, or by introducing another independent waveguide structure in close proximity (coupled waveguides in close proximity are modeled as a single structure, forming supermodes). The pairwise coupling strength between two modes depends on a dimensionless ratio between the coupling coefficient (per unit length) and the difference between the two modal propagation constants. Hence, a given perturbation may strongly couple modes having nearly equal propagation constants, but weakly couple modes having highly unequal propagation constants. \gls{pmd} and \gls{pdl} have long been described by field coupling models, in which phase dependent coupling of modal fields is described by complex coefficients. Field coupling models describe not only a redistribution of energy among modes, but also how eigenvectors and their eigenvalues depend on the mode coupling coefficients \cite{kahn_mode_2012}.
+In a waveguide, an ideal mode is an eigenvector of a propagation constant. Mode coupling enables transfer of energy from one ideal mode to another, during propagation. Mode coupling can be induced by introducing another independent waveguide structure in close proximity (coupled waveguides in close proximity are modeled as a single structure, forming supermodes). The pairwise coupling strength between two modes depends on a dimensionless ratio between the coupling coefficient (per unit length) and the difference between the two modal propagation constants. Hence, a given perturbation may strongly couple modes having nearly equal propagation constants, but weakly couple modes having highly unequal propagation constants. \gls{pmd} and \gls{pdl} have long been described by field coupling models, in which phase dependent coupling of modal fields is described by complex coefficients. Field coupling models describe not only a redistribution of energy among modes, but also how eigenvectors and their eigenvalues depend on the mode coupling coefficients \cite{kahn_mode_2012}.
 
 \paragraph*{Perturbation Analysis:}
 Supermodes can be represented as weighted sum of individual guided modes. If two modes are represented by $\psi_1(x,y)$ and $\psi_2(x,y)$ in the different waveguides along with the coupling between two modes as $X_i(z)$, then the supermode can be written using Helmholtz identity as, 
@@ -439,8 +415,34 @@ Coupling coefficients and phase mismatch are important factors for power exchang
 	\caption{Description of the directional coupler under coupled-mode and normal-mode}
 \end{figure}
 
-\noindent In \ref{fig:2_mc_theory_2} for no phase mismatch complete power exchange occurs. This is why phase matching is an important criteria for mode coupling. The coupling length, $L_c = \pi / 2\kappa$. 
+\noindent In \ref{fig:2_mc_theory_2} for no phase mismatch complete power exchange occurs. This is why phase matching is an important criteria for mode coupling. The coupling length is, $L_c = \pi / 2\kappa$. 
 
 \par 
 Coupling mode theory has been successfully applied to the modeling and analysis of various guided-wave optoelectronic devices, such as optical directional couplers made of thin film and channel waveguides, multiple waveguide lenses, phase-locked laser arrays, distributed feedback lasers and distributed Bragg reflectors, grating waveguides and couplers, nonparallel and tapered waveguide structures, Y-branch waveguides, \gls{te}/\gls{tm} polarization converters, mode conversion and radiation loss in slab waveguides, residual coupling among scalar modes. It has also been used to study the wave coupling phenomena in nonlinear media such as harmonic generation in bulk and guided-wave devices, and nonlinear coherent couplers \cite{haus_coupled_1991}.
+
+\section{Figures of merit}
+The \gls{fom} represents the benchmarks present for comparing different optical waveguide components.			
+\subsection{Confinement factor}
+The confinement factor is a measure of the proportion of the electric field power in a given mode that lies within the core.  
+\begin{equation}\label{eq:per}
+\text{ Confinement factor } = \dfrac {\int _{-w / 2}^{w/2}E_{x}^{2}\left( y\right) dy} {\int _{-\infty }^{\infty }E_{x}^{2}\left( y\right) dy},
+\end{equation}
+where, $w$ is the width of the waveguide core. Confinement factor is an important measure which is function of various factors like polarization, \gls{ri} difference between the core and cladding, mode number etc.	
+
+\subsection{Polarization extinction ratio}
+The \gls{per} is the ratio of optical powers of \gls{te} and \gls{tm} polarizations. The \gls{per} is used to characterize the degree of polarization in a polarization maintaining device or fiber. 	
+\begin{equation}\label{eq:wave_sop}
+\begin{aligned}
+\begin{cases}
+PER_{TE-TM} = 10\log_{10} \dfrac {P_{TM}} {P_{TE}}\\
+PER_{TM-TE} = 10\log_{10} \dfrac {P_{TE}} {P_{TM}}
+\end{cases}
+\end{aligned}
+\end{equation}
+
+\subsection{Insertion loss}
+Insertion loss is the loss of signal power resulting from the insertion of a device in a transmission line or optical fiber and is usually expressed in decibels (dB). If the power transmitted to the load before insertion is $P_{in}$ and the power received by the load after insertion is $P_{out}$, then the \gls{il} in dB is given by,
+\begin{equation}\label{eq:insertion_loss}
+\gls{il} = 10\log _{10} \dfrac {P_{in}} {P_{out}}
+\end{equation}
 \end{document}

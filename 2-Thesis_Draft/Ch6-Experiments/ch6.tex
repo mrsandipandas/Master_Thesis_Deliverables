@@ -2,7 +2,30 @@
 \begin{document}	
 \chapter{Experiments}
 % How much do i discuss the results - You show the results and interpret the results with the reader
-	\section{Experimental setup for measurement}
+
+	\section{Unit tests}
+	To analyze the design various tests are performed. The strategy followed resembles similarity to unit tests where each of the components are tested and verified to understand the design. Also, the results are normalized to analyze the performance of \gls{mems} \gls{tpr}. 
+	
+	\noindent The test cases followed during the fabrication process are discussed below. 
+	\begin{itemize}[leftmargin=*]
+		\item[$\square$] \textbf{Dose test:} The first test requires to verify the dose of \gls{hsq} and \gls{zep} used in masking to prevent the damage of masked Si. For this different doses are applied on different portion of the chip by using similar CAD model.
+		
+		\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with a normal waveguide:} To check any optical design it is necessary to couple the light into the chip with good transmission. That is why gratings are necessary. To check \gls{pr} design, it was necessary first to check the \gls{te} and \gls{tm} transmissions. Hence, the first test case was to check the \gls{te}/\gls{tm} grating with a normal waveguide. This give an idea of transmission parameters and the next results were referenced to this value. This test ensured that the gratings worked as intended. 
+		
+		\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with tapers:} The next test was to check the transmission parameters of the tapers, which was obtained by just putting the tapers end-to-end after the gratings from both ends. In this test it was made sure that there was good transmission in the tapers.
+		
+		\item[$\square$] \textbf{TE/TM\textemdash TM/TE grating with taper, normal waveguide and PBS:} Next it was necessary to check the \gls{pbs} design based on asymmetrical directional coupler, required for the characterization of the converted modes.
+		
+		\item[$\square$] \textbf{TE/TM\textemdash TE/TM grating with taper and thinner waveguide:} Since, the \gls{pr} was on a thinner waveguide of thickness \SI{230}{\nano \meter} whereas the gratings had a thickness of \SI{1200}{\nano \meter}, it was necessary to use tapers to connect the gratings to the \gls{pr} section. But before checking the \gls{pr}, it was necessary to check if the transmission in the Si nano wires. That is the reason why this test case was performed. 
+		
+		\item[$\square$] \textbf{TE/TM Grating with PR and PBS:} Now that all the auxiliary components have been tested, the \gls{pr} design was tested as well with \gls{pbs} and \gls{te}/\gls{tm} grating for different lengths with taper.
+		
+		\item[$\square$] \textbf{Cantilever actuation with separation strategy:} Since, the actuation is done by applying a voltage it is necessary to check that the cantilever actuates properly on applying voltage and does not stick after removal of voltage. This is done by segregating the cantilever portion from other parts of the chip so that other portions of the chip are not affected. 
+		
+		\item[$\square$] \textbf{TE/TM Grating with PR, PBS, MEMS waveguide and actuation:} Finally, if all the previous tests have succeeded the final design is tested with all the components and characterized.
+	\end{itemize}
+	
+	\noindent The goal of the unit test strategy was to find and understand any short-comings which might occur at nano-scale at any stage of the fabricated process.
 	
 	\section{Results}
 	
