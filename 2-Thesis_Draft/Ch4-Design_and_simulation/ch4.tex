@@ -16,14 +16,20 @@
 To design a \gls{pr} in nanometer scale, precision is a key factor. Meshing of the geometry, cladding dimensions and its material composition, frequency range of the solvers, boundary conditions, volume of simulated area chosen, etc. are the key things to watch for in designing the simulation in the mode solver softwares. As the idea is to make the \gls{tpr} as broadband as possible, it is necessary to do frequency analysis simulation for a wide-band spectrum in which the optical fibers for telecommunications work. As the operating wavelength of the telecommunications optical fiber network in C-band and L-band are between $\SI{1530}{\nano\metre}$ and $\SI{1625}{\nano\metre}$, the corresponding frequency range becomes $\SI{195.94}{\THz}$ - $\SI{184.48}{\THz}$.
 	
 		\subsection{Design: Mode hybridization based single stair Si waveguide with air cladding}
-Initially, a single stair waveguide is being designed for \gls{pr}. To find out the dimensions for obtaining $45{^\circ}$ hybridized modes, Comsol 2D mode solver is used. 
+
+If, a light source polarized at an angle $\chem{\theta}$, is incident on a half wave plate (\ref{concept:wave_plates}), then the final \gls{sop} is derived using Jones matrix (\ref{concept:jones_matrix}), described as follows:
+
+\begin{equation}\label{eq:wave_plate_pr}
+\left( \begin{matrix} 1& & 0\\ 0& & -1\end{matrix} \right) \left( \begin{matrix} \cos \theta \\ \sin \theta \end{matrix} \right) ~ = ~ \left( \begin{matrix} -\cos \theta \\ -\sin \theta \end{matrix}\right) ~ = ~ \left( \begin{matrix} \cos \left(-\theta\right) \\ \sin \left(-\theta\right) \end{matrix} \right), 
+\end{equation}
+where, $\chem{\left( \begin{matrix} 1& & 0\\ 0& & -1\end{matrix} \right)}$ is the Jones matrix for the half wave plate derived using \ref{eq:jones_matrix_wp3} and $\chem{\left( \begin{matrix} \cos \theta \\ \sin \theta \end{matrix} \right)}$ is the Jones vector representation of linearly polarized wave at an angle $\chem{\theta}$, with the horizontal, derived using \ref{eq:jones_vector_general_form}. This concludes that an incidence of $\chem{\theta}$, produces an output of $\chem{-\theta}$, when passed thorough a wave plate, which gives $\chem{2\theta}$ polarization rotation. Thus to rotate polarization by $\chem{90{^\circ}}$, an incidence of $\chem{45{^\circ}}$ is necessary on the wave plate. The single stair waveguide acts as an wave plate due to its asymmetric structure which guides \gls{te} and \gls{tm} modes at different speeds in different axes. To find out the dimensions for obtaining $45{^\circ}$ hybridized modes in the single stair waveguide, Comsol 2D mode solver software is used. 
 
 \subsubsection{Waveguide geometry}
 Throughout the next sections the dimensions of the stair waveguide are defined in terms of rib, slab and base described in Fig. \ref{fig:4_wg_structure}.   
 
 \begin{figure}[H] %h
 	\centering
-	\includegraphics[width=0.75\textwidth]{4-wg-structure}
+	\includegraphics[width=0.45\textwidth]{4-wg-structure}
 	\caption{Stair waveguide geometry}
 	\label{fig:4_wg_structure}
 \end{figure}
@@ -270,7 +276,7 @@ The high effective index and small mode dimensions of single mode silicon wavegu
 
 
 \subsection{Taper with bridge design}
-While tapering down to the \gls{tpr} cross-section from the grating coupler cross-section, the $\chem{SiO_{2}}$ underneath is etched away. Hence, to support the structure from the side bridges are constructed which forms a slab like structure at certain cross-sections. These kinds of structures accommodate mode conversions between $\chem{TM_0}$ and $\chem{TE_3}$. Also, these bridges are constructed in other places in the waveguide structure where support is necessary to hold the waveguide. For example, if the core waveguide width is \SI{700}{\nano\meter} then a total base width (core and bridge) of \SI{1500}{\nano\meter} must be avoided for mode conversion reasons. This is simulated using COMSOL and the results are plotted in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} base width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. 
+While tapering down to the \gls{tpr} cross-section from the grating coupler cross-section, the $\chem{SiO_{2}}$ underneath is etched away. Hence, to support the structure from the side bridges are constructed which forms a slab like structure at certain cross-sections. These kinds of structures accommodate mode conversions between $\chem{TM_0}$ and $\chem{TE_3}$. Also, these bridges are constructed in other places in the waveguide structure where support is necessary to hold the waveguide. For example, if the core waveguide width is \SI{700}{\nano\meter} then a total base width (core and bridge) of \SI{1500}{\nano\meter} must be avoided for mode conversion reasons. This is simulated using COMSOL and the results are plotted in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} base width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. However, there is no mode conversion between $\chem{TM_0}$ and $\chem{TE_2}$, since the field distributions are not similar and hence they do not couple.
  
  \begin{figure}[H] %h
  	\centering
