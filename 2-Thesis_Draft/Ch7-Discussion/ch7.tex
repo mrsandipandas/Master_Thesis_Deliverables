@@ -1,15 +1,26 @@
 \documentclass[../report.tex]{subfiles}
 \begin{document}	
 	\chapter{Discussion}
+\gls{mems} \gls{tpr} can establish new horizons for on-chip integrated photonics. The power consumption of the \gls{mems} \gls{tpr} is very low and thus can be used for low powered devices. Furthermore, if the current problems are fixed, a cascade of \gls{mems} \gls{tpr} can be designed to yield broadband polarization rotation without the bandwidth constraints. The measurement setup developed during the thesis work with grating couplers, tapers and \gls{pbs} can be reused further to test future integrated photonic components which uses \gls{te} and \gls{tm} modes.
 	
-	% Show how your work fits to the other peoples work in the bigger picture. Analyze and evaluate your work.
-	\todo{Add FOM}
-	%\subsubsection{Comparative analysis of available PR}
 	\section{Limitations}
+The development process of the \gls{tpr} gave a broad understanding of the working and fabrication of micro-optic based devices. The outcome of the understanding are discussed as follows:
+\begin{itemize}	
+	\item[$\square$] \textbf{Mode evolution design issue:} In the thesis work the mode hybridization based design is used for the \gls{tpr}. However, in the literature review and simulation work performed, mode evolution based design showed promising results. But this design was not used since the length of the device is difficult to estimate. This estimation would have taken more fabrication iterations. 
+	\item[$\square$] \textbf{230$\times$200 dimension stair waveguide problem:} In the simulation, the best dimensions of the stair waveguide were obtained at 230$\times$\SI{200}{\nano\meter}. However, it is difficult to pattern such dimensions due to proximity effect. Moreover, the gap between the \gls{mems} waveguide and the passive \gls{pr} waveguide was used as \SI{100}{\nano\meter}. However due lateral sticktion problem the \gls{mems} waveguide and the passive \gls{pr} were stuck together. Hence, a gap of \SI{200}{\nano\meter} was used.
+	\item[$\square$] \textbf{Thinner resist:} The resist used during the fabrication procedure must be thinner as thicker resist on the small device layer can break the device pattern.
+	%\item[$\square$] \textbf{High selectivity of resist:}
+	\item[$\square$] \textbf{Small write-field alignment:} Write-filed alignment is a very central adjustment in the process of getting the best possible e-beam lithographic result. Smaller write-field alignment ensures precise positioning of the stage under the e-beam deflection system.
+	\item[$\square$] \textbf{Cantilever bending problem:} Longer cantilever bends in the fabrication process. Hence,  it is necessary to design shorter cantilevers. Shorter cantilevers are stiffer and do not bend out of plane.
+	\item[$\square$] \textbf{Dry-etching problem:} The gratings and the stair waveguide are designed for \SI{110}{\nano \meter} slab height. However, the dry-etch procedure in the lab is difficult to control to achieve precise etching. So, device tolerance simulations should be performed to analyze the results.  
+	%\item[$\square$] \textbf{Not too fast as using MEMS:}
+	%\item[$\square$] \textbf{Narrowband / Broadband?:}
+	% Add FOM - Comparative analysis of available PR
 	
-	% 1. Not too fast as using MEMS.
-	% 2. Narrowband / Broadband?
+\end{itemize}
 	
-	\section{Future work}
+	\section{Future work} 
+	Since, the \gls{mems} \gls{tpr} could not be made fully functional due to several problems the first step would be make it fully functional and characterize it. Then the mode evolution design can be 
+	designed with the \gls{mems} cantilever and tried out. To make the device broadband a cascaded \gls{tpr} design can be evaluated furthermore.
 	
 \end{document}

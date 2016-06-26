@@ -4,7 +4,7 @@
 % How much do i discuss the results - You show the results and interpret the results with the reader
 
 	\section{Unit tests}
-	To analyze the design various tests are performed	. The strategy followed resembles similarity to unit tests where each of the components are tested and verified to understand the design. Also, the results are normalized to analyze the performance of \gls{mems} \gls{tpr}. 
+	To analyze the design various tests are performed. The strategy followed resembles similarity to unit tests where each of the components are tested and verified to understand the design. Also, the results are normalized to analyze the performance of \gls{mems} \gls{tpr}. 
 	
 	\noindent The test cases followed during the fabrication process are discussed below. 
 	\begin{itemize}[leftmargin=*]
@@ -27,8 +27,47 @@
 	
 	\noindent The goal of the unit test strategy was to find and understand any short-comings which might occur at nano-scale at any stage of the fabricated process.
 	
-	\section{Results}
+	\section{Characterization}
+	An optical test bench setup was used to characterize the product. The test bench consisted of a LASER, microscope, optical fibers, polarizer and soft probes (for applying voltage to the chip without damaging it). The experiments were performed at a wavelength of \SI{1550}{\nano \meter} (since, telecommunications operate at this wave length) with a span of \SI{50}{\nano \meter}.
+	
+	\subsection{Polarization beam splitter}
+	To analyze the results of the \gls{mems} \gls{tpr}, first of all it was necessary to design the \gls{pbs} and check the transmission in \gls{te} and \gls{tm} ports. A good \gls{pbs} helps in tracking both the \gls{te} and \gls{tm} mode intensities in the two ports. If a \gls{tpr} is achieved then in one port the mode intensity will increase/decrease while in the other port it will decrease/increase at real time. With the help of a \gls{pbs} design, the \gls{te} and \gls{tm} modes can be segregated and that is why its design is very important. Moreover, since in the \gls{tm} transmission the waveguide is under-etched, a suspended \gls{pbs} was needed. Hence, based on the idea of slot waveguide mode coupling \cite{pbs_dai_2011}, a \gls{pbs} was designed. This kind of \gls{pbs} has already been developed. But, the novelty of design in this thesis work lies in the fact that it is air cladded and is free-standing (helpful for \gls{mems} tuning), and can couple \gls{tm} modes. Also, the length of the \gls{pbs} section is only \SI{1.4}{\micro \meter}.\par
+	The notation \gls{tm}-\gls{pbs}-\gls{tm} in Fig. \ref{fig:6_pbs} means that \gls{tm} light is coupled into \gls{tm} gratings and then it travels through \gls{pbs} and finally crosses to the \gls{tm} port. As, it can be seen that \gls{per} for \gls{tm} transmission is around \SI{15}{\decibel}. Similarly, analysis with \gls{te}-\gls{pbs}-\gls{te} and \gls{te}-\gls{pbs}-\gls{tm} gives a \gls{per} between \SI{15}{\decibel} - \SI{20}{\decibel} over the band from \SI{1500}{\nano \meter} - \SI{1560}{\nano \meter}. 
+	
+	\begin{figure}[H] %H
+		\centering
+		\includegraphics[width=\textwidth]{6-pbs}
+		\caption{\gls{pbs} with \gls{te}/\gls{tm} input}
+		\label{fig:6_pbs}
+	\end{figure}
+	
+	\subsection{Passive polarization rotator}
+	To analyze the data of the \gls{tpr} it is necessary to have a benchmark. Since, the idea of \gls{tpr} is based on canceling the effect of passive \gls{pr} the base measurements of polarization rotation by the \gls{pr} will help to evaluate the results of \gls{tpr}. Since, the cross-section of the stair waveguide is $\chem{160 \times \SI{260}{\nano \meter}}$ the $\chem{L_\pi}$ is calculated accordingly. However, since the modes in the stair waveguide are deconfined, there can be coupling from the evanescent fields. That is why different $\chem{L_\pi}$ lengths are being tried out. In Fig. \ref{fig:6_pr_passive_te}, the graph shows four plots which has \gls{te} input and both \gls{te} and \gls{tm} output are checked. The notation $\chem{\gls{te}-\gls{pr}B20-\gls{tm}_{pass}}$ means that the input is \gls{te} and it passes through a passive \gls{pr} of length \SI{20}{\micro \meter} and the output is \gls{tm}. The results in \ref{fig:6_pr_passive_te} shows that the passive \gls{pr} is rotating polarization by around \SI{5}{\decibel} after comparing it to Fig. \ref{fig:6_pbs}. In this design the \gls{te} transmission has shifted down by \SI{5}{\decibel} whereas, the \gls{tm} transmission has been lifted up by \SI{5}{\decibel} - \SI{10}{\decibel} after comparing \ref{fig:6_pr_passive_te} and \ref{fig:6_pbs}.
+	
+	\begin{figure}[H] %H
+		\centering
+		\includegraphics[width=1\textwidth]{6-pr-passive-te}
+		\caption{Passive \gls{pr} with \gls{te} input for different cross-section lengths}
+		\label{fig:6_pr_passive_te}
+	\end{figure}
+	
+	\subsection{Active polarization rotator}
+	To characterize the \gls{tpr}, it is necessary to normalize the results from the results obtained from the passive \gls{pr} in \ref{fig:6_pr_passive_te}. However, \gls{tpr} does not show ay promising results on changing voltage. After certain pull-in voltage the cantilever collapses and then the device works as a passive rotator. 
+	\begin{figure}[H] %H
+		\centering
+		\includegraphics[width=0.82\textwidth]{6-pr-active-te}
+		\caption{Active \gls{pr} with \gls{te} input at different voltage inputs}
+		\label{fig:6_pr_active_te}
+	\end{figure}
+	
+	\begin{figure}[H] %H
+		\centering
+		\includegraphics[width=0.82\textwidth]{6-pr-active-tm}
+		\caption{Active \gls{pr} with \gls{tm} input at different voltage inputs}
+		\label{fig:6_pr_active_tm}
+	\end{figure}
 	
 	\section{Analysis}
-	
+	The results obtained shows that the \gls{pbs} works as intended with a \gls{per} of $\geq$ \SI{15}{\decibel}. However, some interference pattern arises in the \gls{tm} transmission. The interference pattern might arise from the formation of standing waves due to the presence of under-etched cavity in the \gls{tm} tapers. Also, as seen in Fig. \ref{fig:5_tm_pr_zoom}, the stair waveguide cross-section at the beginning of the \gls{pr} is over-exposed. This might also induce reflections in the results obtained, which can create interference. Also, it is difficult to understand from the \gls{sem} the position of the cantilever. For the \gls{tpr} to work, the cantilever must be in same plane or above, than the plane of the suspended bus waveguide. This can happen if the cantilevers are long. So, shorter cantilevers are required to fabricate in plane cantilevers and get promising results.
+
 \end{document}
