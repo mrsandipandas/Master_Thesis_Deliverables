@@ -13,21 +13,21 @@
 		\hline	
 		\gls{tpr} using Berry's phase [\ref{concept:berry_phase}] & $>$ \SI{200}{\micro \meter} & \SI{19}{\decibel} & 1556 - \SI{1562}{\nano \meter}  &  Narrow bandwidth, Thermal cross-talk, Inefficient packing density \\ 
 		\hline
-		\gls{mems} \gls{tpr} & $\sim$ \SI{25}{\micro \meter} & 5 - \SI{10}{\decibel} & 1520 - \SI{1570}{\nano \meter} & Low PER in the current fabricated product, \gls{mems} cantilever stiction issue \\ [1ex] 
+		\gls{mems} \gls{tpr} & $\sim$ \SI{25}{\micro \meter} & 5 - \SI{10}{\decibel} & 1530 - \SI{1570}{\nano \meter} & Low PER in the current fabricated product, \gls{mems} cantilever stiction issue \\ [1ex] 
 		\hline
 	\end{tabular}
 \end{center}
 \caption {Comparative analysis of the \gls{mems} \gls{tpr} with the state-of-the-art \gls{tpr}} \label{table:tpr_comparision} 
 \end {table}
 
-The comparative analysis of the \gls{mems} \gls{tpr} designed in the thesis shows a significant improvement in terms of device length. Also, as the tuning is done mechanically, it is devoid of thermal cross-talk problem.	Although, the \gls{mems} \gls{tpr} has some problems, it can be improved significantly to achieve better results in terms of \gls{per} and bandwidth.
+The comparative analysis of the \gls{mems} \gls{tpr} designed in the thesis shows a significant improvement in terms of device length. Also, as the tuning is done mechanically, it is devoid of thermal cross-talk problem.	Although, the \gls{mems} \gls{tpr} has some problems, it can be improved to achieve better results in terms of \gls{per} and bandwidth.
 
 	\section{Limitations}
 The development process of the \gls{tpr} gave a broad understanding of the working and fabrication of micro-optic based devices. The outcome of the understanding are discussed as follows:
 \begin{itemize}	
 	\item[$\square$] \textbf{Mode evolution design issue:} In the thesis work the mode hybridization based design is used for the \gls{tpr}. However, in the literature review and simulation work performed, mode evolution based design showed promising results. But this design was not used since the length of the device is difficult to estimate. This estimation would have taken more fabrication iterations. 
 	
-	\item[$\square$] \textbf{200$\times$230 nm dimension stair waveguide, with a cantilever at 100 nm gap patterning problem:} In the simulation, the best dimensions of the stair waveguide were obtained at 200$\times$\SI{230}{\nano\meter}. However, it is difficult to pattern such dimensions due to proximity effect. Hence, it was only possible to pattern a device dimension of 160$\times$\SI{260}{\nano\meter}. Moreover, the gap between the \gls{mems} waveguide and the passive \gls{pr} waveguide was used as \SI{100}{\nano\meter} during simulation. However due lateral sticktion problem the \gls{mems} waveguide and the passive \gls{pr} were stuck together. Hence, a gap of \SI{200}{\nano\meter} was used.
+	\item[$\square$] \textbf{200$\times$230 nm dimension stair waveguide, with a cantilever at 100 nm gap patterning problem:} In the simulation, the best dimensions of the stair waveguide were obtained at 200$\times$\SI{230}{\nano\meter}. However, it is difficult to pattern such dimensions due to proximity effect. Hence, it was only possible to pattern a device dimension of 160$\times$\SI{260}{\nano\meter}. Moreover, the gap between the \gls{mems} waveguide and the passive \gls{pr} waveguide was \SI{100}{\nano\meter} during simulation. However due lateral stiction problem the \gls{mems} waveguide and the passive \gls{pr} were stuck together. Hence, a gap of \SI{200}{\nano\meter} was used.
 	
 	\item[$\square$] \textbf{Thinner resist:} The resist used during the fabrication procedure must be thinner as thicker resist on the small device layer can break the device pattern.
 	%\item[$\square$] \textbf{High selectivity of resist:}
@@ -45,6 +45,6 @@ The development process of the \gls{tpr} gave a broad understanding of the worki
 \end{itemize}
 	
 	\section{Future work} 
-	Since, the \gls{mems} \gls{tpr} could not be developed with high \gls{per} due to several problems, the first step would be pattern the stair waveguide with optimized dimensions (200$\times$230 nm with the \gls{mems} cantilever at 100 nm gap) and characterize it. Then the mode evolution design can be evaluated with a redesigned \gls{mems} cantilever (for optimized \gls{pr} cancellation) and tried out. Moreover, more simulations can be carried out on the cantilever design to avoid the stiction and out-of-plane bending problem. To make the device broadband a cascade of \gls{tpr} design can be evaluated furthermore. 
+	Since, the \gls{mems} \gls{tpr} could not be developed with high \gls{per} due to several problems, the first step would be pattern the stair waveguide with optimized dimensions (200$\times$230 nm with the \gls{mems} cantilever at 100 nm gap) and characterize it. Then the mode evolution design can be evaluated with a redesigned \gls{mems} cantilever (for optimized \gls{pr} cancellation) and tried out. Moreover, more simulations can be carried out on the cantilever design to avoid the stiction and out-of-plane bending problem. To make the device broadband a cascade of \gls{tpr} design can be evaluated furthermore if necessary. 
 	
 \end{document}

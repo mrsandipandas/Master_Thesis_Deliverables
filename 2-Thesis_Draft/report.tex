@@ -45,7 +45,16 @@
 %Matlab code preetifier
 \usepackage[numbered,framed]{matlab-prettifier}
 
-%\usepackage[disable]{todonotes}
+%Inserting blank page
+\usepackage{afterpage}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
+
+\usepackage[disable]{todonotes}
 \usepackage{todonotes} %Just to generate todo list, remove in future
 %%%%%%%%%%%%%%%%%%%%%%%Customized Chapter Title%%%%%%%%%%%%%%%%%%%%
 \makeatletter
@@ -76,10 +85,14 @@
     % These introductory pages have a roman numbering
     \pagenumbering{roman}
     % note: If folder path is changed you also have to change in 2 places: usepackage in main.tex and .sty file in Ch0.1-Cover
-    %\subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    \subfile{Ch0.1-Cover/KTHEEtitlepage_ex_exjobb}
+    %\afterpage{\blankpage}
     \subfile{Ch0.2-Title/title}
-    %\subfile{Ch0.3-Acknowledgement/ack}
-    %\subfile{Ch0.4-Abstract/abstract}      
+    %\afterpage{\blankpage}
+    \subfile{Ch0.3-Acknowledgement/ack}
+    %\afterpage{\blankpage}
+    \subfile{Ch0.4-Abstract/abstract}
+    %\afterpage{\blankpage}     
     
     % Set counter so that table of content page numbering updated correctly
     %\setcounter{page}{3}
@@ -91,7 +104,7 @@
     \tableofcontents
     
     %\glsresetall %Reset glossary after to view normally later
-    
+    %\afterpage{\blankpage}
     \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 
@@ -106,7 +119,7 @@
     \subfile{Ch6-Experiments/ch6}
     \subfile{Ch7-Discussion/ch7}
     \subfile{Ch8-Conclusion/ch8}
-    
+    %\afterpage{\blankpage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
