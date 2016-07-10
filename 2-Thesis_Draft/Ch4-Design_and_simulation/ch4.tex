@@ -8,12 +8,12 @@
 	\gls{mems} \gls{tpr} design can be approached in 2 ways. In a first approach, initially a passive \gls{pr} can be designed by introducing asymmetry and a MEMS tunable waveguide is introduced which impedes polarization rotation by reintroducing symmetry in the effective waveguide. In a second approach, the technique is reversed i.e. the MEMS tunable waveguide is used to introduce asymmetry in the waveguide structure which rotates polarization. Without the MEMS structure the polarization is not rotated. In the design principle of the \gls{tpr} described here, the first approach is being followed.  
 	
 	\section{Designing TPR}
-	To design the geometry of the waveguide, standard mode solver softwares are used. Both, Comsol\cite{comsol_2015} and CST \cite{cst_2015} are used to solve the modes in equation \ref{eq:helmholtz_eq_wg_general}. Mostly, in this thesis, Comsol is used to find and optimize the port modes in 2-D geometry. Whereas, CST is used to optimize the 3-D structure by studying the transmission parameters of the wave (S-parameters).
+	To design the geometry of the waveguide, standard mode solver software is used. Both, Comsol\cite{comsol_2015} and CST \cite{cst_2015} are used to solve the modes in equation \ref{eq:helmholtz_eq_wg_general}. Mostly, in this thesis, Comsol is used to find and optimize the modes in waveguide cross-section in 2-D geometry. Whereas, CST is used to optimize the 3-D structure by studying the transmission parameters of the wave (S-parameters).
 	
 	% obtained for output port mode after running the simulation. Air cladding is considered around the Silicon base waveguide for setting up the simulation.
 		
 		\subsection{Design principle}
-To design a \gls{pr} in nanometer scale, precision is a key factor. Meshing of the geometry, cladding dimensions and its material composition, frequency range of the solvers, boundary conditions, volume of simulated area chosen, etc. are the key things to watch for in designing the simulation in the mode solver softwares. As the idea is to make the \gls{tpr} as broadband as possible, it is necessary to do frequency analysis simulation for a wide-band spectrum in which the optical fibers for telecommunications work. As the operating wavelength of the telecommunications optical fiber network in C-band and L-band are between $\SI{1530}{\nano\metre}$ and $\SI{1625}{\nano\metre}$, the corresponding frequency range becomes $\SI{195.94}{\THz}$ - $\SI{184.48}{\THz}$.
+To design a \gls{pr} in nanometer scale, precision is a key factor. Meshing of the geometry, cladding dimensions and its material composition, frequency range of the solvers, boundary conditions, volume of simulated area chosen, etc. are the key things to watch for in designing the simulation in the mode solver softwares. Also, the waveguides are suspended to accommodate the movement of the \gls{mems} tunable waveguide, which in turns changes the effective \gls{ri} of the mode. Hence, air cladding is used in the mode simulations in the waveguide cross-section. Moreover, as the idea is to make the \gls{tpr} as broadband as possible, it is necessary to do frequency analysis simulation for a wide-band spectrum in which the optical fibers for telecommunications work. As the operating wavelength of the telecommunications optical fiber network in C-band and L-band are between $\SI{1530}{\nano\metre}$ and $\SI{1625}{\nano\metre}$, the corresponding frequency range becomes $\SI{195.94}{\THz}$ - $\SI{184.48}{\THz}$.
 	
 		\subsection{Design: Mode hybridization based single stair Si waveguide with air cladding}
 
@@ -29,7 +29,7 @@ Throughout the next sections the dimensions of the stair waveguide are defined i
 
 \begin{figure}[H] %h
 	\centering
-	\includegraphics[width=0.45\textwidth]{4-wg-structure}
+	\includegraphics[width=0.43\textwidth]{4-wg-structure}
 	\caption{Stair waveguide geometry}
 	\label{fig:4_wg_structure}
 \end{figure}
@@ -39,7 +39,7 @@ Throughout the next sections the dimensions of the stair waveguide are defined i
 The dimensions of the stair waveguide is optimized to get hybridized modes. At $45{^\circ}$, the components of the E-fields in the hybridized modes must be such that, $E_X \approx E_Y$. It is necessary to double check the E-fields orientation to make sure that only the correct modes are chosen because in simulation a larger cross-section than the waveguide cross-section is excited. This excitation might produces modes for which $E_X \approx E_Y$, but the modes are not hybridized at $45{^\circ}$. Hence, for modes hybridized at $45{^\circ}$, $\dfrac {Avg(E_{X_{mode}})} {Avg(E_{Y_{mode}})} \rightarrow 1$. As a result, 
 
 \begin{equation}\label{eq:wg_dim_eq}
-Electric ~ field ~ ratio ~ in ~ hybrid ~ modes ~ = ~ \sum _{mode}Real\left| \log _{10}\dfrac {Avg(E_{X_{mode}})} {Avg(E_{Y_{mode}})}\right| \rightarrow 0. 
+\mathrm{Electric ~ field ~ ratio ~ in ~ hybrid ~ modes} ~ = ~ \sum _{mode}\mathrm{Real}\left| \log _{10}\dfrac {Avg(E_{X_{mode}})} {Avg(E_{Y_{mode}})}\right| \rightarrow 0. 
 \end{equation}
 
 \begin{figure}[H] %h
@@ -48,7 +48,8 @@ Electric ~ field ~ ratio ~ in ~ hybrid ~ modes ~ = ~ \sum _{mode}Real\left| \log
 	\caption{Summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields plotted against rib and base width in an area chart using MATLAB}
 	\label{fig:4_graph_mode_sum}
 \end{figure}  
-\noindent Hence, the minimum point on the graph represents the best dimensions on the waveguide for obtaining the hybridized modes at $45{^\circ}$. In this case the best dimensions were obtained at $\chem{Base_{width}}$ = \SI{230}{\nano \meter} and $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}. The total height of the waveguide is \SI{220}{\nano \meter} and the$\chem{Slab_{height}}$ = \SI{110}{\nano \meter}. It can visualized that in the modes in Fig. \ref{fig:4_mode1_200_230} and Fig. \ref{fig:4_mode2_200_230}, that the effective modes are hybridized at $45{^\circ}$ for the first 2 hybrid modes obtained using Comsol simulation. Lastly, the height in the geometry is chosen around \SI{110}{\nano \meter} for the current limitation of the dry-etch step in the fabrication process present in the lab. A double stair waveguide could also have been chosen, but that would increase the fabrication steps.
+\noindent Hence, the minimum point on the graph represents the best dimensions on the waveguide for obtaining the hybridized modes at $45{^\circ}$. In this case the best dimensions were obtained at $\chem{Base_{width}}$ = \SI{230}{\nano \meter} and $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}. The total height of the waveguide is \SI{220}{\nano \meter} because of the wafers available in lab. The $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, since the gratings are deigned and optimized for \SI{110}{\nano \meter}. Hence, a change in slab height or a double stair waveguide would increase the fabrication steps. It can also be visualized that, in the modes in Fig. \ref{fig:4_mode1_200_230} and Fig. \ref{fig:4_mode2_200_230}, that the effective modes are hybridized at $45{^\circ}$ for the first 2 hybrid modes obtained using Comsol simulation. 
+
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{4-mode1-200-230}
@@ -79,14 +80,14 @@ Electric ~ field ~ ratio ~ in ~ hybrid ~ modes ~ = ~ \sum _{mode}Real\left| \log
 	\caption{Fundamental modes in the cross-section with Width = \SI{230}{\nano \meter}, Height = \SI{220}{\nano \meter}, obtained using Comsol 2-D eigenmode simulation}
 \end{figure}
 
-\noindent Also, since the input and output port dimensions in the waveguide are different from the stair waveguide cross-section dimension, it is necessary to check if the 2 fundamental modes can be supported by the input and output ports. Hence, port mode simulation for the first two fundamental modes in waveguide with dimensions 230$\times$220 nm are calculated and the results obtained are displayed in Fig. \ref{fig:4_mode1_230_230} and Fig. \ref{fig:4_mode2_230_230}. This corroborates that the 2 fundamental modes \gls{te} and \gls{tm} are supported in the input and output ports.\\
+\noindent Also, since the input and output port dimensions in the waveguide are different from the stair waveguide cross-section dimension, it is necessary to check if the two fundamental modes can be supported by the waveguide ports. Hence, port mode simulation for the first two fundamental modes in waveguide with dimensions 230$\times$220 nm are calculated and the results obtained are displayed in Fig. \ref{fig:4_mode1_230_230} and Fig. \ref{fig:4_mode2_230_230}. This corroborates that the 2 fundamental modes \gls{te} and \gls{tm} are supported in the input and output ports.\\
 
 \noindent Next, the effective \gls{ri} for both the port modes are obtained using CST by doing a parametric sweep over the operating frequencies of C and L-band. The results are displayed in Fig. \ref{fig:4_effective_ri_200_230}. 
 
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.9\textwidth]{4-effective-ri-200-230}
-	\caption{Simulated effective propagation constant for the port modes in the cross-section of $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}, $\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Base_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, obtained using CST 3-D simulation}
+	\caption{Simulated effective propagation constant for the port modes in the cross-section of $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}, $\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Base_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, obtained using CST simulation}
 	\label{fig:4_effective_ri_200_230}
 \end{figure}
 
@@ -105,18 +106,18 @@ L_\pi =  \dfrac {\pi} {\beta_1 - \beta_2} = \dfrac {\pi} {\dfrac {2\pi} {\lambda
 
 \noindent The 3D-design is simulated in CST with air cladding and with the previously estimated dimensions. The input and output ports are defined on the waveguide, which supports the two fundamental modes. As shown in Fig. \ref{fig:4_wg_design_1}, the stair cross-section can be envisaged if a Z-plane is cut in the asymmetric part of the waveguide.\\
 
-\noindent Next, the S-parameters of the design are verified. The S-parameters are labelled as follows,
+\noindent Next, the S-parameters (transmission parameters) of the design are verified. The S-parameters are labelled as follows,
 \begin{equation}\label{eq:s_parameter_label}
-SA(M),SB(N),
+\mathrm{SA(M),B(N)},
 \end{equation}
-where A=output port, B=input port and M,N = mode number. For example, S2(2),S1(1) means that input port is 1 and the mode is 1 whereas, output port is 2 and the mode at the output port is 2. Hence, S2(1),S1(2) and S2(2),S1(1) needs to be checked along with S2(1),S1(1) and S2(2),S1(2) for calculating the \gls{per}. The S-parameters obtained from the simulation shown in Fig. \ref{fig:4_stair_s_param_200_230} (for, 200$\times$\SI{230}{\nano \meter}) verifies that the model works according to the design principle with good \gls{per} over the C and L-band. 
+where A=output port, B=input port and M,N = mode number. For example, S2(2),1(1) means that input port is 1 and the mode is 1 whereas, output port is 2 and the mode at the output port is 2. Hence, S2(1),1(2) and S2(2),1(1) needs to be checked along with S2(1),1(1) and S2(2),1(2) for calculating the \gls{per}. The S-parameters obtained from the simulation shown in Fig. \ref{fig:4_stair_s_param_200_230} (for, 200$\times$\SI{230}{\nano \meter}) verifies that the model works according to the design principle with good \gls{per} over the C and L-band. 
 
 %For example, the $PER_{191 THz} = 10 log_{10} $
 
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.9\textwidth]{4-stair-s-param-200-230}
-	\caption{Simulated S-parameters in the single-stair waveguide with initial dimensions at the port as width = \SI{230}{\nano \meter} and height = \SI{220}{\nano \meter}. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = \SI{200}{\nano \meter},$\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Base_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, and cross-section length = \SI{62}{\micro\meter} obtained using CST 3-D simulation}
+	\caption{Simulated S-parameters in the single-stair waveguide with initial dimensions at the port as width = \SI{230}{\nano \meter} and height = \SI{220}{\nano \meter}. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}, $\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Base_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, and cross-section length = \SI{62}{\micro\meter} obtained using CST 3-D simulation}
 	\label{fig:4_stair_s_param_200_230}
 \end{figure}
 
@@ -167,12 +168,12 @@ and the maximum points on the graph will represent the dimensions of the \gls{me
 In this case the best dimensions for the \gls{mems} waveguide comes out as, $\chem{Rib_{width}}$ = \SI{200}{nano meter}, $\chem{Rib_{height}}$ = \SI{110}{nano meter}, $\chem{Base_{width}}$ = \SI{230}{nano meter}, $\chem{Slab_{height}}$ = \SI{110}{nano meter}. Fig. \ref{fig:4_mems_mode1_200_230} and Fig. \ref{fig:4_mems_mode2_200_230}, obtained using Comsol 2D simulation displays the port modes in the cross-section. This corroborates the claim that the \gls{mems} waveguide must be mirror image of the bus waveguide to inhibit \gls{pr}.
 
 \subsubsection{Design of primary PR waveguide with MEMS waveguide}			
-Based on the simulations performed and the dimensions of the cross-section obtained the tunable \gls{pr} was designed as depicted in Fig. \ref{fig:4_wg_design_1_mems}. For quicker simulation purposes the remaining portions of the cantilever in the \gls{mems} waveguide are not considered in the simulation design.  
+Based on the simulations performed and the dimensions of the cross-section obtained, the tunable \gls{pr} was designed as depicted in Fig. \ref{fig:4_wg_design_1_mems}. For quicker simulation the remaining portions of the cantilever in the \gls{mems} waveguide are not considered in the simulation design. Initially, a simulation was performed to check how the modes are guided in the slot with silica cladding as seen in Fig. \ref{fig:4_wg_tpr_mems_transmission}. However, for a \gls{mems} \gls{tpr} the waveguide has to be under-etched for free movement of the \gls{mems} cantilever to control polarization tuning. Hence, the cladding of a \gls{mems} \gls{tpr} is air. This scenario is simulated as shown in Fig. \ref{fig:4_wg_tpr_mems_transmission_air}. It can be observed that the \gls{mems} \gls{tpr} with air cladding is lossy due to reflection and scattering. 
 
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.5\textwidth]{4-wg-design-1-mems}
-	\caption{Design of single-stair waveguide with MEMS tuning waveguide. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}, $\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Slab_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, and cross-section length = \SI{62}{\micro\meter}, in both the PR waveguide and MEMS waveguide. The output port is along the Z-axis}
+	\caption{Design of single-stair waveguide with MEMS tuning waveguide. Stair cross-section dimensions are: $\chem{Rib_{width}}$ = \SI{200}{\nano \meter}, $\chem{Rib_{height}}$ = \SI{110}{\nano \meter}, $\chem{Slab_{width}}$ = \SI{230}{\nano \meter}, $\chem{Slab_{height}}$ = \SI{110}{\nano \meter}, and Stair cross-section length = \SI{62}{\micro\meter}, in both the PR waveguide and MEMS waveguide. The output port is along the Z-axis}
 	\label{fig:4_wg_design_1_mems}
 \end{figure}
 
@@ -193,7 +194,7 @@ Based on the simulations performed and the dimensions of the cross-section obtai
 \subsubsection{Device tolerance}
 When fabricating devices in nanometer scale often it is very difficult to control the device dimensions precisely. Hence, a brief study on simulation level is performed to check for deviance resulting due to variations in etch depth during the fabrication process discussed later in section \ref{sec:fab_process}.\\  
 
-Since the wafer used in the fabrication process is of height 220nm, the different etch depths considered are 100nm and 130nm which corresponds to 120nm and 90nm slab height respectively. Fist 20 minimum values of $\sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right|$, is plotted against $\chem{Rib_{width}}$ and $\chem{Slab_{width}}$ in the following figure in Fig. \ref{fig:4_graph_mode_sum_120nm_slab_height} for an etch depth of 100nm. 
+Since the device layer thickness used in the fabrication process is of height \SI{220}{\nano \meter}, the different etch depths considered are \SI{100}{\nano \meter} and \SI{130}{\nano \meter} which corresponds to \SI{120}{\nano \meter} and \SI{90}{\nano \meter} slab height respectively. Fist 20 minimum values of $\sum _{mode}Real\left| \log _{10}\dfrac {E_{X_{mode}}} {E_{Y_{mode}}}\right|$, is plotted against $\chem{Rib_{width}}$ and $\chem{Slab_{width}}$ in the following figure in Fig. \ref{fig:4_graph_mode_sum_120nm_slab_height} for an etch depth of 100nm. 
 
 \begin{figure}[H] %h
 	\centering
@@ -248,7 +249,7 @@ To test the \gls{tpr} auxiliary components like grating couplers (\gls{te} \& \g
 	\caption{System level block diagram of the fabricated measurement setup}
 	\label{fig:4_sys_design}
 \end{figure}
-\noindent In the Fig. \ref{fig:4_sys_design} a high level block diagram of the measurement setup is shown. Whereas, in Fig. \ref{fig:4_tpr_test_setup} schematic top view of the low level system design is shown with gratings, tapers, \gls{tpr}, \gls{tm} coupler and bridges. 
+\noindent In the Fig. \ref{fig:4_sys_design} a high level block diagram of the measurement setup is shown. Whereas, in Fig. \ref{fig:4_tpr_test_setup} schematic top view of the actual system design is shown with gratings, tapers, \gls{tpr}, \gls{tm} coupler and bridges. 
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{4-tpr-test-setup}
@@ -257,7 +258,7 @@ To test the \gls{tpr} auxiliary components like grating couplers (\gls{te} \& \g
 \end{figure}
 
 \subsection{Grating coupler design}
-The high effective index and small mode dimensions of single mode silicon waveguides makes fiber coupling challenging. Waveguide-to-fiber surface grating couplers with fill factor apodization offer low back reflection into the silicon waveguide and a single required lithography step. Using surface grating couplers, the mode matching problem can be solved by expanding the width of the on-chip silicon waveguide, and etching a grating into the expanded section that diffracts light out of plane into a fiber placed normal to the surface. The approach taken increases the coupling efficiency by tailoring the leakage factor of the grating to the mode profile of the fiber. The main benefits of this approach are a low back reflection into the silicon waveguide and high efficiency in the coupling \cite{grating_coupler}. In the design, the gratings used are \SI{12}{\micro\meter} wide which narrows down to a width of \SI{230}{\nano\meter} in the \gls{pr} section. The approach is shown in Fig. \ref{fig:4_gc_setup}.
+The high effective index and small mode dimensions of single mode silicon waveguides makes fiber coupling challenging. Waveguide-to-fiber surface grating couplers with fill factor apodization offer low back reflection into the silicon waveguide and a single required lithography step. Using surface grating couplers, the mode matching problem can be solved by expanding the width of the on-chip silicon waveguide, and etching a grating into the expanded section that diffracts light out of plane into a fiber, placed at certain angle to the normal. The approach taken increases the coupling efficiency by tailoring the leakage factor of the grating to the mode profile of the fiber. The main benefits of this approach are a low back reflection into the silicon waveguide and high efficiency in the coupling \cite{grating_coupler}. In the design, the gratings used are \SI{12}{\micro\meter} wide which narrows down to a width of \SI{230}{\nano\meter} in the \gls{pr} section. The approach is shown in Fig. \ref{fig:4_gc_setup}. Also, two types of gratings are designed for \gls{te} and \gls{tm} coupling. The \gls{tm} gratings are under-etched to avoid coupling of the deconfined \gls{tm} mode in the $\chem{SiO_{2}}$. Whereas, since \gls{te} mode is confined, the gratings are not under-etched. 
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -276,7 +277,7 @@ The high effective index and small mode dimensions of single mode silicon wavegu
 
 
 \subsection{Taper with bridge design}
-While tapering down to the \gls{tpr} cross-section from the grating coupler cross-section, the $\chem{SiO_{2}}$ underneath is etched away. Hence, to support the structure from the side bridges are constructed which forms a slab like structure at certain cross-sections. These kinds of structures accommodate mode conversions between $\chem{TM_0}$ and $\chem{TE_3}$. Also, these bridges are constructed in other places in the waveguide structure where support is necessary to hold the waveguide. For example, if the core waveguide width is \SI{700}{\nano\meter} then a total base width (core and bridge) of \SI{1500}{\nano\meter} must be avoided for mode conversion reasons. This is simulated using COMSOL and the results are plotted in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} base width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. However, there is no mode conversion between $\chem{TM_0}$ and $\chem{TE_2}$, since the field distributions are not similar and hence they do not couple.
+While tapering down to the \gls{tpr} cross-section from the grating coupler cross-section, the $\chem{SiO_{2}}$ underneath is etched away for \gls{tm} input. Hence, to support the structure from the side bridges are constructed which forms a slab like structure at certain cross-sections. These kinds of structures accommodate mode conversions between $\chem{TM_0}$ and $\chem{TE_3}$. Also, these bridges are constructed in other places in the waveguide structure where support is necessary to hold the waveguide. For example, if the core waveguide width is \SI{700}{\nano\meter} then a total base width (core and bridge) of \SI{1500}{\nano\meter} must be avoided for mode conversion reasons, as simulated and plotted using COMSOL in Fig. \ref{fig:4_slab_modes_700nm}. As, it can be seen that around \SI{1500}{\nano\meter} base width there is a mode conversion between $\chem{TM_0}$ and $\chem{TE_3}$ represented in Fig. \ref{fig:4_te_1500_slab} and Fig. \ref{fig:4_tm_1500_slab}. However, there is no mode conversion between $\chem{TM_0}$ and $\chem{TE_2}$, since the field distributions are not similar and hence they do not couple.
  
  \begin{figure}[H] %h
  	\centering
@@ -297,42 +298,42 @@ While tapering down to the \gls{tpr} cross-section from the grating coupler cros
  		\caption{TM mode with $\chem{Base_{width}}$ = \SI{1500}{\nano\meter}}
  		\label{fig:4_tm_1500_slab}
  	\end{subfigure}
- 	\caption{Mode conversion in Slab modes at $\chem{Base_{width}}$ = \SI{1500}{\nano\meter}, obtained using Comsol 2-D simulation}
+ 	\caption{Mode conversion in Slab modes at $\chem{Base_{width}}$ = \SI{1500}{\nano\meter}, obtained using Comsol 2-D simulation having same effective index}
  \end{figure}
 
 
 \subsection{Polarization beam splitter design}
-The \gls{pbs} is based on an asymmetrical directional coupler utilizing the evanescent coupling between a strip-waveguide and a nanoslot waveguide \cite{pbs_dai_2011}. First, effective \gls{ri} is calculated for different core widths with height = \SI{220}{\nano \meter}. The results are displayed in Fig. \ref{fig:4_pbs_core_waveguide}.
+The \gls{pbs} is based on an asymmetric directional coupler utilizing the evanescent coupling between a strip-waveguide and a nanoslot waveguide \cite{pbs_dai_2011}. First, effective \gls{ri} is calculated for different core widths with height = \SI{220}{\nano \meter}. The results are displayed in Fig. \ref{fig:4_pbs_core_waveguide}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.75\textwidth]{4-pbs-core_waveguide}
 	\caption{Effective \gls{ri} for different dimensions of core waveguide width}
 	\label{fig:4_pbs_core_waveguide}
 \end{figure}
-\noindent Next, the \gls{ri} is calculated for different widths of nanoslot waveguide with a height of \SI{220}{\nano \meter} and slot width of \SI{100}{\nano \meter}. The gap between the strip-nanowire and the nanoslot waveguide is \SI{150}{\nano \meter}. The results are plotted in Fig. \ref{fig:4_pbs_slot_waveguide}.
+\noindent Next, the effective \gls{ri} is calculated for the four lowest order modes at different widths of nanoslot waveguide with a height of \SI{220}{\nano \meter} and slot width of \SI{100}{\nano \meter}. The gap between the strip-nanowire and the nanoslot waveguide is \SI{150}{\nano \meter}. The results are plotted in Fig. \ref{fig:4_pbs_slot_waveguide}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=0.75\textwidth]{4-pbs-slot_waveguide}
 	\caption{Effective \gls{ri} for different dimensions of slot cross-section}
 	\label{fig:4_pbs_slot_waveguide}
 \end{figure}
-\noindent It can be seen in Fig. \ref{fig:4_pbs_core_waveguide} that the effective index of $\chem{TM_0}$ at a width of \SI{500}{\nano \meter} is 1.20. Whereas, it can be seen in Fig. \ref{fig:4_pbs_slot_waveguide} that the effective index of 1.20 in $TE_1$ is obtained around a width of \SI{330}{\nano \meter} for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section keeping the strip-nanowire and the nanoslot waveguide to understand the coupled modes shown in Fig. \ref{fig:4_pbs_te_coupling} and Fig. \ref{fig:4_pbs_tm_coupling}.
+\noindent It can be seen in Fig. \ref{fig:4_pbs_core_waveguide} that the effective index of $\chem{TM_0}$ at a width of \SI{500}{\nano \meter} is 1.20. Whereas, it can be seen in Fig. \ref{fig:4_pbs_slot_waveguide} that the effective index of 1.20 in $TE_1$ is obtained around a width of \SI{330}{\nano \meter} for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section of the nanoslot waveguide (with a nano-strip in the coupling waveguide) to understand the coupled modes shown in Fig. \ref{fig:4_pbs_te_coupling} and Fig. \ref{fig:4_pbs_tm_coupling}.
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{4-pbs-te-coupling}
-		\caption{\gls{te} coupling in the mode coupling cross-section}
+		\caption{No \gls{te} coupling in the mode coupling cross-section}
 		\label{fig:4_pbs_te_coupling}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{4-pbs-tm-coupling}
-		\caption{\gls{tm} coupling in the mode coupling cross-section}
+		\caption{Efficient \gls{tm} coupling in the mode coupling cross-section}
 		\label{fig:4_pbs_tm_coupling}
 	\end{subfigure}
 	\caption{\gls{te} and \gls{tm} coupling in \gls{pbs} slot waveguide at the mode coupling region}
 \end{figure}
 
-\noindent Finally, the designed is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from \ref{eq:lpi_calc}. As, $\chem{n_{TE0}}$ = 2.35 and $\chem{n_{TM0}}$ = 1.20, hence $\chem{L_{\pi}}$ = \SI{1.4}{\micro\meter}. As seen in Fig. \ref{fig:4_te_coupler}, the TE mode goes through without coupling. Whereas, as seen in Fig. \ref{fig:4_tm_coupler}, the TM mode crosses through in the coupling region. As, it can be seen some portion of the TM mode goes through as well. However, the measured \gls{per} is more than \SI{15}{\decibel}. The purpose of this setup is to make sure that both TE and TM modes can be measured at different ports. In the final design of the measurement setup the nanoslot waveguide is not bent after the coupling region to minimize losses for TM mode. As TM mode is highly deconfined, bends can cause lossy transmission for TM modes. Whereas, since TE mode is confined, the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. The idea can be viewed in Fig. \ref{fig:4_tpr_test_setup}.
+\noindent Finally, the design is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from \ref{eq:lpi_calc}. As, $\chem{n_{TE0}}$ = 2.35 and $\chem{n_{TM0}}$ = 1.20, hence $\chem{L_{\pi}}$ = \SI{1.4}{\micro\meter}. As seen in Fig. \ref{fig:4_te_coupler}, the TE mode goes through without coupling. Whereas, as seen in Fig. \ref{fig:4_tm_coupler}, the TM mode crosses through in the coupling region. As, it can be seen some portion of the TM mode goes through as well. However, the measured \gls{per} is more than \SI{15}{\decibel}. The purpose of this setup is to make sure that both TE and TM modes can be measured at different ports. In the final design of the measurement setup the nanoslot waveguide is not bent after the coupling region to minimize losses for TM mode. As TM mode is highly deconfined, bends can cause lossy transmission for TM modes. Whereas, since TE mode is confined, the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. The idea can be viewed in Fig. \ref{fig:4_tpr_test_setup}.
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
