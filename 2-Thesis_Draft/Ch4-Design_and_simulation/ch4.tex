@@ -22,7 +22,7 @@ If, a light source polarized at an angle $\chem{\theta}$, is incident on a half 
 \begin{equation}\label{eq:wave_plate_pr}
 \left( \begin{matrix} 1& & 0\\ 0& & -1\end{matrix} \right) \left( \begin{matrix} \cos \theta \\ \sin \theta \end{matrix} \right) ~ = ~ \left( \begin{matrix} -\cos \theta \\ -\sin \theta \end{matrix}\right) ~ = ~ \left( \begin{matrix} \cos \left(-\theta\right) \\ \sin \left(-\theta\right) \end{matrix} \right), 
 \end{equation}
-where, $\chem{\left( \begin{matrix} 1& & 0\\ 0& & -1\end{matrix} \right)}$ is the Jones matrix for the half wave plate derived using \ref{eq:jones_matrix_wp3} and $\chem{\left( \begin{matrix} \cos \theta \\ \sin \theta \end{matrix} \right)}$ is the Jones vector representation of linearly polarized wave at an angle $\chem{\theta}$, with the horizontal, derived using \ref{eq:jones_vector_general_form}. This concludes that an incidence of $\chem{\theta}$, produces an output of $\chem{-\theta}$, when passed thorough a wave plate, which gives $\chem{2\theta}$ polarization rotation. Thus to rotate polarization by $\chem{90{^\circ}}$, an incidence of $\chem{45{^\circ}}$ is necessary on the wave plate. The single stair waveguide acts as an wave plate due to its asymmetric structure which guides \gls{te} and \gls{tm} modes at different speeds in different axes. To find out the dimensions for obtaining $45{^\circ}$ hybridized modes in the single stair waveguide, Comsol 2D mode solver software is used. 
+where, $\chem{\left( \begin{matrix} 1& & 0\\ 0& & -1\end{matrix} \right)}$ is the Jones matrix for the half wave plate derived using \ref{eq:jones_matrix_wp3} and $\chem{\left( \begin{matrix} \cos \theta \\ \sin \theta \end{matrix} \right)}$ is the Jones vector representation of linearly polarized wave at an angle $\chem{\theta}$, with the horizontal, derived using \ref{eq:jones_vector_general_form}. This concludes that an incidence of $\chem{\theta}$, produces an output of $\chem{-\theta}$, when passed through a wave plate, which gives $\chem{2\theta}$ polarization rotation. Thus to rotate polarization by $\chem{90{^\circ}}$, an incidence of $\chem{45{^\circ}}$ is necessary on the wave plate. The single stair waveguide acts as an wave plate due to its asymmetric structure which guides hybrid modes. To find out the dimensions for obtaining $45{^\circ}$ hybridized modes in the single stair waveguide, Comsol 2D mode solver software is used. 
 
 \subsubsection{Waveguide geometry}
 Throughout the next sections the dimensions of the stair waveguide are defined in terms of rib, slab and base described in Fig. \ref{fig:4_wg_structure}.   
@@ -202,15 +202,106 @@ Since the device layer thickness used in the fabrication process is of height \S
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $E_x$ and $E_y$ fields, plotted against rib and total width in an area chart using MATLAB for $\chem{Slab_{height}}$ = \SI{120}{\nano \meter}}
 	\label{fig:4_graph_mode_sum_120nm_slab_height}
 \end{figure}
-\noindent It can be seen in the above Fig. \ref{fig:4_graph_mode_sum_120nm_slab_height} that the hybridized modes appear to be at $45^{\circ}$ around $\chem{\SI{230}{\nano \meter} \leq Base_{width} \leq \SI{300}{\nano \meter}}$ and $\chem{\SI{180}{\nano \meter} \leq Rib_{width} \leq \SI{200}{\nano \meter}}$. So, if the $\chem{Rib_{width}}$ and $\chem{Base_{width}}$ are controlled in the fabrication process, the device can still function and needs to be characterized accordingly.\\
+\noindent It can be seen in the above Fig. \ref{fig:4_graph_mode_sum_120nm_slab_height} that the hybridized modes appear to be at $45^{\circ}$ around $\chem{\SI{230}{\nano \meter} \leq Base_{width} \leq \SI{300}{\nano \meter}}$ and $\chem{\SI{170}{\nano \meter} \leq Rib_{width} \leq \SI{200}{\nano \meter}}$. So, if the $\chem{Rib_{width}}$ and $\chem{Base_{width}}$ are controlled in the fabrication process, the device can still function and needs to be characterized accordingly.\\
 
-The same process is followed for a speculated etch depth of \SI{130}{\nano \meter} and the 20 best dimensions are plotted which comes out to be $\chem{\SI{230}{\nano \meter} \leq Base_{width} \leq \SI{300}{\nano \meter}}$ and $\chem{\SI{160}{\nano \meter} \leq Rib_{width} \leq \SI{200}{\nano \meter}}$. The exact pairs can be identified in the Fig. \ref{fig:4_graph_mode_sum_90nm_slab_height}.
+The same process is followed for a speculated etch depth of \SI{130}{\nano \meter} and the 20 best dimensions are plotted which comes out to be $\chem{\SI{240}{\nano \meter} \leq Base_{width} \leq \SI{300}{\nano \meter}}$ and $\chem{\SI{160}{\nano \meter} \leq Rib_{width} \leq \SI{200}{\nano \meter}}$. The exact pairs can be identified in the Fig. \ref{fig:4_graph_mode_sum_90nm_slab_height}.
 \begin{figure}[H] %h
 	\centering
 	\includegraphics[width=1\textwidth]{4-graph-mode-sum-90nm-slab-height}
 	\caption{20 least values, representing the summation of real part of absolute value of the logarithmic ratio of $\chem{E_x}$ and $\chem{E_y}$ fields, plotted against rib and total width in an area chart using MATLAB for Slab height = \SI{90}{\nano \meter}}
 	\label{fig:4_graph_mode_sum_90nm_slab_height}
 \end{figure}
+
+\begin {table}[H]
+\begin{center} 
+	\begin{tabular}{ | m{6em} | m{6em}| m{6em} | m{6em} | }  
+		\hline
+		\textbf{Etch depth (nm)} & \textbf{Slab height (nm)} & \textbf{Base width (nm)} & \textbf{Rib width (nm)} \\
+		\hline\hline
+		100 & 120 & 230 & 180 \\
+		\hline
+		100 & 120 & 240 & 180 \\ 
+		\hline
+		100 & 120 & 250 & 180 \\ 
+		\hline
+		100 & 120 & 260 & 180 \\ 
+		\hline
+		100 & 120 & 270 & 180 \\ 
+		\hline
+		100 & 120 & 280 & 180 \\ 
+		\hline
+		100 & 120 & 290 & 180 \\ 
+		\hline
+		100 & 120 & 300 & 180 \\ 
+		\hline
+		100 & 120 & 240 & 190 \\ 
+		\hline
+		100 & 120 & 250 & 190 \\ 
+		\hline
+		100 & 120 & 260 & 190 \\ 
+		\hline
+		100 & 120 & 270 & 190 \\ 
+		\hline
+		100 & 120 & 280 & 190 \\ 
+		\hline
+		100 & 120 & 290 & 190 \\ 
+		\hline
+		100 & 120 & 300 & 190 \\ 
+		\hline	
+		100 & 120 & 240 & 200 \\ 
+		\hline
+		100 & 120 & 250 & 200 \\ 
+		\hline
+		100 & 120 & 260 & 200 \\ 
+		\hline	
+		100 & 120 & 270 & 200 \\ 
+		\hline
+		100 & 120 & 280 & 200 \\ 
+		\hline
+		130 & 90 & 240 & 170 \\ 
+		\hline
+		130 & 90 & 250 & 170 \\ 
+		\hline
+		130 & 90 & 260 & 170 \\ 
+		\hline
+		130 & 90 & 270 & 170 \\ 
+		\hline
+		130 & 90 & 280 & 170 \\ 
+		\hline
+		130 & 90 & 290 & 170 \\ 
+		\hline
+		130 & 90 & 300 & 170 \\ 
+		\hline
+		130 & 90 & 250 & 180 \\ 
+		\hline
+		130 & 90 & 260 & 180 \\ 
+		\hline
+		130 & 90 & 270 & 180 \\ 
+		\hline
+		130 & 90 & 280 & 180 \\ 
+		\hline
+		130 & 90 & 290 & 180 \\ 
+		\hline
+		130 & 90 & 300 & 180 \\ 
+		\hline
+		130 & 90 & 250 & 190 \\ 
+		\hline
+		130 & 90 & 260 & 190 \\ 
+		\hline
+		130 & 90 & 270 & 190 \\ 
+		\hline
+		130 & 90 & 280 & 190 \\ 
+		\hline
+		130 & 90 & 290 & 190 \\ 
+		\hline
+		130 & 90 & 250 & 200 \\ 
+		\hline
+		130 & 90 & 260 & 200 \\ 
+		\hline
+	\end{tabular}
+\end{center}
+\caption {Device dimensions for obtaining the hybridized modes at different etch-depths} \label{table:device_tolerance} 
+\end {table}
 
 \begin{comment}
 
@@ -258,7 +349,7 @@ To test the \gls{tpr} auxiliary components like grating couplers (\gls{te} \& \g
 \end{figure}
 
 \subsection{Grating coupler design}
-The high effective index and small mode dimensions of single mode silicon waveguides makes fiber coupling challenging. Waveguide-to-fiber surface grating couplers with fill factor apodization offer low back reflection into the silicon waveguide and a single required lithography step. Using surface grating couplers, the mode matching problem can be solved by expanding the width of the on-chip silicon waveguide, and etching a grating into the expanded section that diffracts light out of plane into a fiber, placed at certain angle to the normal. The approach taken increases the coupling efficiency by tailoring the leakage factor of the grating to the mode profile of the fiber. The main benefits of this approach are a low back reflection into the silicon waveguide and high efficiency in the coupling \cite{grating_coupler}. In the design, the gratings used are \SI{12}{\micro\meter} wide which narrows down to a width of \SI{230}{\nano\meter} in the \gls{pr} section. The approach is shown in Fig. \ref{fig:4_gc_setup}. Also, two types of gratings are designed for \gls{te} and \gls{tm} coupling. The \gls{tm} gratings are under-etched to avoid coupling of the deconfined \gls{tm} mode in the $\chem{SiO_{2}}$. Whereas, since \gls{te} mode is confined, the gratings are not under-etched. 
+The high effective index and small mode dimensions of single mode silicon waveguides makes fiber coupling challenging. Waveguide-to-fiber surface grating couplers with fill factor apodization offer low back reflection into the silicon waveguide and a single required lithography step. Using surface grating couplers, the mode matching problem can be solved by expanding the width of the on-chip silicon waveguide, and etching a grating into the expanded section that diffracts light out of plane into a fiber, placed at certain angle to the normal. The approach taken increases the coupling efficiency by tailoring the leakage factor of the grating to the mode profile of the fiber. The main benefits of this approach are a low back reflection into the silicon waveguide and high efficiency in the coupling \cite{grating_coupler}. In the design, the gratings used are \SI{12}{\micro\meter} wide which narrows down to a width of \SI{230}{\nano\meter} in the \gls{pr} section. The approach is shown in Fig. \ref{fig:4_gc_setup}. Also, two types of gratings are designed for \gls{te} and \gls{tm} coupling. The \gls{tm} gratings are under-etched to avoid coupling of the deconfined \gls{tm} modes in the $\chem{SiO_{2}}$. Whereas, since \gls{te} modes are confined, the gratings are not under-etched. 
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -317,23 +408,36 @@ The \gls{pbs} is based on an asymmetric directional coupler utilizing the evanes
 	\caption{Effective \gls{ri} for different dimensions of slot cross-section}
 	\label{fig:4_pbs_slot_waveguide}
 \end{figure}
-\noindent It can be seen in Fig. \ref{fig:4_pbs_core_waveguide} that the effective index of $\chem{TM_0}$ at a width of \SI{500}{\nano \meter} is 1.20. Whereas, it can be seen in Fig. \ref{fig:4_pbs_slot_waveguide} that the effective index of 1.20 in $TE_1$ is obtained around a width of \SI{330}{\nano \meter} for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section of the nanoslot waveguide (with a nano-strip in the coupling waveguide) to understand the coupled modes shown in Fig. \ref{fig:4_pbs_te_coupling} and Fig. \ref{fig:4_pbs_tm_coupling}.
+\noindent It can be seen in Fig. \ref{fig:4_pbs_core_waveguide} that the effective index of $\chem{TM_0}$ at a width of \SI{500}{\nano \meter} is 1.20. Whereas, it can be seen in Fig. \ref{fig:4_pbs_slot_waveguide} that the effective index of 1.20 in $\chem{TM_0}$ is obtained around a width of \SI{330}{\nano \meter} for each section of the nanoslot waveguide. Also, the supermodes are checked in the cross-section of the nanoslot waveguide (with a nano-strip in the coupling waveguide) to understand the coupled modes shown in Fig. \ref{fig:4_pbs_te_coupling}, Fig. \ref{fig:4_pbs_tm_coupling} and Fig. \ref{fig:4-pbs-tm-anti-coupling}.
 \begin{figure}[H] %h
+	\centering
+	\includegraphics[width=0.45\textwidth]{4-pbs-te-coupling}
+	\caption{No \gls{te} coupling in \gls{pbs} slot waveguide at the mode coupling region}
+	\label{fig:4_pbs_te_coupling}
+\end{figure}
+
+\begin{figure}[H] %h	
 	\begin{subfigure}[t]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{4-pbs-te-coupling}
-		\caption{No \gls{te} coupling in the mode coupling cross-section}
-		\label{fig:4_pbs_te_coupling}
+		\includegraphics[width=\textwidth]{4-pbs-tm-coupling}
+		\caption{Phase matched \gls{tm} coupling in the mode coupling cross-section}
+		\label{fig:4_pbs_tm_coupling}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{4-pbs-tm-coupling}
-		\caption{Efficient \gls{tm} coupling in the mode coupling cross-section}
-		\label{fig:4_pbs_tm_coupling}
-	\end{subfigure}
-	\caption{\gls{te} and \gls{tm} coupling in \gls{pbs} slot waveguide at the mode coupling region}
+		\includegraphics[width=\textwidth]{4-pbs-tm-anti-coupling}
+		\caption{Phase mismatched \gls{tm} coupling in the mode coupling cross-section}
+		\label{fig:4-pbs-tm-anti-coupling}
+	\end{subfigure}	
+	\caption{\gls{tm} coupling in \gls{pbs} slot waveguide at the mode coupling region for different phases}
 \end{figure}
 
-\noindent Finally, the design is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from \ref{eq:lpi_calc}. As, $\chem{n_{TE0}}$ = 2.35 and $\chem{n_{TM0}}$ = 1.20, hence $\chem{L_{\pi}}$ = \SI{1.4}{\micro\meter}. As seen in Fig. \ref{fig:4_te_coupler}, the TE mode goes through without coupling. Whereas, as seen in Fig. \ref{fig:4_tm_coupler}, the TM mode crosses through in the coupling region. As, it can be seen some portion of the TM mode goes through as well. However, the measured \gls{per} is more than \SI{15}{\decibel}. The purpose of this setup is to make sure that both TE and TM modes can be measured at different ports. In the final design of the measurement setup the nanoslot waveguide is not bent after the coupling region to minimize losses for TM mode. As TM mode is highly deconfined, bends can cause lossy transmission for TM modes. Whereas, since TE mode is confined, the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. The idea can be viewed in Fig. \ref{fig:4_tpr_test_setup}.
+\noindent Finally, the design is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from \ref{eq:lpi_calc}. As, $\chem{n_{TM}}$ (Phase matched) $\approx$ 1.20 and $\chem{n_{TM}}$ (Phase mismatched) $\approx$ 1.00, hence, at \SI{1550}{\nano \meter},
+
+\begin{equation}\label{eq:lpi_calc_mc}
+\mathrm{L_\pi} = \dfrac {\lambda} {2(n_1 - n_2)} = \dfrac {1550} {2\times(1.2 - 1.00)} = \SI{3.875}{\micro \meter}.
+\end{equation} 
+
+\noindent As seen in Fig. \ref{fig:4_te_coupler}, the \gls{te} mode goes through without coupling. Whereas, as seen in Fig. \ref{fig:4_tm_coupler}, the \gls{tm} mode crosses through efficiently in the coupling region. As, it can be seen some portion of the \gls{tm} mode goes through as well. However, the measured \gls{per} is more than \SI{20}{\decibel} in the simulation. The purpose of this setup is to make sure that both \gls{te} and \gls{tm} modes can be measured at different ports. In the final design of the measurement setup the nanoslot waveguide is not bent after the coupling region to minimize losses for \gls{tm} mode. As \gls{tm} mode is highly deconfined, bends can cause lossy transmission for \gls{tm} modes. Whereas, since \gls{te} mode is confined, the strip-nanowire core waveguide is given a sharp bend to minimize coupling beyond the coupling region. The idea can be viewed in Fig. \ref{fig:4_tpr_test_setup}.
 
 \begin{figure}[H] %h
 	\begin{subfigure}[t]{0.45\textwidth}

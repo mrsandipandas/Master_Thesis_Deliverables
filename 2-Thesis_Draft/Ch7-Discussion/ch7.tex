@@ -1,7 +1,7 @@
 \documentclass[../report.tex]{subfiles}
 \begin{document}	
 	\chapter{Discussion}
-\gls{mems} \gls{tpr} can establish new horizons for on-chip integrated photonics. The power consumption of the \gls{mems} \gls{tpr} is very low and thus can be used for low powered devices. Furthermore, if the current problems are fixed, a cascade of \gls{mems} \gls{tpr} can be designed to yield broadband polarization rotation without the bandwidth constraints. The measurement setup developed during the thesis work with grating couplers, tapers and \gls{pbs} can be reused further to test future integrated photonic components which uses \gls{te} and \gls{tm} modes. Also, a shortest free-standing \gls{pbs} with air cladding has been designed during this thesis, which can be useful for deconfined mode coupling with high packing density.
+\gls{mems} \gls{tpr} can establish new horizons for on-chip integrated photonics. The power consumption of the \gls{mems} \gls{tpr} is very low and thus can be used for low powered devices. Furthermore, if the current problems are fixed, a cascade of \gls{mems} \gls{tpr} can be designed to yield broadband polarization rotation without the bandwidth constraints. The measurement setup developed during the thesis work with grating couplers, tapers and \gls{pbs} can be reused further to test future integrated photonic components which uses \gls{te} and \gls{tm} modes. Also, a shortest free-standing \gls{pbs} with air cladding has been designed during this thesis, which can be useful for deconfined mode coupling with high packing density. Although, the actual calculated length of the coupling region in the \gls{pbs} is \SI{3.875}{\micro \meter}, as obtained from equation \ref{eq:lpi_calc_mc}, but the fabricated length of the coupling region in \gls{pbs} is \SI{1.4}{\micro \meter}. This is because there is mode coupling of the evanescent fields when the waveguides separate out gradually and the effective coupling length becomes same as the calculated value.   
 	
 \begin {table}[H]
 \begin{center} 
@@ -22,6 +22,21 @@
 
 The comparative analysis of the \gls{mems} \gls{tpr} designed in the thesis shows a significant improvement in terms of device length. Also, as the tuning is done mechanically, it is devoid of thermal cross-talk problem.	Although, the \gls{mems} \gls{tpr} has some problems, it can be improved to achieve better results in terms of \gls{per} and bandwidth.
 
+\begin {table}[H]
+\begin{center} 
+	\begin{tabular}{ | m{7em} | m{1.9cm}| m{1.3cm} | m{1.3cm} | m{7em} | m{7em} | }  
+		\hline
+		\textbf{PBS design principle} & \textbf{Coupling length} & \textbf{PER} & \textbf{IL} & \textbf{Bandwidth} & \textbf{Novelty}\\ [1.5ex]
+		\hline\hline
+		Mode coupling [\ref{concept:mode_coupling}] & $\sim$ \SI{1.4}{\micro \meter} & \SI{25}{\decibel} & \SI{0.5}{\decibel} & 1525 - \SI{1575}{\nano \meter} & Free-standing, Air-cladding \\ 
+		\hline	
+	\end{tabular}
+\end{center}
+\caption {Analysis of designed PBS} 
+\label{table:pbs_summary} 
+\end {table}
+In Table \ref{table:pbs_summary}, the performance of the designed \gls{pbs} are summarized.
+
 	\section{Limitations}
 The development process of the \gls{tpr} gave a broad understanding of the working and fabrication of micro-optic based devices. The outcome of the understanding are discussed as follows:
 \begin{itemize}	
@@ -38,7 +53,9 @@ The development process of the \gls{tpr} gave a broad understanding of the worki
 	
 	\item[$\square$] \textbf{Cantilever bending problem:} Longer cantilever bends in the fabrication process. Hence,  it is necessary to design shorter cantilevers. Shorter cantilevers are stiffer and do not bend out of plane.
 	
-	\item[$\square$] \textbf{Dry-etching problem:} The gratings and the stair waveguide are designed for \SI{110}{\nano \meter} slab height. However, the dry-etch procedure in the lab is difficult to control to achieve precise etching. So, device tolerance simulations should be performed to analyze the results.  
+	\item[$\square$] \textbf{Dry-etching problem:} The gratings and the stair waveguide are designed for \SI{110}{\nano \meter} slab height. However, the dry-etch procedure in the lab is difficult to control to achieve precise etching. So, device tolerance simulations should be performed to analyze the results.
+	\item[$\square$] \textbf{Interference pattern in TM transmission:} In \gls{tm} transmission an interference pattern is observed which limits the performance analysis of \gls{mems} \gls{tpr}. The problem might have appeared due to the under-etched \gls{tm} gratings which were designed to avoid coupling of the deconfined \gls{tm} modes. The \gls{tm} gratings needs to be redesigned to avoid this interference pattern.  
+	
 	%\item[$\square$] \textbf{Not too fast as using MEMS:}
 	%\item[$\square$] \textbf{Narrowband / Broadband?:}
 	
