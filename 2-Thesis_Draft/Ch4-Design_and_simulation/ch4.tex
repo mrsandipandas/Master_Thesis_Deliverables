@@ -91,7 +91,7 @@ The dimensions of the stair waveguide is optimized to get hybridized modes. At $
 	\label{fig:4_effective_ri_200_230}
 \end{figure}
 
-\noindent The required length of the cross-section is obtained using \ref{eq:jones_matrix_wp1}. Since, $\beta_1$ = $4.051 \times 10^6$  and $\beta_2$ = $4.001 \times 10^6$. Hence, $L = \dfrac{\pi}{\beta_1 - \beta_2} \approx \SI{62}{\micro \meter}$. This means the length of the stair cross-section would be around \SI{62}{\micro \meter}. Effective \gls{ri} is dependent on frequency and so the cross-section length is also dependent on the frequency. The length is calculated at around $\SI{191}{\THz}$, so that the whole of the band ($\SI{184.48}{\THz}$ - $\SI{195.94}{\THz}$) can be covered for a relative good performance. This results could have also been obtained from COMSOL from the effective \gls{ri} calculation as shown in \ref{eq:lpi_calc}.
+\noindent The required length of the cross-section is obtained using \ref{eq:jones_matrix_wp1}. Since, $\beta_1$ = $4.051 \times 10^6$  and $\beta_2$ = $4.001 \times 10^6$. Hence, $L = \dfrac{\pi}{\beta_1 - \beta_2} \approx \SI{62}{\micro \meter}$. This means the length of the stair cross-section would be around \SI{62}{\micro \meter}. Effective \gls{ri} is dependent on frequency and so the cross-section length is also dependent on the frequency. The length is calculated at around $\SI{191}{\THz}$, so that the whole of the band ($\SI{184.48}{\THz}$ - $\SI{195.94}{\THz}$) can be covered for a relative good performance. This results could have also been obtained from COMSOL from the effective \gls{ri} calculation as shown in equation \ref{eq:lpi_calc}.
 
 \begin{equation}\label{eq:lpi_calc}
 L_\pi =  \dfrac {\pi} {\beta_1 - \beta_2} = \dfrac {\pi} {\dfrac {2\pi} {\lambda}\left(n_1 - n_2\right)} = \dfrac {\lambda} {2(n_1 - n_2)}
@@ -431,7 +431,7 @@ The \gls{pbs} is based on an asymmetric directional coupler utilizing the evanes
 	\caption{\gls{tm} coupling in \gls{pbs} slot waveguide at the mode coupling region for different phases}
 \end{figure}
 
-\noindent Finally, the design is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from \ref{eq:lpi_calc}. As, $\chem{n_{TM}}$ (Phase matched) $\approx$ 1.20 and $\chem{n_{TM}}$ (Phase mismatched) $\approx$ 1.00, hence, at \SI{1550}{\nano \meter},
+\noindent Finally, the design is simulated in 3-D using CST for checking the transmission with strip-nanowire of width \SI{500}{\nano \meter} and nanoslot waveguide of width \SI{330}{\nano \meter} each with slot width of \SI{100}{\nano \meter}. The coupling length is estimated from equation \ref{eq:lpi_calc}. As, $\chem{n_{TM}}$ (Phase matched) $\approx$ 1.20 and $\chem{n_{TM}}$ (Phase mismatched) $\approx$ 1.00, hence, at \SI{1550}{\nano \meter},
 
 \begin{equation}\label{eq:lpi_calc_mc}
 \mathrm{L_\pi} = \dfrac {\lambda} {2(n_1 - n_2)} = \dfrac {1550} {2\times(1.2 - 1.00)} = \SI{3.875}{\micro \meter}.
